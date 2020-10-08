@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>VNC_PTW_APPLICATION.Presentation.TYPE</Name>
+    <Description>VNC_PTW_APPLICATION.Presentation.TYPE</Description>
+    <Icon>VNC_PTW_APPLICATION.Presentation.TYPE.ico</Icon>
+    <ProjectType>CSharp</ProjectType>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <SortOrder>1000</SortOrder>
+    <TemplateID>5874334f-4dcd-4b9e-afb7-9f8af76e8ba5</TemplateID>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>VNC_PTW_APPLICATION.Presentation.TYPE</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">TYPEModule.cs</ProjectItem>
+      
+      <!--<ProjectItem ReplaceParameters="true" OpenInEditor="true">ViewModels\Interfaces\ITYPEDetailViewModel.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">ViewModels\Interfaces\ITYPEViewModel.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">ViewModels\NavigationItemViewModel.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">ViewModels\TYPEDetailViewModel.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">ViewModels\TYPEViewModel.cs</ProjectItem>
+
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">Views\Interfaces\ITYPE.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">Views\Interfaces\ITYPEDetail.cs</ProjectItem>
+
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">Views\TYPE.xaml</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">Views\TYPE.xaml.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">Views\TYPEDetail.xaml</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">Views\TYPEDetail.xaml.cs</ProjectItem>-->      
+
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>VNCProjectWizard, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=0c7205e9aff76e60</Assembly>
+    <FullClassName>VNCProjectWizard.WizardImplementation</FullClassName>
+  </WizardExtension>
+</VSTemplate>
