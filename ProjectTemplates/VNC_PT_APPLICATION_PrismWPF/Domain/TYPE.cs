@@ -1,25 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-using VNC.Core.Domain;
-// Template Parameters
-// clrversion             4.0.30319.42000
-// itemname               TYPE
-// machinename            CA154-L-6NGM5S2
-// projectname            VNC_PT_APPLICATION_PrismWPF
-// registeredorganization 
-// rootnamespace          VNC_PT_APPLICATION_PrismWPF.Domain
-// safeitemname           TYPE
-// safeitemrootname       TYPE
-// safeprojectname        VNC_PT_APPLICATION_PrismWPF
-// time                   7/29/2020 3:49:46 PM
-// specifiedsolutionname  
-// userdomain             BDX
-// username               10298093
-// webnamespace           $webnamespace$
-// year                   2020
+using VNC.Core.DomainServices;
 
-namespace VNC_PT_APPLICATION_PrismWPF.Domain
+namespace APPLICATION.Domain
 {
     public class TYPE : IEntity<int>, IModificationHistory
     {

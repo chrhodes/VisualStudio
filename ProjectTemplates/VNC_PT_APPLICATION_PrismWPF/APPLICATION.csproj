@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{42098DBB-DBC5-476C-B2D6-6DD49D25AA6F}</ProjectGuid>
+    <ProjectGuid>{19A25457-D72A-4090-97AF-F43F8A78672E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>VNC_PT_APPLICATION_WPF</RootNamespace>
-    <AssemblyName>VNC_PT_APPLICATION_WPF</AssemblyName>
+    <RootNamespace>APPLICATION</RootNamespace>
+    <AssemblyName>APPLICATION</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -52,7 +52,7 @@
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="VNC.Core">
-      <HintPath>..\..\..\Common\VNC.Core.dll</HintPath>
+      <HintPath>..\..\..\vnc\Common\VNC.Core.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
@@ -63,6 +63,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="TYPEModule.cs" />
     <Page Include="Presentation\Views\MainWindowDx.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -81,23 +82,26 @@
     <Compile Include="Core\Events\OpenTYPEDetailViewEvent.cs" />
     <Compile Include="Core\GlobalCommands.cs" />
     <Compile Include="Core\RegionNames.cs" />
+    <Compile Include="DomainServices\APPLICATIONServicesModule.cs" />
     <Compile Include="DomainServices\ServicesMock\TYPEDataServiceMock.cs" />
     <Compile Include="DomainServices\ITYPEDataService.cs" />
     <Compile Include="DomainServices\ITYPELookupDataService.cs" />
     <Compile Include="DomainServices\TYPEDataService.cs" />
     <Compile Include="DomainServices\TYPELookupDataService.cs" />
-    <Compile Include="DomainServices\VNC_PT_APPLICATIONServicesModule.cs" />
-    <Compile Include="Domain\Lookups\LookupType1.cs" />
     <Compile Include="Domain\TYPE.cs" />
-    <Compile Include="Persistence\Data\DatabaseService.cs" />
-    <Compile Include="Persistence\Data\IVNC_PT_APPLICATIONDbContext.cs" />
+    <Compile Include="Persistence\Data\APPLICATIONDbContext.cs" />
+    <Compile Include="Persistence\Data\APPLICATIONDbContextDatabaseInitializer.cs" />
+    <Compile Include="Persistence\Data\IAPPLICATIONDbContext.cs" />
     <Compile Include="Persistence\Data\Migrations\Configuration.cs" />
-    <Compile Include="Persistence\Data\VNC_PT_APPLICATION_WPFDbContext.cs" />
-    <Compile Include="Persistence\Data\VNC_PT_APPLICATION_WPFDbContextDatabaseInitializer.cs" />
-    <Compile Include="Persistence\LookupData\Migrations\Configuration.cs" />
-    <Compile Include="Persistence\LookupData\VNC_PT_APPLICATIONLookupsDbContext.cs" />
+    <Compile Include="Presentation\ViewModels\Interfaces\ITYPEDetailViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\Interfaces\ITYPEViewModel.cs" />
     <Compile Include="Presentation\ViewModels\MainWindowDxViewModel.cs" />
     <Compile Include="Presentation\ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\NavigationItemViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\TYPEDetailViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\TYPEViewModel.cs" />
+    <Compile Include="Presentation\Views\Interfaces\ITYPE.cs" />
+    <Compile Include="Presentation\Views\Interfaces\ITYPEDetail.cs" />
     <Compile Include="Presentation\Views\MainWindowDx.xaml.cs">
       <DependentUpon>MainWindowDx.xaml</DependentUpon>
     </Compile>
@@ -105,8 +109,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Presentation\Views\TYPE.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\TYPEDetail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Presentation\Views\TYPE.xaml.cs" />
+    <Compile Include="Presentation\Views\TYPEDetail.xaml.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -141,8 +155,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ApplicationServices\" />
-    <Folder Include="Application\" />
     <Folder Include="Diagrams\" />
     <Folder Include="Infrastructure\" />
     <Folder Include="Presentation\Converters\" />
@@ -150,6 +162,30 @@
     <Folder Include="Resources\Icons\" />
     <Folder Include="Resources\Images\" />
     <Folder Include="Resources\Xaml\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Application\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ApplicationServices\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Core\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Domain\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DomainServices\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Persistence\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Presentation\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

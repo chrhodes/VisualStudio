@@ -1,10 +1,10 @@
 ﻿using Prism.Mvvm;
 
-using VNC.Core.Domain;
+using VNC.Core.DomainServices;
 
-using VNC_PT_APPLICATION_PrismWPF.DomainServices;
+using APPLICATION.DomainServices;
 
-namespace VNC_PT_APPLICATION_PrismWPF.ViewModels
+namespace APPLICATION.ViewModels
 {
     public class MainWindowViewModel : BindableBase
     {

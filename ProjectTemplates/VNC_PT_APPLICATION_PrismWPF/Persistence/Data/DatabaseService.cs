@@ -2,19 +2,19 @@
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
-using VNC_PT_APPLICATION_PrismWPF.Domain;
+using APPLICATION.Domain;
 
-namespace VNC_PT_APPLICATION_PrismWPF.Persistence.Data
+namespace APPLICATION.Persistence.Data
 {
-    public class DatabaseService : DbContext, IVNC_PT_APPLICATION_WPFDbContext
+    public class DatabaseService : DbContext, IAPPLICATIONDbContext
     {
         public DbSet<TYPE> TYPESet { get; set; }
 
-        public DatabaseService() : base("VNC_PT_APPLICATION_WPFDB")
+        public DatabaseService() : base("APPLICATION_DB")
         {
             //Database.SetInitializer(new DatabaseInitializer());
-            Database.SetInitializer<VNC_PT_APPLICATION_WPFDbContext>(
-                new DropCreateDatabaseIfModelChanges<VNC_PT_APPLICATION_WPFDbContext>());
+            Database.SetInitializer<APPLICATIONDbContext>(
+                new DropCreateDatabaseIfModelChanges<APPLICATIONDbContext>());
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

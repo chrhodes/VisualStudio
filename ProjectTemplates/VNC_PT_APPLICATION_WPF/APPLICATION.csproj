@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{19A25457-D72A-4090-97AF-F43F8A78672E}</ProjectGuid>
+    <ProjectGuid>{42098DBB-DBC5-476C-B2D6-6DD49D25AA6F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>VNC_PT_APPLICATION_PrismWPF</RootNamespace>
-    <AssemblyName>VNC_PT_APPLICATION_PrismWPF</AssemblyName>
+    <RootNamespace>VNC_PT_APPLICATION_WPF</RootNamespace>
+    <AssemblyName>VNC_PT_APPLICATION_WPF</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -52,7 +52,7 @@
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="VNC.Core">
-      <HintPath>..\..\..\Common\VNC.Core.dll</HintPath>
+      <HintPath>..\..\..\vnc\Common\VNC.Core.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
@@ -141,15 +141,42 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ApplicationServices\" />
-    <Folder Include="Application\" />
     <Folder Include="Diagrams\" />
-    <Folder Include="Infrastructure\" />
     <Folder Include="Presentation\Converters\" />
     <Folder Include="Presentation\ModelWrappers\" />
     <Folder Include="Resources\Icons\" />
     <Folder Include="Resources\Images\" />
     <Folder Include="Resources\Xaml\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Application\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ApplicationServices\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Core\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Domain\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DomainServices\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Persistence\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Infrastructure\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Presentation\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,9 +1,9 @@
 ﻿using Prism.Ioc;
 using Prism.Modularity;
 
-namespace VNC_PT_APPLICATION.DomainServices
+namespace APPLICATION.DomainServices
 {
-    public class VNC_PT_APPLICATIONServicesModule : IModule
+    public class APPLICATIONServicesModule : IModule
     {
         IContainerProvider _containerProvider;
 

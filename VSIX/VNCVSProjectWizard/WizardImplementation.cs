@@ -259,6 +259,7 @@ namespace VNCVSProjectWizard
             if (string.Equals(fileInfo.Extension, ".cs", StringComparison.OrdinalIgnoreCase)) result = true;
             if (string.Equals(fileInfo.Extension, ".csproj", StringComparison.OrdinalIgnoreCase)) result = true;
             if (string.Equals(fileInfo.Extension, ".xaml", StringComparison.OrdinalIgnoreCase)) result = true;
+            if (string.Equals(fileInfo.Extension, ".config", StringComparison.OrdinalIgnoreCase)) result = true;
 
             Log.Trace($"Exit {result}", cAPPNAME, startTicks);
 

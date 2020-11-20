@@ -1,8 +1,8 @@
-﻿using VNC_PT_APPLICATION_PrismWPF.ViewModels;
+﻿using APPLICATION.ViewModels;
 
 using System.Windows;
 
-namespace VNC_PT_APPLICATION_PrismWPF.Presentation.Views
+namespace APPLICATION.Presentation.Views
 {
     public partial class MainWindowDx : Window
     {

@@ -1,16 +1,16 @@
 using System;
 using System.Data.Entity.Migrations;
 
-namespace VNC_PT_APPLICATION_PrismWPF.Persistence.Data.Migrations
+namespace APPLICATION.Persistence.Data.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<VNC_PT_APPLICATION_WPFDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<APPLICATIONDbContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(VNC_PT_APPLICATION_WPFDbContext context)
+        protected override void Seed(APPLICATIONDbContext context)
         {
             Console.WriteLine("Seed()");
             //  This method will be called after migrating to the latest version.
@@ -24,7 +24,7 @@ namespace VNC_PT_APPLICATION_PrismWPF.Persistence.Data.Migrations
             base.Seed(context);
         }
 
-        void SeedInitialDatabaseTables(VNC_PT_APPLICATION_WPFDbContext context)
+        void SeedInitialDatabaseTables(APPLICATIONDbContext context)
         {
             context.TYPESet.AddOrUpdate(
                 i => i.Id,

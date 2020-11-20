@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-using VNC_PT_APPLICATION_PrismWPF.Persistence.Data;
-using VNC_PT_APPLICATION_PrismWPF.Domain;
+using APPLICATION.Persistence.Data;
+using APPLICATION.Domain;
 
-using VNC.Core.Domain;
+using VNC.Core.DomainServices;
 
-namespace VNC_PT_APPLICATION_PrismWPF.DomainServices
+namespace APPLICATION.DomainServices
 {
     // TODO(crhodes)
     // Think we are almost to making this Generic.  But then what is difference 
@@ -17,13 +17,13 @@ namespace VNC_PT_APPLICATION_PrismWPF.DomainServices
 
     public class TYPEDataService : ITYPEDataService
     {
-        private Func<VNC_PT_APPLICATION_WPFDbContext> _contextCreator;
+        private Func<APPLICATIONDbContext> _contextCreator;
 
         private ConnectedRepository<TYPE> _repository;
 
         #region Constructors
 
-        public TYPEDataService(Func<VNC_PT_APPLICATION_WPFDbContext> context)
+        public TYPEDataService(Func<APPLICATIONDbContext> context)
         {
             _contextCreator = context;
         }

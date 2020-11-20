@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using VNC_PT_APPLICATION_WPF.Persistence.Data;
 using VNC_PT_APPLICATION_WPF.Domain;
 
-using VNC.Core.Domain;
+using VNC.Core.DomainServices;
 
 namespace VNC_PT_APPLICATION_WPF.DomainServices
 {

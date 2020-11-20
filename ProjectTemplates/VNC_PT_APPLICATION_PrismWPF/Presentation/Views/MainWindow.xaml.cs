@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace VNC_PT_APPLICATION_PrismWPF.Presentation.Views
+namespace APPLICATION.Presentation.Views
 {
 
     public partial class MainWindow : Window

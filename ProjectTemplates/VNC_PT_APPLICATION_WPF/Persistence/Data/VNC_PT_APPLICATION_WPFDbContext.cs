@@ -6,7 +6,7 @@ using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 
-using VNC.Core.Domain;
+using VNC.Core.DomainServices;
 
 using VNC_PT_APPLICATION_WPF.Domain;
 

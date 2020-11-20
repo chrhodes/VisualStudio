@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-using VNC.Core.Domain;
+using VNC.Core.DomainServices;
 
 namespace VNC_PT_APPLICATION_WPF.DomainServices
 {

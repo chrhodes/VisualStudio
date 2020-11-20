@@ -53,11 +53,11 @@ using System.Runtime.InteropServices;
 //  Version     Date        By
 //  1.0.0.0     01/09/2014   Christopher Rhodes
 //      Initial Version
-[assembly: AssemblyFileVersion("1.1.0.1")]
+[assembly: AssemblyFileVersion("1.1.0.2")]
 
 // AssemblyInformationalVersion History
 //
 //  Version   Date        By
 //  1.0.0.0   mm/dd/yyyy    Developer
 //      Initial Version
-[assembly: AssemblyInformationalVersion("2020.09.04A")]
+[assembly: AssemblyInformationalVersion("2020.11.19A")]

@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using VNC_PT_APPLICATION_PrismWPF.Domain;
-using VNC.Core.Domain;
+using APPLICATION.Domain;
+using VNC.Core.DomainServices;
 
-namespace VNC_PT_APPLICATION_PrismWPF.DomainServices
+namespace APPLICATION.DomainServices
 {
     public class TYPEDataServiceMock : ITYPEDataService
     {

@@ -1,4 +1,4 @@
-﻿namespace VNC_PT_APPLICATION_PrismWPF.Core
+﻿namespace APPLICATION.Core
 {
     public static class RegionNames
     {

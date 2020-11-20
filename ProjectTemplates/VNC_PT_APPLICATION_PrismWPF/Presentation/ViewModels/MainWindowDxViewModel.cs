@@ -3,7 +3,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace VNC_PT_APPLICATION_PrismWPF.ViewModels
+namespace APPLICATION.ViewModels
 {
     public class MainWindowDxViewModel : BindableBase
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-using VNC.Core.Domain;
+using VNC.Core.DomainServices;
 // Template Parameters
 // clrversion             4.0.30319.42000
 // itemname               TYPE

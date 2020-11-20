@@ -1,6 +1,6 @@
 ﻿using Prism.Commands;
 
-namespace VNC_PT_APPLICATION_PrismWPF.Core
+namespace APPLICATION.Core
 {
     public class ApplicationCommands
     {

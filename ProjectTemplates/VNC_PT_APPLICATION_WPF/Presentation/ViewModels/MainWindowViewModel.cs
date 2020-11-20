@@ -1,5 +1,5 @@
 ﻿using Prism.Mvvm;
-using VNC.Core.Domain;
+using VNC.Core.DomainServices;
 using VNC_PT_APPLICATION_WPF.DomainServices;
 
 namespace VNC_PT_APPLICATION_WPF.ViewModels

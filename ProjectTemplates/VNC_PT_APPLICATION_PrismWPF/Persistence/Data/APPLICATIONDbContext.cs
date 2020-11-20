@@ -6,19 +6,19 @@ using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 
-using VNC.Core.Domain;
+using VNC.Core.DomainServices;
 
-using VNC_PT_APPLICATION_PrismWPF.Domain;
+using APPLICATION.Domain;
 
-namespace VNC_PT_APPLICATION_PrismWPF.Persistence.Data
+namespace APPLICATION.Persistence.Data
 {
-    public class VNC_PT_APPLICATION_WPFDbContext : DbContext, IVNC_PT_APPLICATION_WPFDbContext
+    public class APPLICATIONDbContext : DbContext, IAPPLICATIONDbContext
     {
         public DbSet<TYPE> TYPESet { get; set; }
 
         // Name of connection string
 
-        public VNC_PT_APPLICATION_WPFDbContext() : base("VNC_PT_APPLICATION_WPFDB")
+        public APPLICATIONDbContext() : base("APPLICATION_DB")
         {
             //Database.SetInitializer(new MigrateDatabaseToLatestVersion<CustomPoolAndSpaDbContext, Configuration>());
 
@@ -32,8 +32,8 @@ namespace VNC_PT_APPLICATION_PrismWPF.Persistence.Data
 
             // Database.SetInitializer<CustomPoolAndSpaDbContext>(new DropCreateDatabaseIfModelChanges<CustomPoolAndSpaDbContext>());
 
-            Database.SetInitializer<VNC_PT_APPLICATION_WPFDbContext>(
-                new DropCreateDatabaseIfModelChanges<VNC_PT_APPLICATION_WPFDbContext>());
+            Database.SetInitializer<APPLICATIONDbContext>(
+                new DropCreateDatabaseIfModelChanges<APPLICATIONDbContext>());
 
             // 3. DropCreateDatabaseAlways
 
@@ -66,7 +66,7 @@ namespace VNC_PT_APPLICATION_PrismWPF.Persistence.Data
             // Do not pluralize table names
 
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            modelBuilder.HasDefaultSchema("Domain");
+            //modelBuilder.HasDefaultSchema("Domain");
 
             // Ignore any IsDirty property on any types pulled into model.
 

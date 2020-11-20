@@ -1,4 +1,4 @@
-﻿using VNC.Core.Domain;
+﻿using VNC.Core.DomainServices;
 
 namespace VNC_PT_APPLICATION_WPF.Domain.Lookups
 {

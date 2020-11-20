@@ -5,11 +5,11 @@ using Prism.Modularity;
 using Prism.Unity;
 using Prism.Regions;
 
-using VNC_PT_APPLICATION_PrismWPF.DomainServices;
-using VNC_PT_APPLICATION_PrismWPF.Presentation.Views;
-using VNC.Core.Domain;
+using APPLICATION.DomainServices;
+using APPLICATION.Presentation.Views;
+using VNC.Core.DomainServices;
 
-namespace VNC_PT_APPLICATION_PrismWPF
+namespace APPLICATION
 {
     public partial class App : PrismApplication
     {
@@ -56,7 +56,7 @@ namespace VNC_PT_APPLICATION_PrismWPF
             // AddressDataService2 has a constructor that takes a CustomPoolAndSpaDbContext.
 
             containerRegistry.RegisterSingleton<ITYPEDataService, TYPEDataService>();
-            containerRegistry.RegisterSingleton<ITYPELookupDataService, TYPELookupDataService>();
+            //containerRegistry.RegisterSingleton<ITYPELookupDataService, TYPELookupDataService>();
 
             // Add the new UI elements
         }
@@ -74,7 +74,7 @@ namespace VNC_PT_APPLICATION_PrismWPF
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
             //moduleCatalog.AddModule(typeof(CustomPoolAndSpaServicesModule));
-            //moduleCatalog.AddModule(typeof(Module));
+            moduleCatalog.AddModule(typeof(TYPEModule));
         }
 
         // 08

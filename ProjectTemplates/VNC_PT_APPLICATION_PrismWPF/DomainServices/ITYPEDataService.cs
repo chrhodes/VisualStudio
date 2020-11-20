@@ -1,8 +1,8 @@
-﻿using VNC_PT_APPLICATION_PrismWPF.Domain;
+﻿using APPLICATION.Domain;
 
-using VNC.Core.Domain;
+using VNC.Core.DomainServices;
 
-namespace VNC_PT_APPLICATION_PrismWPF.DomainServices
+namespace APPLICATION.DomainServices
 {
     public interface ITYPEDataService : IDataService<TYPE>
     {

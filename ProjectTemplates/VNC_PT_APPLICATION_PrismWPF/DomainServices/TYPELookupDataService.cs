@@ -4,18 +4,18 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 
-using VNC_PT_APPLICATION_PrismWPF.Persistence.Data;
-using VNC_PT_APPLICATION_PrismWPF.Domain;
+using APPLICATION.Persistence.Data;
+//using APPLICATION.Persistence.LookupData;
 
-using VNC.Core.Domain;
+using VNC.Core.DomainServices;
 
-namespace VNC_PT_APPLICATION_PrismWPF.DomainServices
+namespace APPLICATION.DomainServices
 {
-    public class TYPELookupDataService : ITYPELookupDataService
+    public class LookupDataService : ITYPELookupDataService
     {
-        private Func<VNC_PT_APPLICATION_WPFDbContext> _contextCreator;
+        private Func<APPLICATIONDbContext> _contextCreator;
 
-        public TYPELookupDataService(Func<VNC_PT_APPLICATION_WPFDbContext> context)
+        public LookupDataService(Func<APPLICATIONDbContext> context)
         {
             _contextCreator = context;
         }
