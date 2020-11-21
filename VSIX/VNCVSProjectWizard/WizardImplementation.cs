@@ -195,6 +195,7 @@ namespace VNCVSProjectWizard
 
             Log.Trace("Exit", cAPPNAME, startTicks);
         }
+
         void ReplaceTagsinFileName(ProjectItem projectItem)
         {
             long startTicks = Log.Trace($"Enter projectItem.Name: >{projectItem.Name}<", cAPPNAME);

@@ -18,30 +18,34 @@ namespace APPLICATION.Persistence.Data
 
         // Name of connection string
 
+        public DbSet<TYPE> TYPESet { get; set; }
+
+        // Name of connection string in Config
+
         public APPLICATIONDbContext() : base("APPLICATION_DB")
         {
-            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<CustomPoolAndSpaDbContext, Configuration>());
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<APPLICATIONDbContext, Configuration>());
 
             // There are four database initialization strategies
 
             // 1. CreateDatabaseIfNotExists (default)
 
-            // Database.SetInitializer<CustomPoolAndSpaDbContext>(new CreateDatabaseIfNotExists<CustomPoolAndSpaDbContext>());
+            // Database.SetInitializer<APPLICATIONDbContext>(new CreateDatabaseIfNotExists<APPLICATIONDbContext>());
 
             // 2. DropCreateDatabaseIfModelChanges
 
-            // Database.SetInitializer<CustomPoolAndSpaDbContext>(new DropCreateDatabaseIfModelChanges<CustomPoolAndSpaDbContext>());
+            // Database.SetInitializer<APPLICATIONDbContext>(new DropCreateDatabaseIfModelChanges<APPLICATIONDbContext>());
 
             Database.SetInitializer<APPLICATIONDbContext>(
                 new DropCreateDatabaseIfModelChanges<APPLICATIONDbContext>());
 
             // 3. DropCreateDatabaseAlways
 
-            // Database.SetInitializer<CustomPoolAndSpaDbContext>(new DropCreateDatabaseAlways<CustomPoolAndSpaDbContext>());
+            // Database.SetInitializer<APPLICATIONDbContext>(new DropCreateDatabaseAlways<APPLICATIONDbContext>());
 
             // 4. Custom DB Initializer
 
-            //Database.SetInitializer<CustomPoolAndSpaDbContext>(new CustomPoolAndSpaDatabaseInitializer());
+            //Database.SetInitializer<APPLICATIONDbContext>(new APPLICATIONDbContextDatabaseInitializer());
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
