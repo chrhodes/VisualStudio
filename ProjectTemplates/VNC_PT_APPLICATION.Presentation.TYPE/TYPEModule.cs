@@ -4,21 +4,21 @@ using Prism.Regions;
 
 using Unity;
 
-using VNC_PT_APPLICATION.Core;
-using VNC_PT_APPLICATION.DomainServices;
+using APPLICATION.Core;
+using APPLICATION.DomainServices;
 
-namespace VNC_PT_APPLICATION.Presentation.TYPE
+namespace APPLICATION
 {
     public class TYPEModule : IModule
     {
         private readonly IRegionManager _regionManager;
-        private readonly IUnityContainer _container;
+        //private readonly IUnityContainer _container;
 
         // 01
 
-        public TYPEModule(IUnityContainer container, IRegionManager regionManager)
+        public TYPEModule(IRegionManager regionManager)
         {
-            _container = container;
+            //_container = container;
             _regionManager = regionManager;
         }
 
@@ -26,25 +26,23 @@ namespace VNC_PT_APPLICATION.Presentation.TYPE
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            // TODO(crhodes)
-            // Should we be registering stuff here and not in App.Xaml.cs
-            _container.RegisterType<ViewModels.ITYPEDetailViewModel, ViewModels.TYPEDetailViewModel>();
-            _container.RegisterType<Views.ITYPEDetail, Views.TYPEDetail>();
+            containerRegistry.Register<Presentation.ViewModels.ITYPEDetailViewModel, Presentation.ViewModels.TYPEDetailViewModel>();
+            containerRegistry.Register<Presentation.Views.ITYPEDetail, Presentation.Views.TYPEDetail>();
 
-            _container.RegisterType<ITYPEDataService, TYPEDataService>();
+            containerRegistry.Register<ITYPEDataService, TYPEDataService>();
 
-            _container.RegisterType<ViewModels.ITYPEViewModel, ViewModels.TYPEViewModel>();
-            _container.RegisterType<Views.ITYPE, Views.TYPE>();
+            containerRegistry.Register<Presentation.ViewModels.ITYPEViewModel, Presentation.TYPE.ViewModels.TYPEViewModel>();
+            containerRegistry.Register<Presentation.Views.ITYPE, Presentation.Views.TYPE>();
 
-            _container.RegisterType<ITYPELookupDataService, TYPELookupDataService>();
+            containerRegistry.Register<ITYPELookupDataService, LookupDataService>();
         }
 
         // 03
 
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            _regionManager.RegisterViewWithRegion(RegionNames.TYPERegion, typeof(Views.TYPE));
-            _regionManager.RegisterViewWithRegion(RegionNames.TYPEDetailRegion, typeof(Views.TYPEDetail));
+            _regionManager.RegisterViewWithRegion(RegionNames.TYPERegion, typeof(Presentation.Views.TYPE));
+            _regionManager.RegisterViewWithRegion(RegionNames.TYPEDetailRegion, typeof(Presentation.Views.TYPEDetail));
         }
     }
 }
