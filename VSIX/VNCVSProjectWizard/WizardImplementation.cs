@@ -20,6 +20,7 @@ namespace VNCVSProjectWizard
         private static string customAPPLICATION;
         private static string customEVENT;
         private static string customTYPE;
+        private static string xxxITEMxxx;
 
         private object currentAutomationObject;
         private object[] currentAutomationObjectParams;
@@ -54,24 +55,29 @@ namespace VNCVSProjectWizard
                 // input for the custom replacementDictionary values.
 
                 inputForm = new Form1();
-                inputForm.Text = $"item: >{customParams[0]}<";
+                inputForm.lblTemplate.Text = $"item: >{customParams[0]}<";
+                inputForm.Text = "VNC VS ProjectWizard";
                 inputForm.Controls["txtAPPLICATION"].Text = customAPPLICATION;
                 inputForm.Controls["txtTYPE"].Text = customTYPE;
                 inputForm.Controls["txtEVENT"].Text = customEVENT;
+                inputForm.Controls["txtITEM"].Text = xxxITEMxxx;
                 inputForm.ShowDialog();
 
                 customAPPLICATION = Form1.CustomAPPLICATION;
                 customEVENT = Form1.CustomEVENT;
                 customTYPE = Form1.CustomTYPE;
+                xxxITEMxxx = Form1.CustomITEM;
 
                 Log.Trace($"customAPPLICATION: >{customAPPLICATION}<", cAPPNAME, startTicks);
                 Log.Trace($"customEVENT: >{customEVENT}<", cAPPNAME, startTicks);
                 Log.Trace($"customTYPE: >{customTYPE}<", cAPPNAME, startTicks);
+                Log.Trace($"xxxITEMxxx: >{xxxITEMxxx}<", cAPPNAME, startTicks);
 
                 // Add custom parameters.
                 replacementsDictionary.Add("$customAPPLICATION$", customAPPLICATION);
                 replacementsDictionary.Add("$customEVENT$", customEVENT);
                 replacementsDictionary.Add("$customTYPE$", customTYPE);
+                replacementsDictionary.Add("$xxxITEMxxx$", xxxITEMxxx);
             }
             catch (Exception ex)
             {
@@ -226,6 +232,13 @@ namespace VNCVSProjectWizard
                 //projectItem.Save();
             }
 
+            if (projectItem.Name.Contains("ITEM"))
+            {
+                //projectItem.Open();
+                projectItem.Name = projectItem.Name.Replace("ITEM", xxxITEMxxx); ;
+                //projectItem.Save();
+            }
+
             Log.Trace("Exit", cAPPNAME, startTicks);
         }
 
@@ -244,6 +257,14 @@ namespace VNCVSProjectWizard
             {
                 projectItem.Open();
                 projectItem.Name = projectItem.Name.Replace("TYPE", customTYPE); ;
+                projectItem.Save();
+            }
+
+
+            if (projectItem.Name.Contains("ITEM"))
+            {
+                projectItem.Open();
+                projectItem.Name = projectItem.Name.Replace("ITEM", xxxITEMxxx); ;
                 projectItem.Save();
             }
 
@@ -277,10 +298,11 @@ namespace VNCVSProjectWizard
             var originalParentProjectItem = project.ParentProjectItem;
             var originalProjectFolder = Path.GetDirectoryName(originalFileName);
 
-            if (originalName.Contains("APPLICATION") || originalName.Contains("TYPE"))
+            if (originalName.Contains("APPLICATION") || originalName.Contains("TYPE") || originalName.Contains("ITEM"))
             {
                 string newProjectName = originalName.Replace("APPLICATION", customAPPLICATION);
-                newProjectName = newProjectName.Replace("TYPE", customAPPLICATION);
+                newProjectName = newProjectName.Replace("TYPE", customTYPE);
+                newProjectName = newProjectName.Replace("ITEM", xxxITEMxxx);
 
                 project.Name = newProjectName;
                 project.Save();

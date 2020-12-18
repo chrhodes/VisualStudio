@@ -1,0 +1,103 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>VNC_PT_APPLICATION_PrismWPF</Name>
+    <Description>Clean Architecture Prism WPF using Entity Framework</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>APPLICATION</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+	<LanguageTag>CSharp</LanguageTag>
+	<PlatformTag>Windows</PlatformTag>
+	<ProjectTypeTag>VNC</ProjectTypeTag>	
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="APPLICATION.csproj" File="APPLICATION.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="App.config">App.config</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="App.xaml">App.xaml</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="App.xaml.cs">App.xaml.cs</ProjectItem>
+      <Folder Name="Application" TargetFolderName="Application" />
+      <Folder Name="ApplicationServices" TargetFolderName="ApplicationServices" />
+      <Folder Name="Core" TargetFolderName="Core">
+        <ProjectItem ReplaceParameters="true" TargetFileName="ApplicationCommands.cs">ApplicationCommands.cs</ProjectItem>
+        <Folder Name="Events" TargetFolderName="Events">
+          <ProjectItem ReplaceParameters="true" TargetFileName="AfterTYPESavedEvent.cs">AfterTYPESavedEvent.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="AfterTYPESavedEventArgs.cs">AfterTYPESavedEventArgs.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="OpenTYPEDetailViewEvent.cs">OpenTYPEDetailViewEvent.cs</ProjectItem>
+        </Folder>
+        <ProjectItem ReplaceParameters="true" TargetFileName="GlobalCommands.cs">GlobalCommands.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="RegionNames.cs">RegionNames.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Diagrams" TargetFolderName="Diagrams" />
+      <Folder Name="Domain" TargetFolderName="Domain">
+        <Folder Name="Lookups" TargetFolderName="Lookups">
+          <ProjectItem ReplaceParameters="true" TargetFileName="LookupTYPE.cs">LookupTYPE.cs</ProjectItem>
+        </Folder>
+        <ProjectItem ReplaceParameters="true" TargetFileName="TYPE.cs">TYPE.cs</ProjectItem>
+      </Folder>
+      <Folder Name="DomainServices" TargetFolderName="DomainServices">
+        <ProjectItem ReplaceParameters="true" TargetFileName="ITYPEDataService.cs">ITYPEDataService.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="ITYPELookupDataService.cs">ITYPELookupDataService.cs</ProjectItem>
+        <Folder Name="ServicesMock" TargetFolderName="ServicesMock">
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDataServiceMock.cs">TYPEDataServiceMock.cs</ProjectItem>
+        </Folder>
+        <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDataService.cs">TYPEDataService.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="TYPELookupDataService.cs">TYPELookupDataService.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="APPLICATIONServicesModule.cs">APPLICATIONServicesModule.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Infrastructure" TargetFolderName="Infrastructure" />
+      <Folder Name="Persistence" TargetFolderName="Persistence">
+        <Folder Name="Data" TargetFolderName="Data">
+          <ProjectItem ReplaceParameters="true" TargetFileName="DatabaseService.cs">DatabaseService.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="IAPPLICATIONDbContext.cs">IAPPLICATIONDbContext.cs</ProjectItem>
+          <Folder Name="Migrations" TargetFolderName="Migrations">
+            <ProjectItem ReplaceParameters="true" TargetFileName="Configuration.cs">Configuration.cs</ProjectItem>
+          </Folder>
+          <ProjectItem ReplaceParameters="true" TargetFileName="APPLICATIONDbContext.cs">APPLICATIONDbContext.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="APPLICATIONDbContextDatabaseInitializer.cs">APPLICATIONDbContextDatabaseInitializer.cs</ProjectItem>
+        </Folder>
+        <Folder Name="LookupData" TargetFolderName="LookupData">
+          <Folder Name="Migrations" TargetFolderName="Migrations">
+            <ProjectItem ReplaceParameters="true" TargetFileName="Configuration.cs">Configuration.cs</ProjectItem>
+          </Folder>
+          <ProjectItem ReplaceParameters="true" TargetFileName="APPLICATIONLookupsDbContext.cs">APPLICATIONLookupsDbContext.cs</ProjectItem>
+        </Folder>
+      </Folder>
+      <Folder Name="Presentation" TargetFolderName="Presentation">
+        <Folder Name="Converters" TargetFolderName="Converters" />
+        <Folder Name="ModelWrappers" TargetFolderName="ModelWrappers" />
+        <Folder Name="ViewModels" TargetFolderName="ViewModels">
+          <ProjectItem ReplaceParameters="true" TargetFileName="MainWindowDxViewModel.cs">MainWindowDxViewModel.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="MainWindowViewModel.cs">MainWindowViewModel.cs</ProjectItem>
+        </Folder>
+        <Folder Name="Views" TargetFolderName="Views">
+          <ProjectItem ReplaceParameters="true" TargetFileName="MainWindow.xaml">MainWindow.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="MainWindow.xaml.cs">MainWindow.xaml.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="MainWindowDx.xaml">MainWindowDx.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="MainWindowDx.xaml.cs">MainWindowDx.xaml.cs</ProjectItem>
+        </Folder>
+      </Folder>
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Resources.resx">Resources.resx</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Resources.Designer.cs">Resources.Designer.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Settings.settings">Settings.settings</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Settings.Designer.cs">Settings.Designer.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Resources" TargetFolderName="Resources">
+        <Folder Name="Icons" TargetFolderName="Icons" />
+        <Folder Name="Images" TargetFolderName="Images" />
+        <Folder Name="Xaml" TargetFolderName="Xaml" />
+      </Folder>
+    </Project>
+  </TemplateContent>
+    <WizardExtension>
+    <Assembly>VNCVSProjectWizard, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=96d23393c1bd2d0a</Assembly>
+    <FullClassName>VNCVSProjectWizard.WizardImplementation</FullClassName>
+  </WizardExtension>
+</VSTemplate>

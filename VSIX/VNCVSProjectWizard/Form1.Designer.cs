@@ -36,6 +36,9 @@
             this.txtEVENT = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.lblAppVersion = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtITEM = new System.Windows.Forms.TextBox();
+            this.lblTemplate = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblAPPLICATION
@@ -59,7 +62,7 @@
             // lblEVENT
             // 
             this.lblEVENT.AutoSize = true;
-            this.lblEVENT.Location = new System.Drawing.Point(126, 122);
+            this.lblEVENT.Location = new System.Drawing.Point(126, 174);
             this.lblEVENT.Name = "lblEVENT";
             this.lblEVENT.Size = new System.Drawing.Size(62, 20);
             this.lblEVENT.TabIndex = 2;
@@ -81,14 +84,14 @@
             // 
             // txtEVENT
             // 
-            this.txtEVENT.Location = new System.Drawing.Point(202, 119);
+            this.txtEVENT.Location = new System.Drawing.Point(202, 171);
             this.txtEVENT.Name = "txtEVENT";
             this.txtEVENT.Size = new System.Drawing.Size(234, 26);
             this.txtEVENT.TabIndex = 5;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(175, 182);
+            this.btnSave.Location = new System.Drawing.Point(202, 233);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(234, 35);
             this.btnSave.TabIndex = 6;
@@ -105,11 +108,39 @@
             this.lblAppVersion.TabIndex = 7;
             this.lblAppVersion.Text = "<Version>";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(141, 125);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 20);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "ITEM";
+            // 
+            // txtITEM
+            // 
+            this.txtITEM.Location = new System.Drawing.Point(202, 122);
+            this.txtITEM.Name = "txtITEM";
+            this.txtITEM.Size = new System.Drawing.Size(234, 26);
+            this.txtITEM.TabIndex = 9;
+            // 
+            // lblTemplate
+            // 
+            this.lblTemplate.AutoSize = true;
+            this.lblTemplate.Location = new System.Drawing.Point(12, 9);
+            this.lblTemplate.Name = "lblTemplate";
+            this.lblTemplate.Size = new System.Drawing.Size(75, 20);
+            this.lblTemplate.TabIndex = 10;
+            this.lblTemplate.Text = "Template";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1178, 450);
+            this.Controls.Add(this.lblTemplate);
+            this.Controls.Add(this.txtITEM);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblAppVersion);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtEVENT);
@@ -135,5 +166,8 @@
         private System.Windows.Forms.TextBox txtEVENT;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lblAppVersion;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtITEM;
+        public System.Windows.Forms.Label lblTemplate;
     }
 }

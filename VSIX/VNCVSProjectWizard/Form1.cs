@@ -9,6 +9,7 @@ namespace VNCVSProjectWizard
         private static string customAPPLICATION;
         private static string customEVENT;
         private static string customTYPE;
+        private static string customITEM;
 
         public Form1()
         {
@@ -52,11 +53,24 @@ namespace VNCVSProjectWizard
             }
         }
 
+        public static string CustomITEM
+        {
+            get
+            {
+                return customITEM;
+            }
+            set
+            {
+                customITEM = value;
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             customAPPLICATION = txtAPPLICATION.Text;
             customEVENT = txtEVENT.Text;
             customTYPE = txtTYPE.Text;
+            customITEM = txtITEM.Text;
 
             this.Close();
         }

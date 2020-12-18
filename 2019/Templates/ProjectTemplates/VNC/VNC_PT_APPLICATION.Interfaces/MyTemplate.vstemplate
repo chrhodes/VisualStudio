@@ -1,0 +1,44 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>VNC_PT_APPLICATION.Interfaces</Name>
+    <Description>Clean Architecture conformant Assembly to hold Interface defintions for application</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>VNC_PT_APPLICATION.Interfaces</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+	<LanguageTag>CSharp</LanguageTag>
+	<PlatformTag>Windows</PlatformTag>
+	<ProjectTypeTag>VNC</ProjectTypeTag>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="APPLICATION.Interfaces.csproj" File="APPLICATION.Interfaces.csproj" ReplaceParameters="true">
+      <Folder Name="Application" TargetFolderName="Application" />
+      <Folder Name="ApplicationServices" TargetFolderName="ApplicationServices" />
+      <Folder Name="Diagrams" TargetFolderName="Diagrams" />
+      <Folder Name="Domain" TargetFolderName="Domain" />
+      <Folder Name="DomainServices" TargetFolderName="DomainServices" />
+      <Folder Name="Infrastructure" TargetFolderName="Infrastructure" />
+      <Folder Name="Persistence" TargetFolderName="Persistence">
+          <Folder Name="Data" TargetFolderName="Data" />
+          <Folder Name="LookupData" TargetFolderName="LookupData" />
+      </Folder>
+      <Folder Name="Presentation" TargetFolderName="Presentation">
+        <Folder Name="ViewModels" TargetFolderName="ViewModels" />
+        <Folder Name="Views" TargetFolderName="Views" />
+      </Folder>
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Resources.resx">Resources.resx</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Resources.Designer.cs">Resources.Designer.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Settings.settings">Settings.settings</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Settings.Designer.cs">Settings.Designer.cs</ProjectItem>
+      </Folder>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

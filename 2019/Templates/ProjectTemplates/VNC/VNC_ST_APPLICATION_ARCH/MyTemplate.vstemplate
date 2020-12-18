@@ -1,0 +1,86 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="ProjectGroup">
+  <TemplateData>
+    <Name>VNC_ST_APPLICATION_ARCH</Name>
+    <Description>VNC Clean Architecture Starter Solution.  Produces Solution Folders and Projects.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType></ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>APPLICATION</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+	<LanguageTag>CSharp</LanguageTag>
+	<PlatformTag>Windows</PlatformTag>
+	<ProjectTypeTag>VNC</ProjectTypeTag>	
+  </TemplateData>
+  <TemplateContent>
+  <ProjectCollection>
+  	<SolutionFolder Name="Application">
+
+		<ProjectTemplateLink ProjectName="APPLICATION.Application">
+			VNC_PT_APPLICATION.Application\MyTemplate.vstemplate
+		</ProjectTemplateLink>
+
+		<ProjectTemplateLink ProjectName="APPLICATION.ApplicationServices">
+			VNC_PT_APPLICATION.ApplicationServices\MyTemplate.vstemplate
+		</ProjectTemplateLink>
+		
+	</SolutionFolder>
+	
+	<SolutionFolder Name="Domain">
+
+		<ProjectTemplateLink ProjectName="APPLICATION.Domain">
+			VNC_PT_APPLICATION.Domain\MyTemplate.vstemplate
+		</ProjectTemplateLink>
+
+		<ProjectTemplateLink ProjectName="APPLICATION.DomainServices">
+			VNC_PT_APPLICATION.DomainServices\MyTemplate.vstemplate
+		</ProjectTemplateLink>
+
+	</SolutionFolder>
+
+	<SolutionFolder Name="Infrastructure">
+
+		<ProjectTemplateLink ProjectName="APPLICATION.Core">
+			VNC_PT_APPLICATION.Core\MyTemplate.vstemplate
+		</ProjectTemplateLink>
+		
+	</SolutionFolder>
+	
+	<SolutionFolder Name="Persistence">
+	
+		<ProjectTemplateLink ProjectName="APPLICATION_InitializationConsole">
+			VNC_PT_APPLICATION_InitializationConsole\MyTemplate.vstemplate
+		</ProjectTemplateLink>
+
+		<ProjectTemplateLink ProjectName="APPLICATION.Data">
+			VNC_PT_APPLICATION.Persistence.Data\MyTemplate.vstemplate
+		</ProjectTemplateLink>
+		
+		<ProjectTemplateLink ProjectName="APPLICATION.LookupData">
+			VNC_PT_APPLICATION.Persistence.LookupData\MyTemplate.vstemplate
+		</ProjectTemplateLink>		
+	
+	</SolutionFolder>
+	
+	<SolutionFolder Name="Presentation">
+	
+		<ProjectTemplateLink ProjectName="APPLICATION.Presentation.TYPE">
+			VNC_PT_APPLICATION.Presentation.TYPE\MyTemplate.vstemplate
+		</ProjectTemplateLink>
+
+		<ProjectTemplateLink ProjectName="APPLICATION_PrismWPF">
+			VNC_PT_APPLICATION_PrismWPF\MyTemplate.vstemplate
+		</ProjectTemplateLink>
+	
+	</SolutionFolder>
+
+  </ProjectCollection>
+  </TemplateContent>
+    <WizardExtension>
+    <Assembly>VNCVSProjectWizard, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=96d23393c1bd2d0a</Assembly>
+    <FullClassName>VNCVSProjectWizard.WizardImplementation</FullClassName>
+  </WizardExtension>
+</VSTemplate>
