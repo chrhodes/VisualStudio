@@ -1,6 +1,6 @@
 ﻿<vncmvvm:ViewBase
     x:Class="$customAPPLICATION$.Presentation.Views.$xxxITEMxxx$Detail"
-    x:Name="uc$customTYPE$Detail"
+    x:Name="uc$xxxITEMxxx$Detail"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -23,6 +23,7 @@
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -30,16 +31,16 @@
         </Grid.ColumnDefinitions>
 
         <DataGrid ItemsSource="{Binding $xxxITEMxxx$s}"
-                  SelectedItem="{Binding Selected$xxxITEMxxx$s, Mode=TwoWay}"
+                  SelectedItem="{Binding Selected$xxxITEMxxx$, Mode=TwoWay}"
                   AutoGenerateColumns="False"
                   RowHeaderWidth="0"
                   Margin="10">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="$xxxITEMxxx$s"
-                                    Width="*"
-                                    ElementStyle="{StaticResource DataGridColumnStyle}"
-                                    EditingElementStyle="{StaticResource DataGridEditingColumnStyle}"
-                                    Binding="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    Width="*"
+                    ElementStyle="{StaticResource DataGridColumnStyle}"
+                    EditingElementStyle="{StaticResource DataGridEditingColumnStyle}"
+                    Binding="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </DataGrid.Columns>
         </DataGrid>
 
@@ -58,7 +59,7 @@
         <StackPanel Grid.Row="2" Orientation="Horizontal" >
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label Content="V:" />
-                <Label Content="{Binding ElementName=ucDogDetail, Path=InstanceCountV}" />
+                <Label Content="{Binding ElementName=uc$xxxITEMxxx$Detail, Path=InstanceCountV}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label Content="VM:" />

@@ -59,7 +59,7 @@ namespace $customAPPLICATION$.DomainServices
 
             using (var ctx = _contextCreator())
             {
-                result =  await ctx.$customTYPE$Set.AsNoTracking()
+                result =  await ctx.$customTYPE$sSet.AsNoTracking()
                   .Select(f =>
                   new LookupItem
                   {

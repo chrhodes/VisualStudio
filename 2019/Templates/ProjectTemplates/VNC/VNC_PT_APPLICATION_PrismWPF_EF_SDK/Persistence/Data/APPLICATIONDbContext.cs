@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Data.Entity.Validation;
 using System.Data.SqlTypes;
@@ -19,8 +20,8 @@ namespace $customAPPLICATION$.Persistence.Data
         // TODO(crhodes)
         // Add additional DbSet<TYPE> as needed.
 
-        public DbSet<$customTYPE$> $customTYPE$Set { get; set; }
-        public DbSet<$customTYPE$> $customTYPE$PhoneNumbersSet { get; set; }
+        public DbSet<$customTYPE$> $customTYPE$sSet { get; set; }
+        public DbSet<$customTYPE$PhoneNumber> $customTYPE$PhoneNumbersSet { get; set; }
         
         public DbSet<$xxxITEMxxx$> $xxxITEMxxx$sSet { get; set; }
 
@@ -179,6 +180,38 @@ namespace $customAPPLICATION$.Persistence.Data
                     sb.ToString(), ex
                     ); // Add the original exception as the innerException
             }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                var databaseValues = ex.Entries.Single().GetDatabaseValues();
+
+                //if (databaseValues == null)
+                //{
+                //    MessageDialogService.ShowInfoDialog(
+                //        "The entity has been deleted by another user.  Cannot continue.");
+                //    PublishAfterDetailDeletedEvent(Id);
+                //    return;
+                //}
+
+                //var result = MessageDialogService.ShowOkCancelDialog(
+                //    "The entity has been changed by someone else." +
+                //    " Click OK to save your changes anyway; Click Cancel" +
+                //    " to reload the entity from the database.", "Question");
+
+                //if (result == MessageDialogResult.OK)   // Client Wins
+                //{
+                //    // Update the original values with database-values
+                //    var entry = ex.Entries.Single();
+                //    entry.OriginalValues.SetValues(entry.GetDatabaseValues());
+                //    await saveFunc();
+                //}
+                //else  // Database Wins
+                //{
+                //    // Reload entity from database
+                //    await ex.Entries.Single().ReloadAsync();
+                //    await LoadAsync(Id);
+                //}
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw (ex);
@@ -189,9 +222,9 @@ namespace $customAPPLICATION$.Persistence.Data
 
         public override async Task<int> SaveChangesAsync()
         {
-            Int64 startTicks = Log.PERSISTENCE("Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.PERSISTENCE("($customAPPLICATION$DbContext) Enter", Common.LOG_APPNAME);
 
-            int result;
+            int result = -1;
             
             try
             {
@@ -264,12 +297,47 @@ namespace $customAPPLICATION$.Persistence.Data
                     sb.ToString(), ex
                     ); // Add the original exception as the innerException
             }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                //TODO(crhodes) Maybe this should be in ViewModelBase 
+                // so can more sensibly use MessageDialogService
+                var databaseValues = ex.Entries.Single().GetDatabaseValues();
+
+                //if (databaseValues == null)
+                //{
+                //    MessageDialogService.ShowInfoDialog(
+                //        "The entity has been deleted by another user.  Cannot continue.");
+                //    PublishAfterDetailDeletedEvent(Id);
+                //    return;
+                //}
+
+                //var result = MessageDialogService.ShowOkCancelDialog(
+                //    "The entity has been changed by someone else." +
+                //    " Click OK to save your changes anyway; Click Cancel" +
+                //    " to reload the entity from the database.", "Question");
+
+                //if (result == MessageDialogResult.OK)   // Client Wins
+                //{
+                //    // Update the original values with database-values
+                //    var entry = ex.Entries.Single();
+                //    entry.OriginalValues.SetValues(entry.GetDatabaseValues());
+                //    await saveFunc();
+                //}
+                //else  // Database Wins
+                //{
+                //    // Reload entity from database
+                //    await ex.Entries.Single().ReloadAsync();
+                //    await LoadAsync(Id);
+                //}
+                
+                throw (ex);
+            }           
             catch (Exception ex)
             {
                 throw (ex);
             }
 
-            Log.PERSISTENCE($"Exit ({result})", Common.LOG_APPNAME, startTicks);
+            Log.PERSISTENCE($"($customAPPLICATION$DbContext) Exit ({result})", Common.LOG_APPNAME, startTicks);
 
             return result;
         }

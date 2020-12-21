@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -9,6 +10,12 @@ namespace $customAPPLICATION$.Domain
 {
     public class $customTYPE$ : IEntity<int>, IModificationHistory, IOptimistic
     {
+        public $customTYPE$()
+        {
+            PhoneNumbers = new Collection<$customTYPE$PhoneNumber>();
+            //Meetings = new Collection<Meeting>();
+        }
+
         #region IEntity<int>
 
         public int Id { get; set; }
@@ -22,7 +29,7 @@ namespace $customAPPLICATION$.Domain
         public string FieldString { get; set; }
 
         public int? FieldInt { get; set; }
-        
+
         public Boolean? FieldBoolean { get; set; }
 
         public double? FieldDouble { get; set; }
@@ -37,9 +44,11 @@ namespace $customAPPLICATION$.Domain
         [StringLength(50)]
         [EmailAddress]
         public string Email { get; set; }
-        
+
         public ICollection<$customTYPE$PhoneNumber> PhoneNumbers { get; set; }
-        
+
+        public int? Favorite$xxxITEMxxx$Id { get; set; }
+
         public $xxxITEMxxx$ Favorite$xxxITEMxxx$ { get; set; }
 
         #region IModificationHistory
@@ -54,7 +63,7 @@ namespace $customAPPLICATION$.Domain
 
         #region IOptimistic
 
-        // Need to have data annotation here.  
+        // Need to have data annotation here.
         // Presence in interface ignored.
         [Timestamp]
         public byte[] RowVersion { get; set; }

@@ -4,8 +4,8 @@ using VNC.Core.DomainServices;
 
 namespace $customAPPLICATION$.DomainServices
 {
-    public interface I$customTYPE$DataService : IDataService<$customTYPE$>
+    public interface I$customTYPE$DataService : IGenericRepository<$customTYPE$>
     {
-
+        void RemovePhoneNumber($customTYPE$PhoneNumber model);
     }
 }

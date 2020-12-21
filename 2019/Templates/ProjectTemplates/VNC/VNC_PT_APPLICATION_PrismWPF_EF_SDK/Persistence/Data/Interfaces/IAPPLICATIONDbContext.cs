@@ -8,6 +8,6 @@ namespace $customAPPLICATION$.Persistence.Data
     { 
         int SaveChanges();
 
-        DbSet<$customTYPE$> $customTYPE$Set { get; set; }
+        DbSet<$customTYPE$> $customTYPE$sSet { get; set; }
     }
 }

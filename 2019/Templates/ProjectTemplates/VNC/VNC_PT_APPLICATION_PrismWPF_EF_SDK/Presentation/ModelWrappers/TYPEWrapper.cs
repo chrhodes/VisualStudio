@@ -55,6 +55,12 @@ namespace $customAPPLICATION$.Presentation.ModelWrappers
             set { SetValue(value); }
         }
 
+                public int? FavoriteFoodId
+        {
+            get { return GetValue<int?>(); }
+            set { SetValue(value); }
+        }
+
         public DateTime? DateCreated
         {
             get { return GetValue<DateTime?>(); }
@@ -70,6 +76,12 @@ namespace $customAPPLICATION$.Presentation.ModelWrappers
         public Boolean? IsDirty
         {
             get { return GetValue<Boolean?>(); }
+            set { SetValue(value); }
+        }
+        
+        public byte[] RowVersion
+        {
+            get { return GetValue<byte[]>(); }
             set { SetValue(value); }
         }
 

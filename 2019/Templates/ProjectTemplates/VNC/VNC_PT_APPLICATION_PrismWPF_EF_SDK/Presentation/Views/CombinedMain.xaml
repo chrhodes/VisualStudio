@@ -29,9 +29,10 @@
         <!-- <DataTemplate DataType="{x:Type viewModels:MeetingDetailViewModel}"> -->
             <!-- <views:MeetingDetail /> -->
         <!-- </DataTemplate> -->
-        <!-- <DataTemplate DataType="{x:Type viewModels:ProgrammingLanguageDetailViewModel}"> -->
-            <!-- <views:ProgrammingLanguageDetail /> -->
-        <!-- </DataTemplate> -->
+        
+        <DataTemplate DataType="{x:Type viewModels:$xxxITEMxxx$DetailViewModel}">
+            <views:$xxxITEMxxx$Detail />
+        </DataTemplate>
     </UserControl.Resources>
 
     <Grid>
@@ -50,11 +51,11 @@
                 <MenuItem Header="Add $customTYPE$" Command="{Binding CreateNewDetailCommand}"
                           CommandParameter="{x:Type viewModels:$customTYPE$DetailViewModel}" />
             </MenuItem>
-            <!--<MenuItem Header="Edit">
-                <MenuItem Header="ProgrammingLanguage"
+            <MenuItem Header="Edit">
+                <MenuItem Header="$xxxITEMxxx$"
                             Command="{Binding OpenSingleDetailViewCommand}"
-                            CommandParameter="{x:Type viewModels:ProgrammingLanguageDetailViewModel}" />
-            </MenuItem>-->
+                            CommandParameter="{x:Type viewModels:$xxxITEMxxx$DetailViewModel}" />
+            </MenuItem>
         </Menu>
 
         <ContentControl Grid.Row="1" Grid.Column="0"

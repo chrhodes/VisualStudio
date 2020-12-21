@@ -35,7 +35,7 @@ namespace $customAPPLICATION$.Persistence.Data.Migrations
             //  Use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.
 
-            context.$customTYPE$Set.AddOrUpdate(
+            context.$customTYPE$sSet.AddOrUpdate(
                 i => i.Id,
                 new Domain.$customTYPE$
                 {

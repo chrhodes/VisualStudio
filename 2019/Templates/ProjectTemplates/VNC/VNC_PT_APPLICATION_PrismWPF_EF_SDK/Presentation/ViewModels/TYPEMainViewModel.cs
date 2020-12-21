@@ -22,6 +22,7 @@ namespace $customAPPLICATION$.Presentation.ViewModels
         public $customTYPE$MainViewModel(
             I$customTYPE$NavigationViewModel $customTYPE$NavigationViewModel,
             Func<I$customTYPE$DetailViewModel> $customTYPE$DetailViewModelCreator,
+            Func<I$xxxITEMxxx$DetailViewModel> $xxxITEMxxx$DetailViewModelCreator,
             IEventAggregator eventAggregator,
             IMessageDialogService messageDialogService) : base(eventAggregator, messageDialogService)
         {
@@ -30,6 +31,7 @@ namespace $customAPPLICATION$.Presentation.ViewModels
             InstanceCountVM++;
 
             _$customTYPE$DetailViewModelCreator = $customTYPE$DetailViewModelCreator;
+            _$xxxITEMxxx$DetailViewModelCreator = $xxxITEMxxx$DetailViewModelCreator;
 
             NavigationViewModel = $customTYPE$NavigationViewModel;
             
@@ -70,7 +72,8 @@ namespace $customAPPLICATION$.Presentation.ViewModels
         #region Fields and Properties
 
         private Func<I$customTYPE$DetailViewModel> _$customTYPE$DetailViewModelCreator;
-
+        private Func<I$xxxITEMxxx$DetailViewModel> _$xxxITEMxxx$DetailViewModelCreator;
+        
         private IDetailViewModel _selectedDetailViewModel;
 
         public ICommand CreateNewDetailCommand { get; }
@@ -153,9 +156,9 @@ namespace $customAPPLICATION$.Presentation.ViewModels
                     //    detailViewModel = _meetingDetailViewModelCreator();
                     //    break;
 
-                    //case nameof(ProgrammingLanguageDetailViewModel):
-                    //    detailViewModel = _programmingLanguageDetailViewModelCreator();
-                    //    break;
+                    case nameof($xxxITEMxxx$DetailViewModel):
+                       detailViewModel = _$xxxITEMxxx$DetailViewModelCreator();
+                       break;
 
                     // Ignore event if we don't handle
                     default:

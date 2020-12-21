@@ -68,10 +68,11 @@ namespace $customAPPLICATION$.Presentation.ViewModels
         public $xxxITEMxxx$Wrapper Selected$xxxITEMxxx$
         {
             get { return _selected$xxxITEMxxx$; }
-            private set
+            set
             {
                 _selected$xxxITEMxxx$ = value;
                 OnPropertyChanged();
+                ((DelegateCommand)RemoveCommand).RaiseCanExecuteChanged();
             }
         }
 
@@ -79,14 +80,14 @@ namespace $customAPPLICATION$.Presentation.ViewModels
 
         #region Event Handlers
 
-        private async void OnOpenDetailView(OpenDetailViewEventArgs args)
-        {
-            Int64 startTicks = Log.EVENT("Enter", Common.LOG_APPNAME);
+        // private async void OnOpenDetailView(OpenDetailViewEventArgs args)
+        // {
+            // Int64 startTicks = Log.EVENT("($xxxITEMxxx$DetailViewModel) Enter", Common.LOG_APPNAME);
 
-            await LoadAsync(args.Id);
+            // await LoadAsync(args.Id);
 
-            Log.EVENT("Exit", Common.LOG_APPNAME, startTicks);
-        }
+            // Log.EVENT("($xxxITEMxxx$DetailViewModel) Exit", Common.LOG_APPNAME, startTicks);
+        // }
 
         #endregion
 
@@ -96,17 +97,6 @@ namespace $customAPPLICATION$.Presentation.ViewModels
         {
             Int64 startTicks = Log.VIEWMODEL("($xxxITEMxxx$DetailViewModel) Enter Id:({id})", Common.LOG_APPNAME);
 
-            // var item = id > 0
-                // ? await _$xxxITEMxxx$DataService.FindByIdAsync(id)
-                // : CreateNew$xxxITEMxxx$();
-
-            // Id = item.Id;
-
-            // Initialize$xxxITEMxxx$(item);
-
-            //InitializeFriendPhoneNumbers(friend.PhoneNumbers);
-
-            //await LoadProgrammingLanguagesLookupAsync();
             Id = id;
 
             foreach (var wrapper in $xxxITEMxxx$s)
@@ -132,8 +122,7 @@ namespace $customAPPLICATION$.Presentation.ViewModels
         {
             if (! HasChanges)
             {
-                HasChanges = true;
-                //HasChanges = _programmingLanguageRepository.HasChanges();
+                HasChanges = _$xxxITEMxxx$DataService.HasChanges();
             }
 
             if (e.PropertyName == nameof($xxxITEMxxx$Wrapper.HasErrors))
@@ -155,7 +144,7 @@ namespace $customAPPLICATION$.Presentation.ViewModels
 
         protected override async void OnDeleteExecute()
         {
-            Int64 startTicks = Log.VIEWMODEL("($xxxITEMxxx$DetailViewModel) Enter Id:({Type.Id})", Common.LOG_APPNAME);
+            Int64 startTicks = Log.VIEWMODEL($"($xxxITEMxxx$DetailViewModel) Enter Id:({Selected$xxxITEMxxx$.Id})", Common.LOG_APPNAME);
 
             Log.VIEWMODEL("($xxxITEMxxx$DetailViewModel) Exit", Common.LOG_APPNAME, startTicks);
         }
@@ -167,13 +156,13 @@ namespace $customAPPLICATION$.Presentation.ViewModels
 
         protected override async void OnSaveExecute()
         {
-            Int64 startTicks = Log.VIEWMODEL("($xxxITEMxxx$DetailViewModel) Enter Id:({Type.Id})", Common.LOG_APPNAME);
+            Int64 startTicks = Log.VIEWMODEL($"($xxxITEMxxx$DetailViewModel) Enter Id:({Selected$xxxITEMxxx$.Id})", Common.LOG_APPNAME);
 
             try
             {
-                await _$xxxITEMxxx$DataService.UpdateAsync(Type.Model);
-                    //HasChanges = _programmingLanguageRepository.HasChanges();
-                HasChanges = false;
+                await _$xxxITEMxxx$DataService.UpdateAsync();
+                
+                HasChanges = _$xxxITEMxxx$DataService.HasChanges();
 
                 PublishAfterCollectionSavedEvent();
             }
@@ -190,7 +179,7 @@ namespace $customAPPLICATION$.Presentation.ViewModels
                 await LoadAsync(Id);
             }
 
-            Log.VIEWMODEL("Exit", Common.LOG_APPNAME, startTicks);
+            Log.VIEWMODEL("($xxxITEMxxx$DetailViewModel) Exit", Common.LOG_APPNAME, startTicks);
         }
 
         #endregion
@@ -199,47 +188,43 @@ namespace $customAPPLICATION$.Presentation.ViewModels
 
         void OnAddExecute()
         {
-            Int64 startTicks = Log.VIEWMODEL("($xxxITEMxxx$ViewModel) Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.VIEWMODEL("($xxxITEMxxx$DetailViewModel) Enter", Common.LOG_APPNAME);
 
             var wrapper = new $xxxITEMxxx$Wrapper(new Domain.$xxxITEMxxx$());
             wrapper.PropertyChanged += Wrapper_PropertyChanged;
+
             _$xxxITEMxxx$DataService.Add(wrapper.Model);
-            //_programmingLanguageRepository.Add(wrapper.Model);
             $xxxITEMxxx$s.Add(wrapper);
 
             wrapper.Name = "";  // Trigger the validation
 
-            Log.VIEWMODEL("($xxxITEMxxx$ViewModel) Exit", Common.LOG_APPNAME, startTicks);
+            Log.VIEWMODEL("($xxxITEMxxx$DetailViewModel) Exit", Common.LOG_APPNAME, startTicks);
         }
 
         private async void OnRemoveExecute()
         {
-            Int64 startTicks = Log.VIEWMODEL("($xxxITEMxxx$ViewModel) Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.VIEWMODEL("($xxxITEMxxx$DetailViewModel) Enter", Common.LOG_APPNAME);
+           
+            var isReferenced =
+                await _$xxxITEMxxx$DataService.IsReferencedBy$customTYPE$Async(Selected$xxxITEMxxx$.Id);
 
-            //TODO(crhodes)
-            // Figure out how to handle this
-            
-            throw new NotImplementedException();
-            // var isReferenced =
-                // await _$xxxITEMxxx$DataService.IsReferencedBy$customTYPE$Async(
-                    // Selected$xxxITEMxxx$.Id);
-
-            // if (isReferenced)
-            // {
-                // MessageDialogService.ShowInfoDialog(
-                    // $"The language {Selected$xxxITEMxxx$.Name}" +
-                    // " can't be removed;  It is referenced by at least one $customTYPE$");
-                // return;
-            // }
+            if (isReferenced)
+            {
+                MessageDialogService.ShowInfoDialog(
+                    $"The language {Selected$xxxITEMxxx$.Name}" +
+                    " can't be removed;  It is referenced by at least one $customTYPE$");
+                return;
+            }
 
             Selected$xxxITEMxxx$.PropertyChanged -= Wrapper_PropertyChanged;
             _$xxxITEMxxx$DataService.Remove(Selected$xxxITEMxxx$.Model);
             $xxxITEMxxx$s.Remove(Selected$xxxITEMxxx$);
             Selected$xxxITEMxxx$ = null;
             HasChanges = _$xxxITEMxxx$DataService.HasChanges();
+            
             ((DelegateCommand)SaveCommand).RaiseCanExecuteChanged();
 
-            Log.VIEWMODEL("($xxxITEMxxx$ViewModel) Exit", Common.LOG_APPNAME, startTicks);
+            Log.VIEWMODEL("($xxxITEMxxx$DetailViewModel) Exit", Common.LOG_APPNAME, startTicks);
         }
 
         bool OnRemoveCanExecute()

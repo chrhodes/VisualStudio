@@ -52,7 +52,7 @@
         <ProjectItem ReplaceParameters="true" TargetFileName="TYPE.cs">TYPE.cs</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="TYPEEmailAddress.cs">TYPEEmailAddress.cs</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="TYPEPhoneNumber.cs">TYPEPhoneNumber.cs</ProjectItem>
-        
+
         <ProjectItem ReplaceParameters="true" TargetFileName="ITEM.cs">ITEM.cs</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
       </Folder>
@@ -64,18 +64,18 @@
         <Folder Name="Interfaces" TargetFolderName="Interfaces">
             <ProjectItem ReplaceParameters="true" TargetFileName="IITEMDataService.cs">IITEMDataService.cs</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="IITEMLookupDataService.cs">IITEMLookupDataService.cs</ProjectItem>
-            
+
             <ProjectItem ReplaceParameters="true" TargetFileName="ITYPEDataService.cs">ITYPEDataService.cs</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="ITYPELookupDataService.cs">ITYPELookupDataService.cs</ProjectItem>
         </Folder>
         <ProjectItem ReplaceParameters="true" TargetFileName="ITEMDataService.cs">ITEMDataService.cs</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="ITEMLookupDataService.cs">ITEMLookupDataService.cs</ProjectItem>
-        
+
         <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDataService.cs">TYPEDataService.cs</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="TYPELookupDataService.cs">TYPELookupDataService.cs</ProjectItem>
-        
+
         <ProjectItem ReplaceParameters="true" TargetFileName="APPLICATIONServicesModule.cs">APPLICATIONServicesModule.cs</ProjectItem>
-        
+
         <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
       </Folder>
       <Folder Name="Infrastructure" TargetFolderName="Infrastructure" />
@@ -101,8 +101,11 @@
           <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
         </Folder>
         <Folder Name="ModelWrappers" TargetFolderName="ModelWrappers">
-          <ProjectItem ReplaceParameters="true" TargetFileName="ITEMWrapper.cs">ITEMWrapper.cs</ProjectItem>        
+          <ProjectItem ReplaceParameters="true" TargetFileName="ITEMWrapper.cs">ITEMWrapper.cs</ProjectItem>
+
           <ProjectItem ReplaceParameters="true" TargetFileName="TYPEWrapper.cs">TYPEWrapper.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEPhoneNumberWrapper.cs">TYPEPhoneNumberWrapper.cs</ProjectItem>
+
           <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
         </Folder>
         <Folder Name="ViewModels" TargetFolderName="ViewModels">
@@ -110,8 +113,8 @@
             <ProjectItem ReplaceParameters="true" TargetFileName="ICombinedMainViewModel.cs">ICombinedMainViewModel.cs</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="ICombinedNavigationViewModel.cs">ICombinedNavigationViewModel.cs</ProjectItem>
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="IITEMDetailViewModel.cs">IITEMDetailViewModel.cs</ProjectItem>      
-            
+            <ProjectItem ReplaceParameters="true" TargetFileName="IITEMDetailViewModel.cs">IITEMDetailViewModel.cs</ProjectItem>
+
             <ProjectItem ReplaceParameters="true" TargetFileName="ITYPEMainViewModel.cs">ITYPEMainViewModel.cs</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="ITYPENavigationViewModel.cs">ITYPENavigationViewModel.cs</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="ITYPEDetailViewModel.cs">ITYPEDetailViewModel.cs</ProjectItem>
@@ -122,16 +125,16 @@
           <ProjectItem ReplaceParameters="true" TargetFileName="CombinedNavigationViewModel.cs">CombinedNavigationViewModel.cs</ProjectItem>
 
           <ProjectItem ReplaceParameters="true" TargetFileName="ITEMDetailViewModel.cs">ITEMDetailViewModel.cs</ProjectItem>
-          
+
           <ProjectItem ReplaceParameters="true" TargetFileName="TYPEMainViewModel.cs">TYPEMainViewModel.cs</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="TYPENavigationViewModel.cs">TYPENavigationViewModel.cs</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDetailViewModel.cs">TYPEDetailViewModel.cs</ProjectItem>
-          
+
           <ProjectItem ReplaceParameters="true" TargetFileName="MainWindowDxDockLayoutManagerViewModel.cs">MainWindowDxDockLayoutManagerViewModel.cs</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="MainWindowDxLayoutViewModel.cs">MainWindowDxLayoutViewModel.cs</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="MainWindowViewModel.cs">MainWindowViewModel.cs</ProjectItem>
 
-          
+
           <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
         </Folder>
         <Folder Name="Views" TargetFolderName="Views">
@@ -140,11 +143,11 @@
             <ProjectItem ReplaceParameters="true" TargetFileName="ICombinedNavigation.cs">ICombinedNavigation.cs</ProjectItem>
 
             <ProjectItem ReplaceParameters="true" TargetFileName="IITEMDetail.cs">IITEMDetail.cs</ProjectItem>
-            
+
             <ProjectItem ReplaceParameters="true" TargetFileName="ITYPEMain.cs">ITYPEMain.cs</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="ITYPENavigation.cs">ITYPENavigation.cs</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="ITYPEDetail.cs">ITYPEDetail.cs</ProjectItem>
-            
+
             <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
           </Folder>
           <ProjectItem ReplaceParameters="true" TargetFileName="CombinedMain.xaml">CombinedMain.xaml</ProjectItem>
@@ -152,10 +155,10 @@
 
           <ProjectItem ReplaceParameters="true" TargetFileName="CombinedNavigation.xaml">CombinedNavigation.xaml</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="CombinedNavigation.xaml.cs">CombinedNavigation.xaml.cs</ProjectItem>
-          
+
           <ProjectItem ReplaceParameters="true" TargetFileName="ITEMDetail.xaml">ITEMDetail.xaml</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="ITEMDetail.xaml.cs">ITEMDetail.xaml.cs</ProjectItem>
-          
+
           <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDetail.xaml">TYPEDetail.xaml</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDetail.xaml.cs">TYPEDetail.xaml.cs</ProjectItem>
 
@@ -167,13 +170,13 @@
 
           <ProjectItem ReplaceParameters="true" TargetFileName="MainWindow.xaml">MainWindow.xaml</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="MainWindow.xaml.cs">MainWindow.xaml.cs</ProjectItem>
-          
+
           <ProjectItem ReplaceParameters="true" TargetFileName="MainWindowDxDockLayoutManager.xaml">MainWindowDxDockLayoutManager.xaml</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="MainWindowDxDockLayoutManager.xaml.cs">MainWindowDxDockLayoutManager.xaml.cs</ProjectItem>
-          
+
           <ProjectItem ReplaceParameters="true" TargetFileName="MainWindowDxLayout.xaml">MainWindowDxLayout.xaml</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="MainWindowDxLayout.xaml.cs">MainWindowDxLayout.xaml.cs</ProjectItem>
-          
+
           <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
         </Folder>
         <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>

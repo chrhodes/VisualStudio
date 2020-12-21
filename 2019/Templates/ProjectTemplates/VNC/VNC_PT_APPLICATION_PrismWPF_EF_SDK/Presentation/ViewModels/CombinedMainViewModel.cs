@@ -23,6 +23,7 @@ namespace $customAPPLICATION$.Presentation.ViewModels
             ICombinedNavigationViewModel navigationViewModel,
             //Func<ICatDetailViewModel> catDetailViewModelCreator,
             Func<I$customTYPE$DetailViewModel> $customTYPE$DetailViewModelCreator,
+            Func<I$xxxITEMxxx$DetailViewModel> $xxxITEMxxx$DetailViewModelCreator,
             IEventAggregator eventAggregator,
             IMessageDialogService messageDialogService) : base(eventAggregator, messageDialogService)
         {
@@ -32,6 +33,7 @@ namespace $customAPPLICATION$.Presentation.ViewModels
 
             //_CatDetailViewModelCreator = catDetailViewModelCreator;
             _$customTYPE$DetailViewModelCreator = $customTYPE$DetailViewModelCreator;
+            _$xxxITEMxxx$DetailViewModelCreator = $xxxITEMxxx$DetailViewModelCreator;            
 
             DetailViewModels = new ObservableCollection<IDetailViewModel>();
 
@@ -71,6 +73,7 @@ namespace $customAPPLICATION$.Presentation.ViewModels
 
         //private Func<ICatDetailViewModel> _CatDetailViewModelCreator;
         private Func<I$customTYPE$DetailViewModel> _$customTYPE$DetailViewModelCreator;
+        private Func<I$xxxITEMxxx$DetailViewModel> _$xxxITEMxxx$DetailViewModelCreator;
 
         private IDetailViewModel _selectedDetailViewModel;
 
@@ -155,9 +158,9 @@ namespace $customAPPLICATION$.Presentation.ViewModels
                     //    detailViewModel = _meetingDetailViewModelCreator();
                     //    break;
 
-                    //case nameof(ProgrammingLanguageDetailViewModel):
-                    //    detailViewModel = _programmingLanguageDetailViewModelCreator();
-                    //    break;
+                    case nameof($xxxITEMxxx$DetailViewModel):
+                       detailViewModel = _$xxxITEMxxx$DetailViewModelCreator();
+                       break;
 
                     // This should not happen anymore withe TYPEEvent
                     default:

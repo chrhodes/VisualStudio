@@ -37,10 +37,22 @@ namespace $customAPPLICATION$
             Int64 startTicks = Log.MODULE("Enter", Common.LOG_APPNAME);
 
             containerRegistry.Register<ICombinedMainViewModel, CombinedMainViewModel>();
-            containerRegistry.Register<ICombinedMain, CombinedMain>();
+            containerRegistry.RegisterSingleton<ICombinedMain, CombinedMain>();
 
             containerRegistry.Register<ICombinedNavigationViewModel, CombinedNavigationViewModel>();
-            containerRegistry.Register<ICombinedNavigation, CombinedNavigation>();
+            containerRegistry.RegisterSingleton<ICombinedNavigation, CombinedNavigation>();
+            
+            containerRegistry.Register<I$xxxITEMxxx$DetailViewModel, $xxxITEMxxx$DetailViewModel>();
+            containerRegistry.RegisterSingleton<I$xxxITEMxxx$Detail, $xxxITEMxxx$Detail>();            
+            
+            containerRegistry.RegisterSingleton<I$xxxITEMxxx$DataService, $xxxITEMxxx$DataService>();
+            containerRegistry.RegisterSingleton<I$xxxITEMxxx$LookupDataService, $xxxITEMxxx$LookupDataService>();
+            
+            // Figure out how to use one Type
+            
+            //containerRegistry.Register<IFriendLookupDataService, LookupDataService>();
+            //containerRegistry.Register<IProgrammingLanguageLookupDataService, LookupDataService>();
+            //containerRegistry.Register<IMeetingLookupDataService, LookupDataService>();
 
             Log.MODULE("Exit", Common.LOG_APPNAME, startTicks);
         }

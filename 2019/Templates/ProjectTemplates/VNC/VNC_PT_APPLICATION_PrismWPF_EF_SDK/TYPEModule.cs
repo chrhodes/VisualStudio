@@ -36,16 +36,16 @@ namespace $customAPPLICATION$
             Int64 startTicks = Log.MODULE("Enter", Common.LOG_APPNAME);
 
             containerRegistry.Register<I$customTYPE$MainViewModel, $customTYPE$MainViewModel>();
-            containerRegistry.Register<I$customTYPE$Main, $customTYPE$Main>();
+            containerRegistry.RegisterSingleton<I$customTYPE$Main, $customTYPE$Main>();
             
-            containerRegistry.RegisterSingleton<I$customTYPE$NavigationViewModel, $customTYPE$NavigationViewModel>();
+            containerRegistry.Register<I$customTYPE$NavigationViewModel, $customTYPE$NavigationViewModel>();
             containerRegistry.RegisterSingleton<I$customTYPE$Navigation, $customTYPE$Navigation>();  
             
             containerRegistry.Register<I$customTYPE$DetailViewModel, $customTYPE$DetailViewModel>();
-            containerRegistry.Register<I$customTYPE$Detail, $customTYPE$Detail>();
+            containerRegistry.RegisterSingleton<I$customTYPE$Detail, $customTYPE$Detail>();
 
             containerRegistry.RegisterSingleton<I$customTYPE$LookupDataService, $customTYPE$LookupDataService>();
-            containerRegistry.RegisterSingleton<I$customTYPE$DataService, $customTYPE$DataService>();
+            containerRegistry.Register<I$customTYPE$DataService, $customTYPE$DataService>();
 
             Log.MODULE("Exit", Common.LOG_APPNAME, startTicks);
         }
