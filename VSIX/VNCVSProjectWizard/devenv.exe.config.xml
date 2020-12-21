@@ -13,7 +13,10 @@
     <startup useLegacyV2RuntimeActivationPolicy="true">
       <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.7.2" />
     </startup>
-    <loggingConfiguration name="Logging Application Block" tracingEnabled="true" defaultCategory="General" logWarningsWhenNoCategoriesMatch="true">
+    <loggingConfiguration name="Logging Application Block" 
+        tracingEnabled="true" 
+        defaultCategory="General" 
+		logWarningsWhenNoCategoriesMatch="true">
       <listeners>
         <add name="FlatFile TraceListener" fileName="C:\temp\logs\VNCVSProjectWizard\VNCVSProjectWizard.log" header="" footer="" formatter="FlatFile Formatter" listenerDataType="Microsoft.Practices.EnterpriseLibrary.Logging.Configuration.FlatFileTraceListenerData, 
             Microsoft.Practices.EnterpriseLibrary.Logging, 

@@ -46,7 +46,7 @@
             this.lblAPPLICATION.AutoSize = true;
             this.lblAPPLICATION.Location = new System.Drawing.Point(75, 53);
             this.lblAPPLICATION.Name = "lblAPPLICATION";
-            this.lblAPPLICATION.Size = new System.Drawing.Size(113, 20);
+            this.lblAPPLICATION.Size = new System.Drawing.Size(77, 13);
             this.lblAPPLICATION.TabIndex = 0;
             this.lblAPPLICATION.Text = "APPLICATION";
             // 
@@ -55,7 +55,7 @@
             this.lblTYPE.AutoSize = true;
             this.lblTYPE.Location = new System.Drawing.Point(138, 87);
             this.lblTYPE.Name = "lblTYPE";
-            this.lblTYPE.Size = new System.Drawing.Size(50, 20);
+            this.lblTYPE.Size = new System.Drawing.Size(35, 13);
             this.lblTYPE.TabIndex = 1;
             this.lblTYPE.Text = "TYPE";
             // 
@@ -64,7 +64,7 @@
             this.lblEVENT.AutoSize = true;
             this.lblEVENT.Location = new System.Drawing.Point(126, 174);
             this.lblEVENT.Name = "lblEVENT";
-            this.lblEVENT.Size = new System.Drawing.Size(62, 20);
+            this.lblEVENT.Size = new System.Drawing.Size(43, 13);
             this.lblEVENT.TabIndex = 2;
             this.lblEVENT.Text = "EVENT";
             // 
@@ -72,29 +72,29 @@
             // 
             this.txtAPPLICATION.Location = new System.Drawing.Point(202, 50);
             this.txtAPPLICATION.Name = "txtAPPLICATION";
-            this.txtAPPLICATION.Size = new System.Drawing.Size(234, 26);
+            this.txtAPPLICATION.Size = new System.Drawing.Size(234, 20);
             this.txtAPPLICATION.TabIndex = 3;
             // 
             // txtTYPE
             // 
             this.txtTYPE.Location = new System.Drawing.Point(202, 84);
             this.txtTYPE.Name = "txtTYPE";
-            this.txtTYPE.Size = new System.Drawing.Size(234, 26);
+            this.txtTYPE.Size = new System.Drawing.Size(234, 20);
             this.txtTYPE.TabIndex = 4;
             // 
             // txtEVENT
             // 
             this.txtEVENT.Location = new System.Drawing.Point(202, 171);
             this.txtEVENT.Name = "txtEVENT";
-            this.txtEVENT.Size = new System.Drawing.Size(234, 26);
-            this.txtEVENT.TabIndex = 5;
+            this.txtEVENT.Size = new System.Drawing.Size(234, 20);
+            this.txtEVENT.TabIndex = 6;
             // 
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(202, 233);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(234, 35);
-            this.btnSave.TabIndex = 6;
+            this.btnSave.TabIndex = 7;
             this.btnSave.Text = "Save Custom Parameters";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.button1_Click);
@@ -104,7 +104,7 @@
             this.lblAppVersion.AutoSize = true;
             this.lblAppVersion.Location = new System.Drawing.Point(12, 421);
             this.lblAppVersion.Name = "lblAppVersion";
-            this.lblAppVersion.Size = new System.Drawing.Size(81, 20);
+            this.lblAppVersion.Size = new System.Drawing.Size(54, 13);
             this.lblAppVersion.TabIndex = 7;
             this.lblAppVersion.Text = "<Version>";
             // 
@@ -113,7 +113,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(141, 125);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 20);
+            this.label1.Size = new System.Drawing.Size(33, 13);
             this.label1.TabIndex = 8;
             this.label1.Text = "ITEM";
             // 
@@ -121,15 +121,15 @@
             // 
             this.txtITEM.Location = new System.Drawing.Point(202, 122);
             this.txtITEM.Name = "txtITEM";
-            this.txtITEM.Size = new System.Drawing.Size(234, 26);
-            this.txtITEM.TabIndex = 9;
+            this.txtITEM.Size = new System.Drawing.Size(234, 20);
+            this.txtITEM.TabIndex = 5;
             // 
             // lblTemplate
             // 
             this.lblTemplate.AutoSize = true;
             this.lblTemplate.Location = new System.Drawing.Point(12, 9);
             this.lblTemplate.Name = "lblTemplate";
-            this.lblTemplate.Size = new System.Drawing.Size(75, 20);
+            this.lblTemplate.Size = new System.Drawing.Size(51, 13);
             this.lblTemplate.TabIndex = 10;
             this.lblTemplate.Text = "Template";
             // 
