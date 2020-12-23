@@ -1,5 +1,5 @@
 ﻿$customAPPLICATION$\Persistence\
-$customAPPLICATION$\Persistence\Data\
-$customAPPLICATION$\Persistence\Data\Migrations\
+$customAPPLICATION$\Persistence\Database\
+$customAPPLICATION$\Persistence\Database\Migrations\
 
 Notes for using this template

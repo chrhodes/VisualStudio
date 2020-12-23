@@ -115,7 +115,7 @@
                   ItemsSource="{Binding $xxxITEMxxx$s}"
                   DisplayMemberPath="DisplayMember"
                   SelectedValuePath="Id"
-                  SelectedValue="{Binding Dog.Favorite$xxxITEMxxx$Id, Mode=TwoWay}"/>
+                  SelectedValue="{Binding $customTYPE$.Favorite$xxxITEMxxx$Id, Mode=TwoWay}"/>
             
             <DockPanel Grid.Row="8" Margin="10">
                 <StackPanel DockPanel.Dock="Right">
@@ -147,7 +147,7 @@
         <StackPanel Grid.Row="3" Orientation="Horizontal" >
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label Content="V:" />
-                <Label Content="{Binding ElementName=ucDogDetail, Path=InstanceCountV}" />
+                <Label Content="{Binding ElementName=uc$customTYPE$Detail, Path=InstanceCountV}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label Content="VM:" />

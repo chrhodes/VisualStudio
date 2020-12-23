@@ -80,7 +80,7 @@
       </Folder>
       <Folder Name="Infrastructure" TargetFolderName="Infrastructure" />
       <Folder Name="Persistence" TargetFolderName="Persistence">
-        <Folder Name="Data" TargetFolderName="Data">
+        <Folder Name="Database" TargetFolderName="Database">
           <Folder Name="Migrations" TargetFolderName="Migrations">
             <ProjectItem ReplaceParameters="true" TargetFileName="Configuration.cs">Configuration.cs</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>

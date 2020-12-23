@@ -168,14 +168,14 @@ namespace $customAPPLICATION$.Presentation.ViewModels
             }
             catch (Exception ex)
             {
-                while (ex.InnerException != null)
-                {
-                    ex = ex.InnerException;
-                }
+                // while (ex.InnerException != null)
+                // {
+                    // ex = ex.InnerException;
+                // }
 
                 MessageDialogService.ShowInfoDialog(
                     "Error while saving the $xxxITEMxxx$s, " +
-                    "the data will be reloaded.  Details: " + ex.Message);
+                    "the data will be reloaded.  Details: " + ex);
                 await LoadAsync(Id);
             }
 
@@ -211,7 +211,7 @@ namespace $customAPPLICATION$.Presentation.ViewModels
             if (isReferenced)
             {
                 MessageDialogService.ShowInfoDialog(
-                    $"The language {Selected$xxxITEMxxx$.Name}" +
+                    $"The $customTYPE$ ({Selected$xxxITEMxxx$.Name})" +
                     " can't be removed;  It is referenced by at least one $customTYPE$");
                 return;
             }

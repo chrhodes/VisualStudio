@@ -173,10 +173,11 @@ namespace $customAPPLICATION$.Presentation.ViewModels
                 }
                 catch (Exception ex)
                 {
-                    MessageDialogService.ShowInfoDialog(
-                        "Cannot load the entity, it may have been deleted" +
-                        " by another user.  Updating Navigation");
+                    MessageDialogService.ShowInfoDialog($"Cannot load the entity ({ex})" +
+                        "It may have been deleted by another user.  Updating Navigation");
+                        
                     await NavigationViewModel.LoadAsync();
+                    
                     return;
                 }
 

@@ -40,47 +40,47 @@ namespace $customAPPLICATION$.DomainServices
             Log.DOMAINSERVICES("Exit", Common.LOG_APPNAME, startTicks);
         }
 
-        public Task<List<Dog>> AllAsync()
+        public Task<List<$customTYPE$>> AllAsync()
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Dog> AllInclude(params Expression<Func<Dog, object>>[] includeProperties)
+        public IEnumerable<$customTYPE$> AllInclude(params Expression<Func<$customTYPE$, object>>[] includeProperties)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Dog>> AllIncludeAsync(params Expression<Func<Dog, object>>[] includeProperties)
+        public Task<IEnumerable<$customTYPE$>> AllIncludeAsync(params Expression<Func<$customTYPE$, object>>[] includeProperties)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Dog> FindBy(Expression<Func<Dog, bool>> predicate)
+        public IEnumerable<$customTYPE$> FindBy(Expression<Func<$customTYPE$, bool>> predicate)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Dog>> FindByAsync(Expression<Func<Dog, bool>> predicate)
+        public Task<IEnumerable<$customTYPE$>> FindByAsync(Expression<Func<$customTYPE$, bool>> predicate)
         {
             throw new NotImplementedException();
         }
 
-        public Dog FindById(int entityId)
+        public $customTYPE$ FindById(int entityId)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Dog> FindByIdAsync(int entityId)
+        public Task<$customTYPE$> FindByIdAsync(int entityId)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Dog> FindByInclude(Expression<Func<Dog, bool>> predicate, params Expression<Func<Dog, object>>[] includeProperties)
+        public IEnumerable<$customTYPE$> FindByInclude(Expression<Func<$customTYPE$, bool>> predicate, params Expression<Func<$customTYPE$, object>>[] includeProperties)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Dog>> FindByIncludeAsync(Expression<Func<Dog, bool>> predicate, params Expression<Func<Dog, object>>[] includeProperties)
+        public Task<IEnumerable<$customTYPE$>> FindByIncludeAsync(Expression<Func<$customTYPE$, bool>> predicate, params Expression<Func<$customTYPE$, object>>[] includeProperties)
         {
             throw new NotImplementedException();
         }
@@ -90,12 +90,17 @@ namespace $customAPPLICATION$.DomainServices
             throw new NotImplementedException();
         }
 
-        public void Remove(Dog entity)
+        public void Add($customTYPE$ entity)
+        {
+            throw new NotImplementedException();
+        }
+        
+        public void Remove($customTYPE$ entity)
         {
             throw new NotImplementedException();
         }
 
-        public void RemovePhoneNumber(DogPhoneNumber model)
+        public void RemovePhoneNumber($customTYPE$PhoneNumber model)
         {
             throw new NotImplementedException();
         }

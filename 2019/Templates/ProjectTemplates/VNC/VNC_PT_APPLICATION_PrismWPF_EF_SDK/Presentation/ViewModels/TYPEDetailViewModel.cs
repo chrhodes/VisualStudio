@@ -71,15 +71,14 @@ namespace $customAPPLICATION$.Presentation.ViewModels
         public ICommand AddPhoneNumberCommand { get; }
         public ICommand RemovePhoneNumberCommand { get; }
 
-        private DogPhoneNumberWrapper _selectedPhoneNumber;  
+        private $customTYPE$PhoneNumberWrapper _selectedPhoneNumber;  
 
         public ObservableCollection<LookupItem> $xxxITEMxxx$s { get; }
         public ObservableCollection<$customTYPE$PhoneNumberWrapper> PhoneNumbers { get; }
         
-        // Maybe call this $customTYPE$w
-        // or 
-        private $customTYPE$Wrapper _$customTYPE$;
 
+        private $customTYPE$Wrapper _$customTYPE$;
+        
         public $customTYPE$Wrapper $customTYPE$
         {
             get { return _$customTYPE$; }
@@ -144,7 +143,7 @@ namespace $customAPPLICATION$.Presentation.ViewModels
 
             Initialize$customTYPE$PhoneNumbers(item.PhoneNumbers);
 
-            await LoadFoodsLookupAsync();
+            await Load$xxxITEMxxx$sLookupAsync();
 
             Log.VIEWMODEL("($customTYPE$DetailViewModel) Exit", Common.LOG_APPNAME, startTicks);
         }
@@ -329,7 +328,7 @@ namespace $customAPPLICATION$.Presentation.ViewModels
 
             foreach (var phoneNumber in phoneNumbers)
             {
-                var wrapper = new DogPhoneNumberWrapper(phoneNumber);
+                var wrapper = new $customTYPE$PhoneNumberWrapper(phoneNumber);
                 PhoneNumbers.Add(wrapper);
                 wrapper.PropertyChanged += $customTYPE$PhoneNumberWrapper_PropertyChanged;
             }
@@ -360,7 +359,7 @@ namespace $customAPPLICATION$.Presentation.ViewModels
             $xxxITEMxxx$s.Clear();
 
             //ProgrammingLanguages.Add(new NullLookupItem());
-            Foods.Add(new NullLookupItem { DisplayMember = " - " });
+            $xxxITEMxxx$s.Add(new NullLookupItem { DisplayMember = " - " });
 
             var lookup = await _$xxxITEMxxx$LookupDataService
                                 .Get$xxxITEMxxx$LookupAsync();

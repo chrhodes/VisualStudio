@@ -55,7 +55,7 @@ namespace $customAPPLICATION$.Presentation.ModelWrappers
             set { SetValue(value); }
         }
 
-                public int? FavoriteFoodId
+        public int? Favorite$customTYPE$Id
         {
             get { return GetValue<int?>(); }
             set { SetValue(value); }
@@ -82,6 +82,12 @@ namespace $customAPPLICATION$.Presentation.ModelWrappers
         public byte[] RowVersion
         {
             get { return GetValue<byte[]>(); }
+            set { SetValue(value); }
+        }
+        
+        public int? Favorite$xxxITEMxxx$Id
+        {
+            get { return GetValue<int?>(); }
             set { SetValue(value); }
         }
 

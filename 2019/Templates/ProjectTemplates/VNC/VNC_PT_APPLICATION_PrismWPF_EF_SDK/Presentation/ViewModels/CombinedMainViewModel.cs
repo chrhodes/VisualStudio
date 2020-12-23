@@ -135,7 +135,7 @@ namespace $customAPPLICATION$.Presentation.ViewModels
 
         private async void OnOpenDetailView(OpenDetailViewEventArgs args)
         {
-            Int64 startTicks = Log.EVENT_HANDLER($"(DogMainViewModel) Enter Id:({args.Id}(", Common.LOG_APPNAME);
+            Int64 startTicks = Log.EVENT_HANDLER($"($customTYPE$MainViewModel) Enter Id:({args.Id}(", Common.LOG_APPNAME);
 
             var detailViewModel = DetailViewModels
                     .SingleOrDefault(vm => vm.Id == args.Id
@@ -175,9 +175,8 @@ namespace $customAPPLICATION$.Presentation.ViewModels
                 }
                 catch (Exception ex)
                 {
-                    MessageDialogService.ShowInfoDialog(
-                        "Cannot load the entity, it may have been deleted" +
-                        " by another user.  Updating Navigation");
+                    MessageDialogService.ShowInfoDialog($"Cannot load the entity ({ex})" +
+                        "It may have been deleted by another user.  Updating Navigation");
                     await NavigationViewModel.LoadAsync();
                     return;
                 }
@@ -187,7 +186,7 @@ namespace $customAPPLICATION$.Presentation.ViewModels
 
             SelectedDetailViewModel = detailViewModel;
 
-            Log.VIEWMODEL("(DogMainViewModel) Exit", Common.LOG_APPNAME, startTicks);
+            Log.VIEWMODEL("($customTYPE$MainViewModel) Exit", Common.LOG_APPNAME, startTicks);
         }
 
         private void AfterDetailDeleted(AfterDetailDeletedEventArgs args)

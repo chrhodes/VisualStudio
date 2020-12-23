@@ -11,7 +11,7 @@ using VNC.Core.DomainServices;
 namespace $customAPPLICATION$.DomainServices
 {
 
-    public class $customTYPE$DataService : GenericEFRepository<Dog, $customAPPLICATION$DbContext>, I$customTYPE$DataService
+    public class $customTYPE$DataService : GenericEFRepository<$customTYPE$, $customAPPLICATION$DbContext>, I$customTYPE$DataService
     {
 
         #region Constructors, Initialization, and Load
