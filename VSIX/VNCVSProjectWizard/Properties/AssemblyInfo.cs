@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("VNC")]
 [assembly: AssemblyProduct("VNCVSProjectWizard")]
-[assembly: AssemblyCopyright("VNC @2020")]
+[assembly: AssemblyCopyright("VNC © 2020-2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -53,11 +53,11 @@ using System.Runtime.InteropServices;
 //  Version     Date        By
 //  1.0.0.0     01/09/2014   Christopher Rhodes
 //      Initial Version
-[assembly: AssemblyFileVersion("1.1.0.2")]
+[assembly: AssemblyFileVersion("1.1.0.4")]
 
 // AssemblyInformationalVersion History
 //
 //  Version   Date        By
 //  1.0.0.0   mm/dd/yyyy    Developer
 //      Initial Version
-[assembly: AssemblyInformationalVersion("2020.12.20A")]
+[assembly: AssemblyInformationalVersion("2021.01.06A")]

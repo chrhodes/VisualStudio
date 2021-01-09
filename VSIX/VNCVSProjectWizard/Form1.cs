@@ -7,6 +7,8 @@ namespace VNCVSProjectWizard
     public partial class Form1 : Form
     {
         private static string customAPPLICATION;
+        private static string customNAMESPACE;
+
         private static string customEVENT;
         private static string customTYPE;
         private static string customITEM;
@@ -26,6 +28,18 @@ namespace VNCVSProjectWizard
             set
             {
                 customAPPLICATION = value;
+            }
+        }
+
+        public static string CustomNAMESPACE
+        {
+            get
+            {
+                return customNAMESPACE;
+            }
+            set
+            {
+                customNAMESPACE = value;
             }
         }
 
@@ -68,11 +82,13 @@ namespace VNCVSProjectWizard
         private void button1_Click(object sender, EventArgs e)
         {
             customAPPLICATION = txtAPPLICATION.Text;
+            customNAMESPACE = txtNAMESPACE.Text;
             customEVENT = txtEVENT.Text;
             customTYPE = txtTYPE.Text;
             customITEM = txtITEM.Text;
 
             this.Close();
         }
+
     }
 }

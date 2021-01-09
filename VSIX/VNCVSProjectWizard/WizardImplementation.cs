@@ -17,9 +17,10 @@ namespace VNCVSProjectWizard
 
         // NOTE(crhodes)
         // Make these sharable across invocations, e.g. in Solution Template.
-        private static string customAPPLICATION;
-        private static string customEVENT;
-        private static string customTYPE;
+        private static string xxxAPPLICATIONxxx;
+        private static string xxxNAMESPACExxx;
+        private static string xxxEVENTxxx;
+        private static string xxxTYPExxx;
         private static string xxxITEMxxx;
 
         private object currentAutomationObject;
@@ -57,26 +58,36 @@ namespace VNCVSProjectWizard
                 inputForm = new Form1();
                 inputForm.lblTemplate.Text = $"item: >{customParams[0]}<";
                 inputForm.Text = "VNC VS ProjectWizard";
-                inputForm.Controls["txtAPPLICATION"].Text = customAPPLICATION;
-                inputForm.Controls["txtTYPE"].Text = customTYPE;
-                inputForm.Controls["txtEVENT"].Text = customEVENT;
+
+                inputForm.Controls["txtAPPLICATION"].Text = xxxAPPLICATIONxxx;
+                inputForm.Controls["txtNAMESPACE"].Text = xxxNAMESPACExxx;
+
+                inputForm.Controls["txtTYPE"].Text = xxxTYPExxx;
+                inputForm.Controls["txtEVENT"].Text = xxxEVENTxxx;
                 inputForm.Controls["txtITEM"].Text = xxxITEMxxx;
+
                 inputForm.ShowDialog();
 
-                customAPPLICATION = Form1.CustomAPPLICATION;
-                customEVENT = Form1.CustomEVENT;
-                customTYPE = Form1.CustomTYPE;
+                xxxAPPLICATIONxxx = Form1.CustomAPPLICATION;
+                xxxNAMESPACExxx = Form1.CustomNAMESPACE;
+                xxxEVENTxxx = Form1.CustomEVENT;
+                xxxTYPExxx = Form1.CustomTYPE;
                 xxxITEMxxx = Form1.CustomITEM;
 
-                Log.Trace($"customAPPLICATION: >{customAPPLICATION}<", cAPPNAME, startTicks);
-                Log.Trace($"customEVENT: >{customEVENT}<", cAPPNAME, startTicks);
-                Log.Trace($"customTYPE: >{customTYPE}<", cAPPNAME, startTicks);
+                Log.Trace($"xxxAPPLICATIONxxx: >{xxxAPPLICATIONxxx}<", cAPPNAME, startTicks);
+                Log.Trace($"xxxNAMESPACExxx: >{xxxNAMESPACExxx}<", cAPPNAME, startTicks);
+
+                Log.Trace($"xxxEVENTxxx: >{xxxEVENTxxx}<", cAPPNAME, startTicks);
+                Log.Trace($"xxxTYPExxx: >{xxxTYPExxx}<", cAPPNAME, startTicks);
                 Log.Trace($"xxxITEMxxx: >{xxxITEMxxx}<", cAPPNAME, startTicks);
 
                 // Add custom parameters.
-                replacementsDictionary.Add("$customAPPLICATION$", customAPPLICATION);
-                replacementsDictionary.Add("$customEVENT$", customEVENT);
-                replacementsDictionary.Add("$customTYPE$", customTYPE);
+
+                replacementsDictionary.Add("$xxxAPPLICATIONxxx$", xxxAPPLICATIONxxx);
+                replacementsDictionary.Add("$xxxNAMESPACExxx$", xxxNAMESPACExxx);
+
+                replacementsDictionary.Add("$xxxEVENTxxx$", xxxEVENTxxx);
+                replacementsDictionary.Add("$xxxTYPExxx$", xxxTYPExxx);
                 replacementsDictionary.Add("$xxxITEMxxx$", xxxITEMxxx);
             }
             catch (Exception ex)
@@ -217,26 +228,24 @@ namespace VNCVSProjectWizard
         {
             long startTicks = Log.Trace($"Enter projectItem.Name: >{projectItem.Name}<", cAPPNAME);
 
-            //ReplaceTagsInProjectItem(projectItem);
             if (projectItem.Name.Contains("APPLICATION"))
             {
-                //projectItem.Open();
-                projectItem.Name = projectItem.Name.Replace("APPLICATION", customAPPLICATION); ;
-                //projectItem.Save();
+                projectItem.Name = projectItem.Name.Replace("APPLICATION", xxxAPPLICATIONxxx); ;
+            }
+
+            if (projectItem.Name.Contains("NAMESPACE"))
+            {
+                projectItem.Name = projectItem.Name.Replace("NAMESPACE", xxxNAMESPACExxx); ;
             }
 
             if (projectItem.Name.Contains("TYPE"))
             {
-                //projectItem.Open();
-                projectItem.Name = projectItem.Name.Replace("TYPE", customTYPE); ;
-                //projectItem.Save();
+                projectItem.Name = projectItem.Name.Replace("TYPE", xxxTYPExxx); ;
             }
 
             if (projectItem.Name.Contains("ITEM"))
             {
-                //projectItem.Open();
                 projectItem.Name = projectItem.Name.Replace("ITEM", xxxITEMxxx); ;
-                //projectItem.Save();
             }
 
             Log.Trace("Exit", cAPPNAME, startTicks);
@@ -249,14 +258,22 @@ namespace VNCVSProjectWizard
             if (projectItem.Name.Contains("APPLICATION"))
             {
                 projectItem.Open();
-                projectItem.Name = projectItem.Name.Replace("APPLICATION", customAPPLICATION);
+                projectItem.Name = projectItem.Name.Replace("APPLICATION", xxxAPPLICATIONxxx);
                 projectItem.Save();
             }
+
+            if (projectItem.Name.Contains("NAMESPACE"))
+            {
+                projectItem.Open();
+                projectItem.Name = projectItem.Name.Replace("NAMESPACE", xxxNAMESPACExxx);
+                projectItem.Save();
+            }
+
 
             if (projectItem.Name.Contains("TYPE"))
             {
                 projectItem.Open();
-                projectItem.Name = projectItem.Name.Replace("TYPE", customTYPE); ;
+                projectItem.Name = projectItem.Name.Replace("TYPE", xxxTYPExxx); ;
                 projectItem.Save();
             }
 
@@ -298,10 +315,14 @@ namespace VNCVSProjectWizard
             var originalParentProjectItem = project.ParentProjectItem;
             var originalProjectFolder = Path.GetDirectoryName(originalFileName);
 
-            if (originalName.Contains("APPLICATION") || originalName.Contains("TYPE") || originalName.Contains("ITEM"))
+            if (originalName.Contains("APPLICATION")
+                || originalName.Contains("NAMESPACE")
+                || originalName.Contains("TYPE") 
+                || originalName.Contains("ITEM"))
             {
-                string newProjectName = originalName.Replace("APPLICATION", customAPPLICATION);
-                newProjectName = newProjectName.Replace("TYPE", customTYPE);
+                string newProjectName = originalName.Replace("APPLICATION", xxxAPPLICATIONxxx);
+                newProjectName = newProjectName.Replace("NAMESPACE", xxxNAMESPACExxx);
+                newProjectName = newProjectName.Replace("TYPE", xxxTYPExxx);
                 newProjectName = newProjectName.Replace("ITEM", xxxITEMxxx);
 
                 project.Name = newProjectName;
