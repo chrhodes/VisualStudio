@@ -13,6 +13,8 @@ namespace VNCVSProjectWizard
         private static string customTYPE;
         private static string customITEM;
 
+        private static string customACTION;
+
         public Form1()
         {
             InitializeComponent();
@@ -79,6 +81,18 @@ namespace VNCVSProjectWizard
             }
         }
 
+        public static string CustomACTION
+        {
+            get
+            {
+                return customACTION;
+            }
+            set
+            {
+                customACTION = value;
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             customAPPLICATION = txtAPPLICATION.Text;
@@ -86,6 +100,8 @@ namespace VNCVSProjectWizard
             customEVENT = txtEVENT.Text;
             customTYPE = txtTYPE.Text;
             customITEM = txtITEM.Text;
+
+            customACTION = txtACTION.Text;
 
             this.Close();
         }

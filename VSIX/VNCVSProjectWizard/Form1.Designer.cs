@@ -41,6 +41,8 @@
             this.lblTemplate = new System.Windows.Forms.Label();
             this.txtNAMESPACE = new System.Windows.Forms.TextBox();
             this.lblNAMESPACE = new System.Windows.Forms.Label();
+            this.lblACTION = new System.Windows.Forms.Label();
+            this.txtACTION = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblAPPLICATION
@@ -93,7 +95,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(202, 233);
+            this.btnSave.Location = new System.Drawing.Point(202, 291);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(234, 35);
             this.btnSave.TabIndex = 7;
@@ -135,27 +137,45 @@
             this.lblTemplate.TabIndex = 10;
             this.lblTemplate.Text = "Template";
             // 
-            // textBox1
+            // txtNAMESPACE
             // 
             this.txtNAMESPACE.Location = new System.Drawing.Point(599, 53);
             this.txtNAMESPACE.Name = "txtNAMESPACE";
             this.txtNAMESPACE.Size = new System.Drawing.Size(234, 26);
             this.txtNAMESPACE.TabIndex = 12;
             // 
-            // label2
+            // lblNAMESPACE
             // 
             this.lblNAMESPACE.AutoSize = true;
             this.lblNAMESPACE.Location = new System.Drawing.Point(472, 56);
             this.lblNAMESPACE.Name = "lblNAMESPACE";
-            this.lblNAMESPACE.Size = new System.Drawing.Size(113, 20);
+            this.lblNAMESPACE.Size = new System.Drawing.Size(109, 20);
             this.lblNAMESPACE.TabIndex = 11;
             this.lblNAMESPACE.Text = "NAMESPACE";
+            // 
+            // lblACTION
+            // 
+            this.lblACTION.AutoSize = true;
+            this.lblACTION.Location = new System.Drawing.Point(513, 122);
+            this.lblACTION.Name = "lblACTION";
+            this.lblACTION.Size = new System.Drawing.Size(68, 20);
+            this.lblACTION.TabIndex = 13;
+            this.lblACTION.Text = "ACTION";
+            // 
+            // txtACTION
+            // 
+            this.txtACTION.Location = new System.Drawing.Point(599, 122);
+            this.txtACTION.Name = "txtACTION";
+            this.txtACTION.Size = new System.Drawing.Size(234, 26);
+            this.txtACTION.TabIndex = 14;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1178, 450);
+            this.Controls.Add(this.txtACTION);
+            this.Controls.Add(this.lblACTION);
             this.Controls.Add(this.txtNAMESPACE);
             this.Controls.Add(this.lblNAMESPACE);
             this.Controls.Add(this.lblTemplate);
@@ -191,5 +211,7 @@
         public System.Windows.Forms.Label lblTemplate;
         private System.Windows.Forms.TextBox txtNAMESPACE;
         private System.Windows.Forms.Label lblNAMESPACE;
+        private System.Windows.Forms.Label lblACTION;
+        private System.Windows.Forms.TextBox txtACTION;
     }
 }

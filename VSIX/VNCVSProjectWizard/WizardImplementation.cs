@@ -17,11 +17,14 @@ namespace VNCVSProjectWizard
 
         // NOTE(crhodes)
         // Make these sharable across invocations, e.g. in Solution Template.
+
         private static string xxxAPPLICATIONxxx;
         private static string xxxNAMESPACExxx;
         private static string xxxEVENTxxx;
         private static string xxxTYPExxx;
         private static string xxxITEMxxx;
+
+        private static string xxxACTIONxxx;
 
         private object currentAutomationObject;
         private object[] currentAutomationObjectParams;
@@ -66,6 +69,8 @@ namespace VNCVSProjectWizard
                 inputForm.Controls["txtEVENT"].Text = xxxEVENTxxx;
                 inputForm.Controls["txtITEM"].Text = xxxITEMxxx;
 
+                inputForm.Controls["txtACTION"].Text = xxxACTIONxxx;
+
                 inputForm.ShowDialog();
 
                 xxxAPPLICATIONxxx = Form1.CustomAPPLICATION;
@@ -74,12 +79,16 @@ namespace VNCVSProjectWizard
                 xxxTYPExxx = Form1.CustomTYPE;
                 xxxITEMxxx = Form1.CustomITEM;
 
+                xxxACTIONxxx = Form1.CustomACTION;
+
                 Log.Trace($"xxxAPPLICATIONxxx: >{xxxAPPLICATIONxxx}<", cAPPNAME, startTicks);
                 Log.Trace($"xxxNAMESPACExxx: >{xxxNAMESPACExxx}<", cAPPNAME, startTicks);
 
                 Log.Trace($"xxxEVENTxxx: >{xxxEVENTxxx}<", cAPPNAME, startTicks);
                 Log.Trace($"xxxTYPExxx: >{xxxTYPExxx}<", cAPPNAME, startTicks);
                 Log.Trace($"xxxITEMxxx: >{xxxITEMxxx}<", cAPPNAME, startTicks);
+
+                Log.Trace($"xxxACTIONxxx: >{xxxACTIONxxx}<", cAPPNAME, startTicks);
 
                 // Add custom parameters.
 
@@ -89,6 +98,8 @@ namespace VNCVSProjectWizard
                 replacementsDictionary.Add("$xxxEVENTxxx$", xxxEVENTxxx);
                 replacementsDictionary.Add("$xxxTYPExxx$", xxxTYPExxx);
                 replacementsDictionary.Add("$xxxITEMxxx$", xxxITEMxxx);
+
+                replacementsDictionary.Add("$xxxACTIONxxx$", xxxACTIONxxx);
             }
             catch (Exception ex)
             {
@@ -153,6 +164,8 @@ namespace VNCVSProjectWizard
         {
             long startTicks = Log.Trace("Enter", cAPPNAME);
 
+            ReplaceTagsinFileName(projectItem);
+
             Log.Trace("Exit", cAPPNAME, startTicks);
         }
 
@@ -173,6 +186,8 @@ namespace VNCVSProjectWizard
 
             foreach (ProjectItem projectItem in projectItems)
             {
+                Log.Trace($"projectItem: ({projectItem.Name})", cAPPNAME);
+
                 // Recursively descend if the current item contains projectItems
                 if (projectItem.ProjectItems.Count > 0) RenameProjectItems(projectItem.ProjectItems);
 
@@ -228,6 +243,9 @@ namespace VNCVSProjectWizard
         {
             long startTicks = Log.Trace($"Enter projectItem.Name: >{projectItem.Name}<", cAPPNAME);
 
+            // TODO(crhodes)
+            // Maybe a PerformReplacement<T>()
+
             if (projectItem.Name.Contains("APPLICATION"))
             {
                 projectItem.Name = projectItem.Name.Replace("APPLICATION", xxxAPPLICATIONxxx); ;
@@ -246,6 +264,11 @@ namespace VNCVSProjectWizard
             if (projectItem.Name.Contains("ITEM"))
             {
                 projectItem.Name = projectItem.Name.Replace("ITEM", xxxITEMxxx); ;
+            }
+
+            if (projectItem.Name.Contains("ACTION"))
+            {
+                projectItem.Name = projectItem.Name.Replace("ACTION", xxxACTIONxxx); ;
             }
 
             Log.Trace("Exit", cAPPNAME, startTicks);
@@ -285,6 +308,14 @@ namespace VNCVSProjectWizard
                 projectItem.Save();
             }
 
+
+            if (projectItem.Name.Contains("ACTION"))
+            {
+                projectItem.Open();
+                projectItem.Name = projectItem.Name.Replace("ACTION", xxxACTIONxxx); ;
+                projectItem.Save();
+            }
+
             Log.Trace("Exit", cAPPNAME, startTicks);
         }
 
@@ -318,12 +349,15 @@ namespace VNCVSProjectWizard
             if (originalName.Contains("APPLICATION")
                 || originalName.Contains("NAMESPACE")
                 || originalName.Contains("TYPE") 
-                || originalName.Contains("ITEM"))
+                || originalName.Contains("ITEM")
+                || originalName.Contains("ACTION")
+                )
             {
                 string newProjectName = originalName.Replace("APPLICATION", xxxAPPLICATIONxxx);
                 newProjectName = newProjectName.Replace("NAMESPACE", xxxNAMESPACExxx);
                 newProjectName = newProjectName.Replace("TYPE", xxxTYPExxx);
                 newProjectName = newProjectName.Replace("ITEM", xxxITEMxxx);
+                newProjectName = newProjectName.Replace("ACTION", xxxACTIONxxx);
 
                 project.Name = newProjectName;
                 project.Save();

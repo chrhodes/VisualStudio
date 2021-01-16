@@ -3,7 +3,7 @@
     <Metadata>
         <Identity Id="VNCVSProjectWizard.069681a4-f5fb-44bf-8c06-7288114020f1" Version="1.0" Language="en-US" Publisher="Christopher Rhodes" />
         <DisplayName>VNCVSProjectWizard</DisplayName>
-        <Description xml:space="preserve">Renames embedded APPLICATION, NAMESPACE, TYPE, and EVENT keywords in project templates
+        <Description xml:space="preserve">Renames embedded APPLICATION, NAMESPACE, TYPE, ITEM, EVENT, and ACTION keywords in project templates
 Embedded values start with $xxx and end with xxx$ , e.g. $xxxAPPLICATIONxxx$, $xxxNAMESPACExxx$, etc.</Description>
     </Metadata>
     <Installation>
