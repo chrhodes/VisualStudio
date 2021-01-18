@@ -16,7 +16,7 @@
     <loggingConfiguration name="Logging Application Block" 
         tracingEnabled="true" 
         defaultCategory="General" 
-		logWarningsWhenNoCategoriesMatch="true">
+        logWarningsWhenNoCategoriesMatch="true">
       <listeners>
         <add name="FlatFile TraceListener" fileName="C:\temp\logs\VNCVSProjectWizard\VNCVSProjectWizard.log" header="" footer="" formatter="FlatFile Formatter" listenerDataType="Microsoft.Practices.EnterpriseLibrary.Logging.Configuration.FlatFileTraceListenerData, 
             Microsoft.Practices.EnterpriseLibrary.Logging, 
