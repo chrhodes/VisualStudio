@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Windows;
 
-using $customAPPLICATION$.ViewModels;
+using $xxxAPPLICATIONxxx$.Presentation.ViewModels;
 
 using VNC;
+using VNC.Core.Mvvm;
 
-namespace $customAPPLICATION$.Presentation.Views
+namespace $xxxAPPLICATIONxxx$.Presentation.Views
 {
-    public partial class MainWindowDxDockLayoutManager : Window
+    public partial class MainDxDockLayoutManager : ViewBase, IMain
     {
-        public MainWindowDxDockLayoutManagerViewModel _viewModel;
+        public MainDxDockLayoutManagerViewModel _viewModel;
 
-        public MainWindowDxDockLayoutManager(MainWindowDxDockLayoutManagerViewModel viewModel)
+        public MainDxDockLayoutManager(MainDxDockLayoutManagerViewModel viewModel)
         {
             Int64 startTicks = Log.CONSTRUCTOR($"Enter ({viewModel.GetType()})", Common.LOG_APPNAME);
 

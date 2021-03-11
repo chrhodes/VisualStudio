@@ -3,12 +3,12 @@
 using VNC;
 using VNC.Core.Mvvm;
 
-namespace $customAPPLICATION$.ViewModels
+namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
 {
-    public class MainWindowDxDockLayoutManagerViewModel : ViewModelBase
+    public class MainDxLayoutViewModel : ViewModelBase
     {
-        private string _title = "$customAPPLICATION$ - MainWindowDxDockLayoutManager";
-
+        private string _title = "$xxxAPPLICATIONxxx$ - MainWindowDxLayout";
+        
         public string Title
         {
             get => _title;
@@ -20,7 +20,7 @@ namespace $customAPPLICATION$.ViewModels
                 OnPropertyChanged();
             }
         }
-
+        
         // ObservableCollection notifies databinding when collection changes
         // because it implements INotifyCollectionChanged
 
@@ -31,7 +31,7 @@ namespace $customAPPLICATION$.ViewModels
         //public IAddressDataService _addressDataService { get; set; }
 
         //public IMaterialDataService _materialDataService { get; set; }
-        public MainWindowDxDockLayoutManagerViewModel()
+        public MainDxLayoutViewModel()
         {
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
 

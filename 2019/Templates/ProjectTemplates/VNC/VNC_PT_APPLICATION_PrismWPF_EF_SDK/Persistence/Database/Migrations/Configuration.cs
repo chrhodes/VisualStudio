@@ -3,9 +3,9 @@ using System.Data.Entity.Migrations;
 
 using VNC;
 
-namespace $customAPPLICATION$.Persistence.Data.Migrations
+namespace $xxxAPPLICATIONxxx$.Persistence.Data.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<$customAPPLICATION$DbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<$xxxAPPLICATIONxxx$DbContext>
     {
         public Configuration()
         {
@@ -16,7 +16,7 @@ namespace $customAPPLICATION$.Persistence.Data.Migrations
             Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
         }
 
-        protected override void Seed($customAPPLICATION$DbContext context)
+        protected override void Seed($xxxAPPLICATIONxxx$DbContext context)
         {
             Int64 startTicks = Log.PERSISTENCE("Enter", Common.LOG_APPNAME);
 
@@ -28,39 +28,39 @@ namespace $customAPPLICATION$.Persistence.Data.Migrations
             Log.PERSISTENCE("Exit", Common.LOG_APPNAME, startTicks);
         }
 
-        void SeedInitialDatabaseTables($customAPPLICATION$DbContext context)
+        void SeedInitialDatabaseTables($xxxAPPLICATIONxxx$DbContext context)
         {
             Int64 startTicks = Log.PERSISTENCE("Enter", Common.LOG_APPNAME);
 
             //  Use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.
 
-            context.$customTYPE$sSet.AddOrUpdate(
+            context.$xxxTYPExxx$sSet.AddOrUpdate(
                 i => i.Id,
-                new Domain.$customTYPE$
+                new Domain.$xxxTYPExxx$
                 {
                     Id = 1,
-                    FieldString = "$customTYPE$1",
+                    FieldString = "$xxxTYPExxx$1",
                     FieldInt = 1,
                     FieldSingle = 1.1f,
                     FieldDouble = 11.11,
                     FieldDate = new DateTime(2001, 1, 1),
                     DateCreated = DateTime.Now
                 },
-                new Domain.$customTYPE$
+                new Domain.$xxxTYPExxx$
                 {
                     Id = 2,
-                    FieldString = "$customTYPE$2",
+                    FieldString = "$xxxTYPExxx$2",
                     FieldInt = 2,
                     FieldSingle = 2.2f,
                     FieldDouble = 22.22,
                     FieldDate = new DateTime(2002, 2, 2),
                     DateCreated = DateTime.Now
                 },
-                new Domain.$customTYPE$
+                new Domain.$xxxTYPExxx$
                 {
                     Id = 3,
-                    FieldString = "$customTYPE$3",
+                    FieldString = "$xxxTYPExxx$3",
                     FieldInt = 3,
                     FieldSingle = 3.3f,
                     FieldDouble = 33.33,

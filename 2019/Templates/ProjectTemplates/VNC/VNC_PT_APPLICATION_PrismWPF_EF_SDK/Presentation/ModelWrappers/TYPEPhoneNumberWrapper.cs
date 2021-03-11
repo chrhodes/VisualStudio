@@ -1,12 +1,12 @@
-﻿using $customAPPLICATION$.Domain;
+using $xxxAPPLICATIONxxx$.Domain;
 
 using VNC.Core.Mvvm;
 
-namespace $customAPPLICATION$.Presentation.ModelWrappers
+namespace $xxxAPPLICATIONxxx$.Presentation.ModelWrappers
 {
-    public class $customTYPE$PhoneNumberWrapper : ModelWrapper<$customTYPE$PhoneNumber>
+    public class $xxxTYPExxx$PhoneNumberWrapper : ModelWrapper<$xxxTYPExxx$PhoneNumber>
     {
-        public $customTYPE$PhoneNumberWrapper($customTYPE$PhoneNumber model) : base(model)
+        public $xxxTYPExxx$PhoneNumberWrapper($xxxTYPExxx$PhoneNumber model) : base(model)
         {
         }
 

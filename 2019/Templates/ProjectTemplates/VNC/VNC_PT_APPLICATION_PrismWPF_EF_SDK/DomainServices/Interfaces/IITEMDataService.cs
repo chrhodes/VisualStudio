@@ -1,13 +1,13 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 
-using $customAPPLICATION$.Domain;
+using $xxxAPPLICATIONxxx$.Domain;
 
 using VNC.Core.DomainServices;
 
-namespace $customAPPLICATION$.DomainServices
+namespace $xxxAPPLICATIONxxx$.DomainServices
 {
     public interface I$xxxITEMxxx$DataService : IGenericRepository<$xxxITEMxxx$>
     {
-        Task<bool> IsReferencedBy$customTYPE$Async(int id);
+        Task<bool> IsReferencedBy$xxxTYPExxx$Async(int id);
     }
 }

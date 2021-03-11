@@ -1,3 +1,3 @@
-﻿$customAPPLICATION$\Diagrams\
+﻿$xxxAPPLICATIONxxx$\Diagrams\
 
 Notes for using this template

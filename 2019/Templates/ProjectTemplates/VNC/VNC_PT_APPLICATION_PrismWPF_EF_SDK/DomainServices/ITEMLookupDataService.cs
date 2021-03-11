@@ -1,23 +1,23 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 
-using $customAPPLICATION$.Persistence.Data;
+using $xxxAPPLICATIONxxx$.Persistence.Data;
 
 using VNC;
 
 using VNC.Core.DomainServices;
 
-namespace $customAPPLICATION$.DomainServices
+namespace $xxxAPPLICATIONxxx$.DomainServices
 {
     public class $xxxITEMxxx$LookupDataService : I$xxxITEMxxx$LookupDataService
     {
 
         #region Constructors, Initialization, and Load
 
-        public $xxxITEMxxx$LookupDataService(Func<$customAPPLICATION$DbContext> context)
+        public $xxxITEMxxx$LookupDataService(Func<$xxxAPPLICATIONxxx$DbContext> context)
         {
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
 
@@ -40,7 +40,7 @@ namespace $customAPPLICATION$.DomainServices
 
         #region Fields and Properties
 
-        private Func<$customAPPLICATION$DbContext> _contextCreator;
+        private Func<$xxxAPPLICATIONxxx$DbContext> _contextCreator;
 
         #endregion
 

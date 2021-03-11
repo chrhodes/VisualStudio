@@ -1,5 +1,5 @@
-﻿<Window 
-    x:Class="$customAPPLICATION$.Presentation.Views.MainWindowDxDockLayoutManager"
+﻿<vncmvvm:ViewBase
+    x:Class="$xxxAPPLICATIONxxx$.Presentation.Views.MainDxDockLayoutManager"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -14,15 +14,13 @@
     xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
         
     xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-    xmlns:infra="clr-namespace:$customAPPLICATION$.Core"
+    xmlns:infra="clr-namespace:$xxxAPPLICATIONxxx$.Core"
     xmlns:prism="http://prismlibrary.com/"
+    xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
+      
+    xmlns:local="clr-namespace:$xxxAPPLICATIONxxx$.Presentation.Views"
     
-    xmlns:local="clr-namespace:$customAPPLICATION$.Presentation.Views"
-    
-    Width="1200"
-    Height="800"
     prism:ViewModelLocator.AutoWireViewModel="True"
-    Title="{Binding Title}"
     d:DesignHeight="200" d:DesignWidth="300"         
 >
     <!--xmlns:infra="clr-namespace:$customAPPLICATON$.Core;assembly=$customAPPLICATON$.Core"-->
@@ -88,9 +86,9 @@
 
                                 <!-- Individual LayoutGroups go here (if you use tabs or groups)-->
                                 
-                                <dxlc:LayoutGroup Header="$customTYPE$" >
+                                <dxlc:LayoutGroup Header="$xxxTYPExxx$" >
                                     <Grid>
-                                        <ContentControl prism:RegionManager.RegionName="{x:Static infra:RegionNames.$customTYPE$MainRegion}" />
+                                        <ContentControl prism:RegionManager.RegionName="{x:Static infra:RegionNames.$xxxTYPExxx$MainRegion}" />
                                     </Grid>
                                     <!--<Grid>
                                         <Grid.ColumnDefinitions>
@@ -98,9 +96,9 @@
                                             <ColumnDefinition />
                                         </Grid.ColumnDefinitions>
                                         <ContentControl Grid.Column="0" 
-                                                        prism:RegionManager.RegionName="{x:Static infra:RegionNames.$customTYPE$NavigationRegion}" />
+                                                        prism:RegionManager.RegionName="{x:Static infra:RegionNames.$xxxTYPExxx$NavigationRegion}" />
                                         <ContentControl Grid.Column="1" 
-                                                        prism:RegionManager.RegionName="{x:Static infra:RegionNames.$customTYPE$DetailRegion}" />
+                                                        prism:RegionManager.RegionName="{x:Static infra:RegionNames.$xxxTYPExxx$DetailRegion}" />
                                     </Grid>-->
                                 </dxlc:LayoutGroup>
                                 
@@ -114,9 +112,9 @@
                                             <!-- <ColumnDefinition /> -->
                                         <!-- </Grid.ColumnDefinitions> -->
                                         <!-- <ContentControl Grid.Column="0"  -->
-                                                        <!-- prism:RegionManager.RegionName="{x:Static infra:RegionNames.$customTYPE$NavigationRegion}" /> -->
+                                                        <!-- prism:RegionManager.RegionName="{x:Static infra:RegionNames.$xxxTYPExxx$NavigationRegion}" /> -->
                                         <!-- <ContentControl Grid.Column="1"  -->
-                                                        <!-- prism:RegionManager.RegionName="{x:Static infra:RegionNames.$customTYPE$DetailRegion}" /> -->
+                                                        <!-- prism:RegionManager.RegionName="{x:Static infra:RegionNames.$xxxTYPExxx$DetailRegion}" /> -->
                                     <!-- </Grid> -->
                                 <!-- </dxlc:LayoutGroup> -->
 
@@ -161,5 +159,4 @@
 
     </dxlc:LayoutControl>
 
-</Window>
-
+</vncmvvm:ViewBase>

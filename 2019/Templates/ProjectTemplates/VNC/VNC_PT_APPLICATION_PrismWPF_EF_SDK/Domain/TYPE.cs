@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
@@ -6,13 +6,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 using VNC.Core.DomainServices;
 
-namespace $customAPPLICATION$.Domain
+namespace $xxxAPPLICATIONxxx$.Domain
 {
-    public class $customTYPE$ : IEntity<int>, IModificationHistory, IOptimistic
+    public class $xxxTYPExxx$ : IEntity<int>, IModificationHistory, IOptimistic
     {
-        public $customTYPE$()
+        public $xxxTYPExxx$()
         {
-            PhoneNumbers = new Collection<$customTYPE$PhoneNumber>();
+            PhoneNumbers = new Collection<$xxxTYPExxx$PhoneNumber>();
             //Meetings = new Collection<Meeting>();
         }
 
@@ -45,7 +45,7 @@ namespace $customAPPLICATION$.Domain
         [EmailAddress]
         public string Email { get; set; }
 
-        public ICollection<$customTYPE$PhoneNumber> PhoneNumbers { get; set; }
+        public ICollection<$xxxTYPExxx$PhoneNumber> PhoneNumbers { get; set; }
 
         public int? Favorite$xxxITEMxxx$Id { get; set; }
 

@@ -1,22 +1,22 @@
 ﻿using System;
 using System.Windows;
 
-using $customAPPLICATION$.ViewModels;
+using $xxxAPPLICATIONxxx$.Presentation.ViewModels;
 
 using VNC;
 
-namespace $customAPPLICATION$.Presentation.Views
+namespace $xxxAPPLICATIONxxx$.Presentation.Views
 {
-    public partial class MainWindow : Window
+    public partial class RibbonShell : Window
     {
-        public MainWindowViewModel _viewModel;
-        
-        public MainWindow(MainWindowViewModel viewModel)
+        public RibbonShellViewModel _viewModel;
+
+        public RibbonShell(RibbonShellViewModel viewModel)
         {
             Int64 startTicks = Log.CONSTRUCTOR($"Enter ({viewModel.GetType()})", Common.LOG_APPNAME);
 
             InitializeComponent();
-            
+
             _viewModel = viewModel;
             DataContext = _viewModel;
 

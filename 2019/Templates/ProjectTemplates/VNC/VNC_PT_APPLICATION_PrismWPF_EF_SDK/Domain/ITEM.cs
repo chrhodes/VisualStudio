@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 using VNC.Core.DomainServices;
 
-namespace $customAPPLICATION$.Domain
+namespace $xxxAPPLICATIONxxx$.Domain
 {
     public class $xxxITEMxxx$ : IEntity<int>, IModificationHistory, IOptimistic
     {
@@ -29,7 +29,7 @@ namespace $customAPPLICATION$.Domain
 
         #region IOptimistic
 
-        // Need to have data annotation here.  
+        // Need to have data annotation here.
         // Presence in interface ignored.
         [Timestamp]
         public byte[] RowVersion { get; set; }

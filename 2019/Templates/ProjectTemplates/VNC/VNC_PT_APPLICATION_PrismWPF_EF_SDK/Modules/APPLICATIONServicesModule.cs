@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Prism.Ioc;
 using Prism.Modularity;
@@ -6,13 +6,13 @@ using Prism.Regions;
 
 using VNC;
 
-namespace $customAPPLICATION$.DomainServices
+namespace $xxxAPPLICATIONxxx$.DomainServices
 {
-    public class $customAPPLICATION$ServicesModule : IModule
+    public class $xxxAPPLICATIONxxx$ServicesModule : IModule
     {
         private readonly IRegionManager _regionManager;
 
-        public $customAPPLICATION$ServicesModule(IRegionManager regionManager)
+        public $xxxAPPLICATIONxxx$ServicesModule(IRegionManager regionManager)
         {
             Int64 startTicks = Log.CONSTRUCTOR(String.Format("Enter"), Common.LOG_APPNAME);
 

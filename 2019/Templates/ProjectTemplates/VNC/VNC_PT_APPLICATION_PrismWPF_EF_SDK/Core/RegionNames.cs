@@ -1,7 +1,8 @@
-﻿namespace $customAPPLICATION$.Core
+namespace $xxxAPPLICATIONxxx$.Core
 {
     public static class RegionNames
     {
+        public static string RibbonRegion = "RibbonRegion";
         public static string MainRegion = "MainRegion";
         public static string NavigationRegion = "NavigationRegion";
 
@@ -14,8 +15,8 @@
         public static string CombinedNavigationRegion = "CombinedNavigationRegion";
         public static string CombinedDetailRegion = "CombinedDetailRegion";
         
-        public static string $customTYPE$MainRegion = "$customTYPE$MainRegion";
-        public static string $customTYPE$NavigationRegion = "$customTYPE$NavigationRegion";
-        public static string $customTYPE$DetailRegion = "$customTYPE$DetailRegion";
+        public static string $xxxTYPExxx$MainRegion = "$xxxTYPExxx$MainRegion";
+        public static string $xxxTYPExxx$NavigationRegion = "$xxxTYPExxx$NavigationRegion";
+        public static string $xxxTYPExxx$DetailRegion = "$xxxTYPExxx$DetailRegion";
     }
 }

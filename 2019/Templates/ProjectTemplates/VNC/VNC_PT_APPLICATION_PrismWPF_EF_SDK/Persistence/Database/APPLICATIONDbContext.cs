@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.ModelConfiguration.Conventions;
@@ -8,54 +8,54 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using $customAPPLICATION$.Domain;
+using $xxxAPPLICATIONxxx$.Domain;
 
 using VNC;
 using VNC.Core.DomainServices;
 
-namespace $customAPPLICATION$.Persistence.Data
+namespace $xxxAPPLICATIONxxx$.Persistence.Data
 {
-    public class $customAPPLICATION$DbContext : DbContext, I$customAPPLICATION$DbContext
+    public class $xxxAPPLICATIONxxx$DbContext : DbContext, I$xxxAPPLICATIONxxx$DbContext
     {
         // TODO(crhodes)
         // Add additional DbSet<TYPE> as needed.
 
-        public DbSet<$customTYPE$> $customTYPE$sSet { get; set; }
-        public DbSet<$customTYPE$PhoneNumber> $customTYPE$PhoneNumbersSet { get; set; }
+        public DbSet<$xxxTYPExxx$> $xxxTYPExxx$sSet { get; set; }
+        public DbSet<$xxxTYPExxx$PhoneNumber> $xxxTYPExxx$PhoneNumbersSet { get; set; }
 
         public DbSet<$xxxITEMxxx$> $xxxITEMxxx$sSet { get; set; }
 
         // Name of connection string in Config
 
-        public $customAPPLICATION$DbContext() : base("$customAPPLICATION$_DB")
+        public $xxxAPPLICATIONxxx$DbContext() : base("$xxxAPPLICATIONxxx$_DB")
         {
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
-            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<$customAPPLICATION$DbContext, Configuration>());
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<$xxxAPPLICATIONxxx$DbContext, Configuration>());
 
             // There are four database initialization strategies
 
             // 1. CreateDatabaseIfNotExists (default)
 
-            // Database.SetInitializer<$customAPPLICATION$DbContext>(new CreateDatabaseIfNotExists<$customAPPLICATION$DbContext>());
+            // Database.SetInitializer<$xxxAPPLICATIONxxx$DbContext>(new CreateDatabaseIfNotExists<$xxxAPPLICATIONxxx$DbContext>());
 
             // 2. DropCreateDatabaseIfModelChanges
 
-            // Database.SetInitializer<$customAPPLICATION$DbContext>(new DropCreateDatabaseIfModelChanges<$customAPPLICATION$DbContext>());
+            // Database.SetInitializer<$xxxAPPLICATIONxxx$DbContext>(new DropCreateDatabaseIfModelChanges<$xxxAPPLICATIONxxx$DbContext>());
 
-            Database.SetInitializer<$customAPPLICATION$DbContext>(
-                new DropCreateDatabaseIfModelChanges<$customAPPLICATION$DbContext>());
+            Database.SetInitializer<$xxxAPPLICATIONxxx$DbContext>(
+                new DropCreateDatabaseIfModelChanges<$xxxAPPLICATIONxxx$DbContext>());
 
             // 3. DropCreateDatabaseAlways
 
-            // Database.SetInitializer<$customAPPLICATION$DbContext>(new DropCreateDatabaseAlways<$customAPPLICATION$DbContext>());
+            // Database.SetInitializer<$xxxAPPLICATIONxxx$DbContext>(new DropCreateDatabaseAlways<$xxxAPPLICATIONxxx$DbContext>());
 
             // 4. Custom DB Initializer
 
-            //Database.SetInitializer<$customAPPLICATION$DbContext>(new $customAPPLICATION$DbContextDatabaseInitializer());
+            //Database.SetInitializer<$xxxAPPLICATIONxxx$DbContext>(new $xxxAPPLICATIONxxx$DbContextDatabaseInitializer());
 
             // Release builds and Dependency Injection use lambda's.  Use special handling.
             
-            Log.CONSTRUCTOR_LAMBDA("Exit", Common.LOG_APPNAME, startTicks);
+            Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -157,7 +157,7 @@ namespace $customAPPLICATION$.Persistence.Data
                     history.IsDirty = false;
                 }
 
-                Log.PERSISTENCE($"($customAPPLICATION$DbContext) Exit ({result})", Common.LOG_APPNAME, startTicks);
+                Log.PERSISTENCE($"($xxxAPPLICATIONxxx$DbContext) Exit ({result})", Common.LOG_APPNAME, startTicks);
 
                 return result;
 
@@ -225,7 +225,7 @@ namespace $customAPPLICATION$.Persistence.Data
 
         public override async Task<int> SaveChangesAsync()
         {
-            Int64 startTicks = Log.PERSISTENCE("($customAPPLICATION$DbContext) Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.PERSISTENCE("($xxxAPPLICATIONxxx$DbContext) Enter", Common.LOG_APPNAME);
 
             int result = -1;
 
@@ -279,7 +279,7 @@ namespace $customAPPLICATION$.Persistence.Data
                     history.IsDirty = false;
                 }
 
-                Log.PERSISTENCE($"($customAPPLICATION$DbContext) Exit ({result})", Common.LOG_APPNAME, startTicks);
+                Log.PERSISTENCE($"($xxxAPPLICATIONxxx$DbContext) Exit ({result})", Common.LOG_APPNAME, startTicks);
 
                 return result;
             }

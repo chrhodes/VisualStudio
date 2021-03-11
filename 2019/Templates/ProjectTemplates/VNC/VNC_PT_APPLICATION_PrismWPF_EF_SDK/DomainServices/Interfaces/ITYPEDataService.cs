@@ -1,11 +1,11 @@
-﻿using $customAPPLICATION$.Domain;
+using $xxxAPPLICATIONxxx$.Domain;
 
 using VNC.Core.DomainServices;
 
-namespace $customAPPLICATION$.DomainServices
+namespace $xxxAPPLICATIONxxx$.DomainServices
 {
-    public interface I$customTYPE$DataService : IGenericRepository<$customTYPE$>
+    public interface I$xxxTYPExxx$DataService : IGenericRepository<$xxxTYPExxx$>
     {
-        void RemovePhoneNumber($customTYPE$PhoneNumber model);
+        void RemovePhoneNumber($xxxTYPExxx$PhoneNumber model);
     }
 }

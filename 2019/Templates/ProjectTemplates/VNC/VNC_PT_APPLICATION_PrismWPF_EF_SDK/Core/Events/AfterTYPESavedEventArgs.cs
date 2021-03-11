@@ -1,8 +1,8 @@
-﻿using VNC.Core.Events;
+using VNC.Core.Events;
 
-namespace $customAPPLICATION$.Core.Events
+namespace $xxxAPPLICATIONxxx$.Core.Events
 {
-    public class After$customTYPE$SavedEventArgs : AfterDetailSavedEventArgs
+    public class After$xxxTYPExxx$SavedEventArgs : AfterDetailSavedEventArgs
     {
     }
 }

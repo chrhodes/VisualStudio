@@ -3,12 +3,12 @@
 using VNC;
 using VNC.Core.Mvvm;
 
-namespace $customAPPLICATION$.Presentation.Views
+namespace $xxxAPPLICATIONxxx$.Presentation.Views
 {
-    public partial class $customTYPE$Detail : ViewBase, I$customTYPE$Detail, IInstanceCountV
+    public partial class $xxxTYPExxx$Detail : ViewBase, I$xxxTYPExxx$Detail, IInstanceCountV
     {
 
-        public $customTYPE$Detail()
+        public $xxxTYPExxx$Detail()
         {
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
 
@@ -18,7 +18,7 @@ namespace $customAPPLICATION$.Presentation.Views
             Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
         }
 
-        public $customTYPE$Detail(ViewModels.I$customTYPE$DetailViewModel viewModel)
+        public $xxxTYPExxx$Detail(ViewModels.I$xxxTYPExxx$DetailViewModel viewModel)
         {
             Int64 startTicks = Log.CONSTRUCTOR($"Enter ({viewModel.GetType()})", Common.LOG_APPNAME);
 

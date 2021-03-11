@@ -1,3 +1,3 @@
-﻿$customAPPLICATION$\Core\Events\
+﻿$xxxAPPLICATIONxxx$\Core\Events\
 
 Notes for using this template

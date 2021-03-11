@@ -1,12 +1,12 @@
-﻿using System;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 using VNC.Core.DomainServices;
 
-namespace $customAPPLICATION$.Domain
+namespace $xxxAPPLICATIONxxx$.Domain
 {
-    public class $customTYPE$PhoneNumber : IEntity<int>, IModificationHistory, IOptimistic
+    public class $xxxTYPExxx$PhoneNumber : IEntity<int>, IModificationHistory, IOptimistic
     {
         #region IEntity<int>
 
@@ -18,9 +18,9 @@ namespace $customAPPLICATION$.Domain
         [Required]
         public string Number { get; set; }
 
-        public int $customTYPE$Id { get; set; }
+        public int $xxxTYPExxx$Id { get; set; }
 
-        public $customTYPE$ $customTYPE$ { get; set; }
+        public $xxxTYPExxx$ $xxxTYPExxx$ { get; set; }
 
         #region IModificationHistory
 

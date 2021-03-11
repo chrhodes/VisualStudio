@@ -8,39 +8,48 @@ using System.Windows.Input;
 using Prism.Commands;
 using Prism.Events;
 
-using $customAPPLICATION$.Domain;
-using $customAPPLICATION$.DomainServices;
-using $customAPPLICATION$.Presentation.ModelWrappers;
+using $xxxAPPLICATIONxxx$.Domain;
+using $xxxAPPLICATIONxxx$.DomainServices;
+using $xxxAPPLICATIONxxx$.Presentation.ModelWrappers;
 
 using VNC;
 using VNC.Core.Events;
 using VNC.Core.Mvvm;
 using VNC.Core.Services;
 
-namespace $customAPPLICATION$.Presentation.ViewModels
+namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
 {
     public class $xxxITEMxxx$DetailViewModel : DetailViewModelBase, I$xxxITEMxxx$DetailViewModel, IInstanceCountVM
     {
         #region Contructors, Initialization, and Load
 
         public $xxxITEMxxx$DetailViewModel(
-                I$xxxITEMxxx$DataService $xxxITEMxxx$DataService,
-                IEventAggregator eventAggregator,
-                IMessageDialogService messageDialogService) : base(eventAggregator, messageDialogService)
+            I$xxxITEMxxx$DataService $xxxITEMxxx$DataService,
+            IEventAggregator eventAggregator,
+            IMessageDialogService messageDialogService) : base(eventAggregator, messageDialogService)
         {
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
 
-            InstanceCountVM++;
-
             _$xxxITEMxxx$DataService = $xxxITEMxxx$DataService;
-            
-            Title = "$xxxITEMxxx$s";
-            $xxxITEMxxx$s = new ObservableCollection<$xxxITEMxxx$Wrapper>();
-            
-            AddCommand = new DelegateCommand(OnAddExecute);
-            RemoveCommand = new DelegateCommand(OnRemoveExecute, OnRemoveCanExecute);            
+
+            InitializeViewModel();
 
             Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
+        }
+
+        private void InitializeViewModel()
+        {
+            Int64 startTicks = Log.VIEWMODEL("Enter", Common.LOG_APPNAME);
+
+            InstanceCountVM++;
+
+            Title = "$xxxITEMxxx$s";
+            $xxxITEMxxx$s = new ObservableCollection<$xxxITEMxxx$Wrapper>();
+
+            AddCommand = new DelegateCommand(AddExecute);
+            RemoveCommand = new DelegateCommand(RemoveExecute, RemoveCanExecute);
+
+            Log.VIEWMODEL("Exit", Common.LOG_APPNAME, startTicks);
         }
 
         #endregion
@@ -57,12 +66,12 @@ namespace $customAPPLICATION$.Presentation.ViewModels
 
         private I$xxxITEMxxx$DataService _$xxxITEMxxx$DataService;
 
-        public ICommand AddCommand { get; }
+        public ICommand AddCommand { get; private set;}
 
-        public ICommand RemoveCommand { get; }
-        
-                public ObservableCollection<$xxxITEMxxx$Wrapper> $xxxITEMxxx$s { get; }
-        
+        public ICommand RemoveCommand { get; private set;}
+
+        public ObservableCollection<$xxxITEMxxx$Wrapper> $xxxITEMxxx$s { get; private set;}
+
         private $xxxITEMxxx$Wrapper _selected$xxxITEMxxx$;
 
         public $xxxITEMxxx$Wrapper Selected$xxxITEMxxx$
@@ -80,7 +89,7 @@ namespace $customAPPLICATION$.Presentation.ViewModels
 
         #region Event Handlers
 
-        // private async void OnOpenDetailView(OpenDetailViewEventArgs args)
+        // private async void OpenDetailView(OpenDetailViewEventArgs args)
         // {
             // Int64 startTicks = Log.EVENT("($xxxITEMxxx$DetailViewModel) Enter", Common.LOG_APPNAME);
 
@@ -114,10 +123,10 @@ namespace $customAPPLICATION$.Presentation.ViewModels
                 wrapper.PropertyChanged += Wrapper_PropertyChanged;
                 $xxxITEMxxx$s.Add(wrapper);
             }
-            
+
             Log.VIEWMODEL("($xxxITEMxxx$DetailViewModel) Exit", Common.LOG_APPNAME, startTicks);
         }
-        
+
         void Wrapper_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if (! HasChanges)
@@ -135,33 +144,33 @@ namespace $customAPPLICATION$.Presentation.ViewModels
 
         #region Protected Methods
 
-        protected override bool OnDeleteCanExecute()
+        protected override bool DeleteCanExecute()
         {
             // TODO(crhodes)
             // Why do we need this?
             return true;
         }
 
-        protected override async void OnDeleteExecute()
+        protected override async void DeleteExecute()
         {
             Int64 startTicks = Log.VIEWMODEL($"($xxxITEMxxx$DetailViewModel) Enter Id:({Selected$xxxITEMxxx$.Id})", Common.LOG_APPNAME);
 
             Log.VIEWMODEL("($xxxITEMxxx$DetailViewModel) Exit", Common.LOG_APPNAME, startTicks);
         }
 
-        protected override bool OnSaveCanExecute()
+        protected override bool SaveCanExecute()
         {
             return HasChanges && $xxxITEMxxx$s.All(p => !p.HasErrors);
         }
 
-        protected override async void OnSaveExecute()
+        protected override async void SaveExecute()
         {
             Int64 startTicks = Log.VIEWMODEL($"($xxxITEMxxx$DetailViewModel) Enter Id:({Selected$xxxITEMxxx$.Id})", Common.LOG_APPNAME);
 
             try
             {
                 await _$xxxITEMxxx$DataService.UpdateAsync();
-                
+
                 HasChanges = _$xxxITEMxxx$DataService.HasChanges();
 
                 PublishAfterCollectionSavedEvent();
@@ -186,7 +195,7 @@ namespace $customAPPLICATION$.Presentation.ViewModels
 
         #region Private Methods
 
-        void OnAddExecute()
+        void AddExecute()
         {
             Int64 startTicks = Log.VIEWMODEL("($xxxITEMxxx$DetailViewModel) Enter", Common.LOG_APPNAME);
 
@@ -201,18 +210,18 @@ namespace $customAPPLICATION$.Presentation.ViewModels
             Log.VIEWMODEL("($xxxITEMxxx$DetailViewModel) Exit", Common.LOG_APPNAME, startTicks);
         }
 
-        private async void OnRemoveExecute()
+        private async void RemoveExecute()
         {
             Int64 startTicks = Log.VIEWMODEL("($xxxITEMxxx$DetailViewModel) Enter", Common.LOG_APPNAME);
-           
+
             var isReferenced =
-                await _$xxxITEMxxx$DataService.IsReferencedBy$customTYPE$Async(Selected$xxxITEMxxx$.Id);
+                await _$xxxITEMxxx$DataService.IsReferencedBy$xxxTYPExxx$Async(Selected$xxxITEMxxx$.Id);
 
             if (isReferenced)
             {
                 MessageDialogService.ShowInfoDialog(
-                    $"The $customTYPE$ ({Selected$xxxITEMxxx$.Name})" +
-                    " can't be removed;  It is referenced by at least one $customTYPE$");
+                    $"The $xxxTYPExxx$ ({Selected$xxxITEMxxx$.Name})" +
+                    " can't be removed;  It is referenced by at least one $xxxTYPExxx$");
                 return;
             }
 
@@ -221,13 +230,13 @@ namespace $customAPPLICATION$.Presentation.ViewModels
             $xxxITEMxxx$s.Remove(Selected$xxxITEMxxx$);
             Selected$xxxITEMxxx$ = null;
             HasChanges = _$xxxITEMxxx$DataService.HasChanges();
-            
+
             ((DelegateCommand)SaveCommand).RaiseCanExecuteChanged();
 
             Log.VIEWMODEL("($xxxITEMxxx$DetailViewModel) Exit", Common.LOG_APPNAME, startTicks);
         }
 
-        bool OnRemoveCanExecute()
+        bool RemoveCanExecute()
         {
             return Selected$xxxITEMxxx$ != null;
         }

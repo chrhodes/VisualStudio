@@ -12,33 +12,41 @@ using VNC.Core.Events;
 using VNC.Core.Mvvm;
 using VNC.Core.Services;
 
-namespace $customAPPLICATION$.Presentation.ViewModels
+namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
 {
-    public class $customTYPE$MainViewModel : EventViewModelBase, I$customTYPE$MainViewModel, IInstanceCountVM
+    public class $xxxTYPExxx$MainViewModel : EventViewModelBase, I$xxxTYPExxx$MainViewModel, IInstanceCountVM
     {
 
         #region Constructors, Initialization, and Load
 
-        public $customTYPE$MainViewModel(
-            I$customTYPE$NavigationViewModel $customTYPE$NavigationViewModel,
-            Func<I$customTYPE$DetailViewModel> $customTYPE$DetailViewModelCreator,
+        public $xxxTYPExxx$MainViewModel(
+            I$xxxTYPExxx$NavigationViewModel $xxxTYPExxx$NavigationViewModel,
+            Func<I$xxxTYPExxx$DetailViewModel> $xxxTYPExxx$DetailViewModelCreator,
             Func<I$xxxITEMxxx$DetailViewModel> $xxxITEMxxx$DetailViewModelCreator,
             IEventAggregator eventAggregator,
             IMessageDialogService messageDialogService) : base(eventAggregator, messageDialogService)
         {
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
 
-            InstanceCountVM++;
-
-            _$customTYPE$DetailViewModelCreator = $customTYPE$DetailViewModelCreator;
+            NavigationViewModel = $xxxTYPExxx$NavigationViewModel;
+            _$xxxTYPExxx$DetailViewModelCreator = $xxxTYPExxx$DetailViewModelCreator;
             _$xxxITEMxxx$DetailViewModelCreator = $xxxITEMxxx$DetailViewModelCreator;
 
-            NavigationViewModel = $customTYPE$NavigationViewModel;
-            
+            InitializeViewModel();
+
+            Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
+        }
+
+        private void InitializeViewModel()
+        {
+            Int64 startTicks = Log.VIEWMODEL("Enter", Common.LOG_APPNAME);
+
+            InstanceCountVM++;
+
             DetailViewModels = new ObservableCollection<IDetailViewModel>();
 
             EventAggregator.GetEvent<OpenDetailViewEvent>()
-                .Subscribe(OnOpenDetailView);
+                .Subscribe(OpenDetailView);
 
             EventAggregator.GetEvent<AfterDetailDeletedEvent>()
                 .Subscribe(AfterDetailDeleted);
@@ -47,14 +55,12 @@ namespace $customAPPLICATION$.Presentation.ViewModels
                 .Subscribe(AfterDetailClosed);
 
             CreateNewDetailCommand = new DelegateCommand<Type>(
-                OnCreateNewDetailExecute);
+                CreateNewDetailExecute);
 
             OpenSingleDetailViewCommand = new DelegateCommand<Type>(
-                OnOpenSingleDetailExecute);
+                OpenSingleDetailExecute);
 
-
-
-            Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
+            Log.VIEWMODEL("Exit", Common.LOG_APPNAME, startTicks);
         }
 
         #endregion
@@ -71,19 +77,19 @@ namespace $customAPPLICATION$.Presentation.ViewModels
 
         #region Fields and Properties
 
-        private Func<I$customTYPE$DetailViewModel> _$customTYPE$DetailViewModelCreator;
+        private Func<I$xxxTYPExxx$DetailViewModel> _$xxxTYPExxx$DetailViewModelCreator;
         private Func<I$xxxITEMxxx$DetailViewModel> _$xxxITEMxxx$DetailViewModelCreator;
-        
+
         private IDetailViewModel _selectedDetailViewModel;
 
-        public ICommand CreateNewDetailCommand { get; }
+        public ICommand CreateNewDetailCommand { get; private set;}
 
-        public ICommand OpenSingleDetailViewCommand { get; }
+        public ICommand OpenSingleDetailViewCommand { get; private set;}
 
         // N.B. This is public so View.Xaml can bind to it.
-        public I$customTYPE$NavigationViewModel NavigationViewModel { get; }
+        public I$xxxTYPExxx$NavigationViewModel NavigationViewModel { get; private set;}
 
-        public ObservableCollection<IDetailViewModel> DetailViewModels { get; }
+        public ObservableCollection<IDetailViewModel> DetailViewModels { get; private set;}
 
                 private int _nextNewItemId = 0;
 
@@ -108,11 +114,11 @@ namespace $customAPPLICATION$.Presentation.ViewModels
 
         #region Event Handlers
 
-        void OnOpenSingleDetailExecute(Type viewModelType)
+        void OpenSingleDetailExecute(Type viewModelType)
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_APPNAME);
 
-            OnOpenDetailView(
+            OpenDetailView(
                 new OpenDetailViewEventArgs
                 {
                     Id = -1,
@@ -122,11 +128,11 @@ namespace $customAPPLICATION$.Presentation.ViewModels
             Log.EVENT_HANDLER("Exit", Common.LOG_APPNAME, startTicks);
         }
 
-        private void OnCreateNewDetailExecute(Type viewModelType)
+        private void CreateNewDetailExecute(Type viewModelType)
         {
             Int64 startTicks = Log.VIEWMODEL("Enter", Common.LOG_APPNAME);
 
-            OnOpenDetailView(
+            OpenDetailView(
                 new OpenDetailViewEventArgs
                 {
                     Id = _nextNewItemId--,  // Ids in DB > 0.  Can now create multiple new items
@@ -136,9 +142,9 @@ namespace $customAPPLICATION$.Presentation.ViewModels
             Log.VIEWMODEL("Exit", Common.LOG_APPNAME, startTicks);
         }
 
-        private async void OnOpenDetailView(OpenDetailViewEventArgs args)
+        private async void OpenDetailView(OpenDetailViewEventArgs args)
         {
-            Int64 startTicks = Log.EVENT_HANDLER($"($customTYPE$MainViewModel) Enter Id:({args.Id}(", Common.LOG_APPNAME);
+            Int64 startTicks = Log.EVENT_HANDLER($"($xxxTYPExxx$MainViewModel) Enter Id:({args.Id}(", Common.LOG_APPNAME);
 
             var detailViewModel = DetailViewModels
                     .SingleOrDefault(vm => vm.Id == args.Id
@@ -148,8 +154,8 @@ namespace $customAPPLICATION$.Presentation.ViewModels
             {
                 switch (args.ViewModelName)
                 {
-                    case nameof($customTYPE$DetailViewModel):
-                        detailViewModel = (IDetailViewModel)_$customTYPE$DetailViewModelCreator();
+                    case nameof($xxxTYPExxx$DetailViewModel):
+                        detailViewModel = (IDetailViewModel)_$xxxTYPExxx$DetailViewModelCreator();
                         break;
 
                     //case nameof(MeetingDetailViewModel):
@@ -175,9 +181,9 @@ namespace $customAPPLICATION$.Presentation.ViewModels
                 {
                     MessageDialogService.ShowInfoDialog($"Cannot load the entity ({ex})" +
                         "It may have been deleted by another user.  Updating Navigation");
-                        
+
                     await NavigationViewModel.LoadAsync();
-                    
+
                     return;
                 }
 
@@ -186,7 +192,7 @@ namespace $customAPPLICATION$.Presentation.ViewModels
 
             SelectedDetailViewModel = detailViewModel;
 
-            Log.VIEWMODEL("($customTYPE$MainViewModel) Exit", Common.LOG_APPNAME, startTicks);
+            Log.VIEWMODEL("($xxxTYPExxx$MainViewModel) Exit", Common.LOG_APPNAME, startTicks);
         }
 
         private void AfterDetailDeleted(AfterDetailDeletedEventArgs args)
@@ -229,11 +235,11 @@ namespace $customAPPLICATION$.Presentation.ViewModels
 
         public async Task LoadAsync()
         {
-            Int64 startTicks = Log.VIEWMODEL("$customTYPE$MainViewModel) Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.VIEWMODEL("$xxxTYPExxx$MainViewModel) Enter", Common.LOG_APPNAME);
 
             await NavigationViewModel.LoadAsync();
 
-            Log.VIEWMODEL("$customTYPE$MainViewModel) Exit", Common.LOG_APPNAME, startTicks);
+            Log.VIEWMODEL("$xxxTYPExxx$MainViewModel) Exit", Common.LOG_APPNAME, startTicks);
         }
 
         #endregion
@@ -259,5 +265,6 @@ namespace $customAPPLICATION$.Presentation.ViewModels
         }
 
         #endregion
+
     }
 }

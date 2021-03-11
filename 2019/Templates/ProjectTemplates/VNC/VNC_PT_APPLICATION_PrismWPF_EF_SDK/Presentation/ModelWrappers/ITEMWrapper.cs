@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 using VNC.Core.Mvvm;
 
-namespace $customAPPLICATION$.Presentation.ModelWrappers
+namespace $xxxAPPLICATIONxxx$.Presentation.ModelWrappers
 {
     public class $xxxITEMxxx$Wrapper : ModelWrapper<Domain.$xxxITEMxxx$>
     {

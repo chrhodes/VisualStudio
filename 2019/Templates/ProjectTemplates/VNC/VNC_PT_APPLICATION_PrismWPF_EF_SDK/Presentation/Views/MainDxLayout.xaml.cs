@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Windows;
 
-using $customAPPLICATION$.ViewModels;
+using $xxxAPPLICATIONxxx$.Presentation.ViewModels;
 
 using VNC;
+using VNC.Core.Mvvm;
 
-namespace $customAPPLICATION$.Presentation.Views
+namespace $xxxAPPLICATIONxxx$.Presentation.Views
 {
-    public partial class MainWindowDxLayout : Window
+    public partial class MainDxLayout : ViewBase, IMain
     {
-        public MainWindowDxLayoutViewModel _viewModel;
+        public MainDxLayoutViewModel _viewModel;
 
-        public MainWindowDxLayout(MainWindowDxLayoutViewModel viewModel)
+        public MainDxLayout(MainDxLayoutViewModel viewModel)
         {
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
 
@@ -22,6 +23,5 @@ namespace $customAPPLICATION$.Presentation.Views
 
             Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
         }
-
     }
 }

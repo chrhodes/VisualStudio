@@ -1,6 +1,6 @@
-﻿using Prism.Commands;
+using Prism.Commands;
 
-namespace $customAPPLICATION$.Core
+namespace $xxxAPPLICATIONxxx$.Core
 {
     public static class GlobalCommands
     {

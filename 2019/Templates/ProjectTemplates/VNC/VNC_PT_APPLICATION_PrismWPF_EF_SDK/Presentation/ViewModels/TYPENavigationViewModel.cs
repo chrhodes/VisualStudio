@@ -5,32 +5,41 @@ using System.Threading.Tasks;
 
 using Prism.Events;
 
-using $customAPPLICATION$.DomainServices;
+using $xxxAPPLICATIONxxx$.DomainServices;
 
 using VNC;
 using VNC.Core.Events;
 using VNC.Core.Mvvm;
 using VNC.Core.Services;
 
-namespace $customAPPLICATION$.Presentation.ViewModels
+namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
 {
-    public class $customTYPE$NavigationViewModel : EventViewModelBase, I$customTYPE$NavigationViewModel, IInstanceCountVM
+    public class $xxxTYPExxx$NavigationViewModel : EventViewModelBase, I$xxxTYPExxx$NavigationViewModel, IInstanceCountVM
     {
 
         #region Constructors, Initialization, and Load
 
-        public $customTYPE$NavigationViewModel(
-                I$customTYPE$LookupDataService $customTYPE$LookupDataService,
+        public $xxxTYPExxx$NavigationViewModel(
+                I$xxxTYPExxx$LookupDataService $xxxTYPExxx$LookupDataService,
                 IEventAggregator eventAggregator,
                 IMessageDialogService messageDialogService) : base(eventAggregator, messageDialogService)
         {
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
 
+            _$xxxTYPExxx$LookupDataService = $xxxTYPExxx$LookupDataService;
+
+            InitializeViewModel();
+
+            Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
+        }
+
+        private void InitializeViewModel()
+        {
+            Int64 startTicks = Log.VIEWMODEL("Enter", Common.LOG_APPNAME);
+
             InstanceCountVM++;
 
-            _$customTYPE$LookupDataService = $customTYPE$LookupDataService;
-
-            $customTYPE$s = new ObservableCollection<NavigationItemViewModel>();
+            $xxxTYPExxx$s = new ObservableCollection<NavigationItemViewModel>();
 
             EventAggregator.GetEvent<AfterDetailSavedEvent>()
                 .Subscribe(AfterDetailSaved);
@@ -38,7 +47,7 @@ namespace $customAPPLICATION$.Presentation.ViewModels
             EventAggregator.GetEvent<AfterDetailDeletedEvent>()
                 .Subscribe(AfterDetailDeleted);
 
-            Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
+            Log.VIEWMODEL("Exit", Common.LOG_APPNAME, startTicks);
         }
 
         #endregion
@@ -55,9 +64,9 @@ namespace $customAPPLICATION$.Presentation.ViewModels
 
         #region Fields and Properties
 
-        private I$customTYPE$LookupDataService _$customTYPE$LookupDataService;
+        private I$xxxTYPExxx$LookupDataService _$xxxTYPExxx$LookupDataService;
 
-        public ObservableCollection<NavigationItemViewModel> $customTYPE$s { get; }
+        public ObservableCollection<NavigationItemViewModel> $xxxTYPExxx$s { get; private set;}
 
         #endregion
 
@@ -69,8 +78,8 @@ namespace $customAPPLICATION$.Presentation.ViewModels
 
             switch (args.ViewModelName)
             {
-                case nameof($customTYPE$DetailViewModel):
-                    AfterDetailSaved($customTYPE$s, args);
+                case nameof($xxxTYPExxx$DetailViewModel):
+                    AfterDetailSaved($xxxTYPExxx$s, args);
                     break;
 
                 default:
@@ -87,8 +96,8 @@ namespace $customAPPLICATION$.Presentation.ViewModels
 
             switch (args.ViewModelName)
             {
-                case nameof($customTYPE$DetailViewModel):
-                    AfterDetailDeleted($customTYPE$s, args);
+                case nameof($xxxTYPExxx$DetailViewModel):
+                    AfterDetailDeleted($xxxTYPExxx$s, args);
                     break;
 
                 default:
@@ -105,21 +114,21 @@ namespace $customAPPLICATION$.Presentation.ViewModels
 
         public async Task LoadAsync()
         {
-            Int64 startTicks = Log.VIEWMODEL("($customTYPE$NavigationViewModel) Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.VIEWMODEL("($xxxTYPExxx$NavigationViewModel) Enter", Common.LOG_APPNAME);
 
-            var lookup$customTYPE$s = await _$customTYPE$LookupDataService.Get$customTYPE$LookupAsync();
-            
-            $customTYPE$s.Clear();
+            var lookup$xxxTYPExxx$s = await _$xxxTYPExxx$LookupDataService.Get$xxxTYPExxx$LookupAsync();
 
-            foreach (var item in lookup$customTYPE$s)
+            $xxxTYPExxx$s.Clear();
+
+            foreach (var item in lookup$xxxTYPExxx$s)
             {
-                $customTYPE$s.Add(
+                $xxxTYPExxx$s.Add(
                     new NavigationItemViewModel(item.Id, item.DisplayMember,
-                    nameof($customTYPE$DetailViewModel),
+                    nameof($xxxTYPExxx$DetailViewModel),
                     EventAggregator, MessageDialogService));
             }
 
-            Log.VIEWMODEL("($customTYPE$NavigationViewModel) Exit", Common.LOG_APPNAME, startTicks);
+            Log.VIEWMODEL("($xxxTYPExxx$NavigationViewModel) Exit", Common.LOG_APPNAME, startTicks);
         }
 
         #endregion

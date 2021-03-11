@@ -1,22 +1,22 @@
-﻿using System;
+using System;
 using System.Data.Entity;
 using System.Threading.Tasks;
 
-using $customAPPLICATION$.Domain;
-using $customAPPLICATION$.Persistence.Data;
+using $xxxAPPLICATIONxxx$.Domain;
+using $xxxAPPLICATIONxxx$.Persistence.Data;
 
 using VNC;
 using VNC.Core.DomainServices;
 
-namespace $customAPPLICATION$.DomainServices
+namespace $xxxAPPLICATIONxxx$.DomainServices
 {
 
-    public class $customTYPE$DataService : GenericEFRepository<$customTYPE$, $customAPPLICATION$DbContext>, I$customTYPE$DataService
+    public class $xxxTYPExxx$DataService : GenericEFRepository<$xxxTYPExxx$, $xxxAPPLICATIONxxx$DbContext>, I$xxxTYPExxx$DataService
     {
 
         #region Constructors, Initialization, and Load
 
-        public $customTYPE$DataService($customAPPLICATION$DbContext context)
+        public $xxxTYPExxx$DataService($xxxAPPLICATIONxxx$DbContext context)
             : base(context)
         {
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
@@ -38,7 +38,7 @@ namespace $customAPPLICATION$.DomainServices
 
         #region Fields and Properties
 
-        
+
         #endregion
 
         #region Event Handlers
@@ -48,31 +48,31 @@ namespace $customAPPLICATION$.DomainServices
 
         #region Public Methods
 
-        public override async Task<$customTYPE$> FindByIdAsync(int id)
+        public override async Task<$xxxTYPExxx$> FindByIdAsync(int id)
         {
-            Int64 startTicks = Log.DOMAINSERVICES("($customTYPE$DataService) Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.DOMAINSERVICES("($xxxTYPExxx$DataService) Enter", Common.LOG_APPNAME);
 
-            var result = await Context.$customTYPE$sSet
+            var result = await Context.$xxxTYPExxx$sSet
                 .Include(f => f.PhoneNumbers)
                 .SingleAsync(f => f.Id == id);
 
-            Log.DOMAINSERVICES("($customTYPE$DataService) Exit", Common.LOG_APPNAME, startTicks);
+            Log.DOMAINSERVICES("($xxxTYPExxx$DataService) Exit", Common.LOG_APPNAME, startTicks);
 
             return result;
         }
 
-        public void RemovePhoneNumber($customTYPE$PhoneNumber model)
+        public void RemovePhoneNumber($xxxTYPExxx$PhoneNumber model)
         {
             Int64 startTicks = Log.DOMAINSERVICES("Enter", Common.LOG_APPNAME);
 
-            Context.$customTYPE$PhoneNumbersSet.Remove(model);
+            Context.$xxxTYPExxx$PhoneNumbersSet.Remove(model);
 
             Log.DOMAINSERVICES("Exit", Common.LOG_APPNAME, startTicks);
         }
 
 
         #endregion
-        
+
         #region Protected Methods
 
 
@@ -82,6 +82,6 @@ namespace $customAPPLICATION$.DomainServices
 
 
         #endregion
-   
+
     }
 }

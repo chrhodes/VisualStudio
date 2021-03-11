@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace VNCCodeCommandConsole.Presentation.Converters
+namespace $xxxAPPLICATIONxxx$.Presentation.Converters
 {
     public class SelectedItemsConverter : MarkupExtension, IValueConverter
     {

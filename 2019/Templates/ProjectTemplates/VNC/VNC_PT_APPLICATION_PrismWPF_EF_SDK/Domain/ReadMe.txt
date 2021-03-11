@@ -1,4 +1,4 @@
-﻿$safeprojectname$\Domain\
-$safeprojectname$\Domain\Lookups\
+﻿$xxxAPPLICATIONxxx$\Domain\
+$xxxAPPLICATIONxxx$\Domain\Lookups\
 
 Notes for using this template

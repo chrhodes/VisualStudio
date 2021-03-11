@@ -1,8 +1,8 @@
-﻿using Prism.Events;
+using Prism.Events;
 
-namespace $customAPPLICATION$.Core.Events
+namespace $xxxAPPLICATIONxxx$.Core.Events
 {
-    public class After$customTYPE$SavedEvent : PubSubEvent<After$customTYPE$SavedEventArgs>
+    public class After$xxxTYPExxx$SavedEvent : PubSubEvent<After$xxxTYPExxx$SavedEventArgs>
     {
     }
 }

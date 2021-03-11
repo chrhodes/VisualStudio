@@ -1,3 +1,3 @@
-﻿$customAPPLICATION$\Presentation\ModelWrappers\
+﻿$xxxAPPLICATIONxxx$\Presentation\ModelWrappers\
 
 Notes for using this template

@@ -1,7 +1,7 @@
-﻿$customAPPLICATION$\Presentation\
-$customAPPLICATION$\Presentation\Converters\
-$customAPPLICATION$\Presentation\ModelWrappers\
-$customAPPLICATION$\Presentation\ViewModels\
-$customAPPLICATION$\Presentation\Views\
+﻿$xxxAPPLICATIONxxx$\Presentation\
+$xxxAPPLICATIONxxx$\Presentation\Converters\
+$xxxAPPLICATIONxxx$\Presentation\ModelWrappers\
+$xxxAPPLICATIONxxx$\Presentation\ViewModels\
+$xxxAPPLICATIONxxx$\Presentation\Views\
 
 Notes for using this template

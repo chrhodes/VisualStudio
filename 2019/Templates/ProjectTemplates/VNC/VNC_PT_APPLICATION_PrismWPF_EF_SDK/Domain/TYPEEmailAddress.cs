@@ -1,12 +1,12 @@
-﻿using System;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 using VNC.Core.DomainServices;
 
-namespace $customAPPLICATION$.Domain
+namespace $xxxAPPLICATIONxxx$.Domain
 {
-    public class $customTYPE$EmailAddress : IEntity<int>, IModificationHistory, IOptimistic
+    public class $xxxTYPExxx$EmailAddress : IEntity<int>, IModificationHistory, IOptimistic
     {
         #region IEntity<int>
 

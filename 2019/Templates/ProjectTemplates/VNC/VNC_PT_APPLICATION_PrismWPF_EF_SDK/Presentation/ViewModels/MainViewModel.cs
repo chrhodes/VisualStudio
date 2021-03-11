@@ -3,12 +3,12 @@
 using VNC;
 using VNC.Core.Mvvm;
 
-namespace $customAPPLICATION$.ViewModels
+namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
 {
-    public class MainWindowViewModel : ViewModelBase
+    public class MainViewModel : ViewModelBase
     {
 
-        private string _title = "$customAPPLICATION$ - MainWindow";
+        private string _title = "$xxxAPPLICATIONxxx$ - MainWindow";
 
         public string Title
         {
@@ -29,7 +29,7 @@ namespace $customAPPLICATION$.ViewModels
 
     //public IDataService _typeDataService { get; set; }
 
-        public MainWindowViewModel()
+        public MainViewModel()
         {
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
 

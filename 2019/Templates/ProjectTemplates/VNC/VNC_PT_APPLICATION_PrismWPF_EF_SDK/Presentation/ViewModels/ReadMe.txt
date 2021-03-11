@@ -1,3 +1,3 @@
-﻿$customAPPLICATION$\Presentation\ViewModels\
+﻿$xxxAPPLICATIONxxx$\Presentation\ViewModels\
 
 Notes for using this template

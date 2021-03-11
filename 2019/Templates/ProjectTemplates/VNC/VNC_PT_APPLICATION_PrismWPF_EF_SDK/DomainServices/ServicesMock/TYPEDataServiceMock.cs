@@ -1,26 +1,26 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-using $customAPPLICATION$.Domain;
+using $xxxAPPLICATIONxxx$.Domain;
 
 using VNC;
 using VNC.Core.DomainServices;
 
-namespace $customAPPLICATION$.DomainServices
+namespace $xxxAPPLICATIONxxx$.DomainServices
 {
-    public class $customTYPE$DataServiceMock : I$customTYPE$DataService
+    public class $xxxTYPExxx$DataServiceMock : I$xxxTYPExxx$DataService
     {
-        public IEnumerable<$customTYPE$> All()
+        public IEnumerable<$xxxTYPExxx$> All()
         {
             Int64 startTicks = Log.DOMAINSERVICES("Enter", Common.LOG_APPNAME);
-            
+
             // TODO(crhodes)
             // Load data from real database.
             // For now just return hard coded list.
 
-            yield return new $customTYPE$
+            yield return new $xxxTYPExxx$
             {
                 Id = 1,
                 FieldString = "FieldString",
@@ -28,91 +28,152 @@ namespace $customAPPLICATION$.DomainServices
                 FieldInt = 23
 
             };
-            
-            yield return new $customTYPE$ 
-            { 
-                Id = 2, 
-                FieldString = null, 
-                FieldDouble = Double.MaxValue, 
+
+            yield return new $xxxTYPExxx$
+            {
+                Id = 2,
+                FieldString = null,
+                FieldDouble = Double.MaxValue,
                 FieldInt = int.MaxValue
             };
-            
+
             Log.DOMAINSERVICES("Exit", Common.LOG_APPNAME, startTicks);
         }
 
-        public Task<List<$customTYPE$>> AllAsync()
+        public Task<List<$xxxTYPExxx$>> AllAsync()
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<$customTYPE$> AllInclude(params Expression<Func<$customTYPE$, object>>[] includeProperties)
+        public IEnumerable<$xxxTYPExxx$> AllInclude(params Expression<Func<$xxxTYPExxx$, object>>[] includeProperties)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<$customTYPE$>> AllIncludeAsync(params Expression<Func<$customTYPE$, object>>[] includeProperties)
+        public Task<IEnumerable<$xxxTYPExxx$>> AllIncludeAsync(params Expression<Func<$xxxTYPExxx$, object>>[] includeProperties)
         {
+            Int64 startTicks = Log.DOMAINSERVICES("Enter", Common.LOG_APPNAME);
+
             throw new NotImplementedException();
+
+            Log.DOMAINSERVICES("Exit", Common.LOG_APPNAME, startTicks);
         }
 
-        public IEnumerable<$customTYPE$> FindBy(Expression<Func<$customTYPE$, bool>> predicate)
+        public IEnumerable<$xxxTYPExxx$> FindBy(Expression<Func<$xxxTYPExxx$, bool>> predicate)
         {
+            Int64 startTicks = Log.DOMAINSERVICES("Enter", Common.LOG_APPNAME);
+
             throw new NotImplementedException();
+
+            Log.DOMAINSERVICES("Exit", Common.LOG_APPNAME, startTicks);
         }
 
-        public Task<IEnumerable<$customTYPE$>> FindByAsync(Expression<Func<$customTYPE$, bool>> predicate)
+        public Task<IEnumerable<$xxxTYPExxx$>> FindByAsync(Expression<Func<$xxxTYPExxx$, bool>> predicate)
         {
+            Int64 startTicks = Log.DOMAINSERVICES("Enter", Common.LOG_APPNAME);
+
             throw new NotImplementedException();
+
+            Log.DOMAINSERVICES("Exit", Common.LOG_APPNAME, startTicks);
         }
 
-        public $customTYPE$ FindById(int entityId)
+        public $xxxTYPExxx$ FindById(int entityId)
         {
+            Int64 startTicks = Log.DOMAINSERVICES("Enter", Common.LOG_APPNAME);
+
             throw new NotImplementedException();
+
+            Log.DOMAINSERVICES("Exit", Common.LOG_APPNAME, startTicks);
         }
 
-        public Task<$customTYPE$> FindByIdAsync(int entityId)
+        public Task<$xxxTYPExxx$> FindByIdAsync(int entityId)
         {
+            Int64 startTicks = Log.DOMAINSERVICES("Enter", Common.LOG_APPNAME);
+
             throw new NotImplementedException();
+
+            Log.DOMAINSERVICES("Exit", Common.LOG_APPNAME, startTicks);
         }
 
-        public IEnumerable<$customTYPE$> FindByInclude(Expression<Func<$customTYPE$, bool>> predicate, params Expression<Func<$customTYPE$, object>>[] includeProperties)
+        public IEnumerable<$xxxTYPExxx$> FindByInclude(Expression<Func<$xxxTYPExxx$, bool>> predicate, params Expression<Func<$xxxTYPExxx$, object>>[] includeProperties)
         {
+            Int64 startTicks = Log.DOMAINSERVICES("Enter", Common.LOG_APPNAME);
+
             throw new NotImplementedException();
+
+            Log.DOMAINSERVICES("Exit", Common.LOG_APPNAME, startTicks);
         }
 
-        public Task<IEnumerable<$customTYPE$>> FindByIncludeAsync(Expression<Func<$customTYPE$, bool>> predicate, params Expression<Func<$customTYPE$, object>>[] includeProperties)
+        public Task<IEnumerable<$xxxTYPExxx$>> FindByIncludeAsync(Expression<Func<$xxxTYPExxx$, bool>> predicate, params Expression<Func<$xxxTYPExxx$, object>>[] includeProperties)
         {
+            Int64 startTicks = Log.DOMAINSERVICES("Enter", Common.LOG_APPNAME);
+
             throw new NotImplementedException();
+
+            Log.DOMAINSERVICES("Exit", Common.LOG_APPNAME, startTicks);
         }
 
         public bool HasChanges()
         {
+            Int64 startTicks = Log.DOMAINSERVICES("Enter", Common.LOG_APPNAME);
+
             throw new NotImplementedException();
+
+            Log.DOMAINSERVICES("Exit", Common.LOG_APPNAME, startTicks);
         }
 
-        public void Add($customTYPE$ entity)
+        public void Add($xxxTYPExxx$ entity)
         {
+            Int64 startTicks = Log.DOMAINSERVICES("Enter", Common.LOG_APPNAME);
+
             throw new NotImplementedException();
-        }
-        
-        public void Remove($customTYPE$ entity)
-        {
-            throw new NotImplementedException();
+
+            Log.DOMAINSERVICES("Exit", Common.LOG_APPNAME, startTicks);
         }
 
-        public void RemovePhoneNumber($customTYPE$PhoneNumber model)
+        public void Remove($xxxTYPExxx$ entity)
         {
+            Int64 startTicks = Log.DOMAINSERVICES("Enter", Common.LOG_APPNAME);
+
             throw new NotImplementedException();
+
+            Log.DOMAINSERVICES("Exit", Common.LOG_APPNAME, startTicks);
+        }
+
+        public void RemovePhoneNumber($xxxTYPExxx$PhoneNumber model)
+        {
+            Int64 startTicks = Log.DOMAINSERVICES("Enter", Common.LOG_APPNAME);
+
+            throw new NotImplementedException();
+
+            Log.DOMAINSERVICES("Exit", Common.LOG_APPNAME, startTicks);
         }
 
         public void Update()
         {
+            Int64 startTicks = Log.DOMAINSERVICES("Enter", Common.LOG_APPNAME);
+                      
             throw new NotImplementedException();
+            
+            Log.DOMAINSERVICES("Exit", Common.LOG_APPNAME, startTicks);            
+        }
+        
+        public Task<$xxxTYPExxx$> UpdateAsync($xxxTYPExxx$ entity)
+        {
+            Int64 startTicks = Log.DOMAINSERVICES("Enter", Common.LOG_APPNAME);
+
+            throw new NotImplementedException();
+
+            Log.DOMAINSERVICES("Exit", Common.LOG_APPNAME, startTicks);
         }
 
         public Task UpdateAsync()
         {
+            Int64 startTicks = Log.DOMAINSERVICES("Enter", Common.LOG_APPNAME);
+
             throw new NotImplementedException();
-        }   
+            
+            Log.DOMAINSERVICES("Exit", Common.LOG_APPNAME, startTicks);            
+        }
     }
 }

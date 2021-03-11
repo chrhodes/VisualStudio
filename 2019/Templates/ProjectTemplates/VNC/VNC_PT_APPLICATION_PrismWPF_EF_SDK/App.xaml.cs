@@ -6,13 +6,13 @@ using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
 using Prism.Unity;
-using $customAPPLICATION$.DomainServices;
-using $customAPPLICATION$.Presentation.Views;
+
+using $xxxAPPLICATIONxxx$.Presentation.Views;
 
 using VNC;
 using VNC.Core.Services;
 
-namespace $customAPPLICATION$
+namespace $xxxAPPLICATIONxxx$
 {
     public partial class App : PrismApplication
     {
@@ -21,8 +21,8 @@ namespace $customAPPLICATION$
         public App()
         {
             // HACK(crhodes)
-            // If don't delay a bit here, the SignarlR logging infrastructure does not initialize quickly enough
-            // and the first few log messsages are missed.
+            // If don't delay a bit here, the SignalR logging infrastructure does not initialize quickly enough
+            // and the first few log messages are missed.
             // NB.  All are properly recored in the log file.
             
             Int64 startTicks = Log.APPLICATION_START("App()", Common.LOG_APPNAME);
@@ -92,7 +92,7 @@ namespace $customAPPLICATION$
             //containerRegistry.RegisterSingleton<IAddressDataService, AddressDataService>();
             // AddressDataService2 has a constructor that takes a CustomPoolAndSpaDbContext.
 
-            //containerRegistry.RegisterSingleton<I$customTYPE$LookupDataService, $customTYPE$LookupDataService>();
+            //containerRegistry.RegisterSingleton<I$xxxTYPExxx$LookupDataService, $xxxTYPExxx$LookupDataService>();
             containerRegistry.Register<IMessageDialogService, MessageDialogService>();
 
             // Add the new UI elements
@@ -119,9 +119,9 @@ namespace $customAPPLICATION$
             Int64 startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_APPNAME);
 
             //NOTE(crhodes)
-            // Order matters here.  Application depends on types in $customTYPE$
-            moduleCatalog.AddModule(typeof($customTYPE$Module));
-            moduleCatalog.AddModule(typeof($customAPPLICATION$Module));
+            // Order matters here.  Application depends on types in $xxxTYPExxx$
+            moduleCatalog.AddModule(typeof($xxxTYPExxx$Module));
+            moduleCatalog.AddModule(typeof($xxxAPPLICATIONxxx$Module));
 
             Log.APPLICATION_INITIALIZE("Exit", Common.LOG_APPNAME, startTicks);
         }
@@ -167,9 +167,13 @@ namespace $customAPPLICATION$
 
             Log.APPLICATION_INITIALIZE("Exit", Common.LOG_APPNAME, startTicks);
 
-            //return Container.Resolve<MainWindow>();
-            return Container.Resolve<MainWindowDxLayout>();
-            //return Container.Resolve<MainWindowDxDockLayoutManager>();
+            // TODO(crhodes)
+            // Pick the shell to start with.
+            return Container.Resolve<Shell>();
+            // return Container.Resolve<RibbonShell>();
+            
+            // NOTE(crhodes)
+            // The type of view to load into the shell is handled in $xxxAPPLICATIONxxx$Module.cs
         }
 
         // 12
@@ -193,9 +197,6 @@ namespace $customAPPLICATION$
 
             Log.APPLICATION_INITIALIZE("Exit", Common.LOG_APPNAME, startTicks);
         }
-
-
-
 
         #endregion
 
@@ -244,7 +245,6 @@ namespace $customAPPLICATION$
 
 
         #endregion
-   
 
     }
 }

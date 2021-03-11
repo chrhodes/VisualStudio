@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using VNC.Core.DomainServices;
 
-namespace $customAPPLICATION$.DomainServices
+namespace $xxxAPPLICATIONxxx$.DomainServices
 {
-    public interface I$customTYPE$LookupDataService
+    public interface I$xxxTYPExxx$LookupDataService
     {
-        Task<IEnumerable<LookupItem>> Get$customTYPE$LookupAsync();
+        Task<IEnumerable<LookupItem>> Get$xxxTYPExxx$LookupAsync();
     }
 }

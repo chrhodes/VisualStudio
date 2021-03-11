@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using System.Windows.Data;
 using System.Windows.Media;
 
-namespace VNCLogViewer.Presentation.Converters
+namespace $xxxAPPLICATIONxxx$.Presentation.Converters
 {
     [ValueConversion(typeof(System.Drawing.Color), typeof(SolidColorBrush))]
     public class SystemColorToSolidColorBrushConverter : IValueConverter

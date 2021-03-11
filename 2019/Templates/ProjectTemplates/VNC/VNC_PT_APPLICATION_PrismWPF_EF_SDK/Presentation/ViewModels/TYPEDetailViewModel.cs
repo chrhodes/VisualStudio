@@ -9,9 +9,9 @@ using System.Windows.Input;
 using Prism.Commands;
 using Prism.Events;
 
-using $customAPPLICATION$.Domain;
-using $customAPPLICATION$.DomainServices;
-using $customAPPLICATION$.Presentation.ModelWrappers;
+using $xxxAPPLICATIONxxx$.Domain;
+using $xxxAPPLICATIONxxx$.DomainServices;
+using $xxxAPPLICATIONxxx$.Presentation.ModelWrappers;
 
 using VNC;
 using VNC.Core.DomainServices;
@@ -19,38 +19,47 @@ using VNC.Core.Events;
 using VNC.Core.Mvvm;
 using VNC.Core.Services;
 
-namespace $customAPPLICATION$.Presentation.ViewModels
+namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
 {
-    public class $customTYPE$DetailViewModel : DetailViewModelBase, I$customTYPE$DetailViewModel, IInstanceCountVM
+    public class $xxxTYPExxx$DetailViewModel : DetailViewModelBase, I$xxxTYPExxx$DetailViewModel, IInstanceCountVM
     {
         #region Contructors, Initialization, and Load
 
-        public $customTYPE$DetailViewModel(
-                I$customTYPE$DataService $customTYPE$DataService,
-                I$xxxITEMxxx$LookupDataService $xxxITEMxxx$LookupDataService,
-                IEventAggregator eventAggregator,
-                IMessageDialogService messageDialogService) : base(eventAggregator, messageDialogService)
+        public $xxxTYPExxx$DetailViewModel(
+            I$xxxTYPExxx$DataService $xxxTYPExxx$DataService,
+            I$xxxITEMxxx$LookupDataService $xxxITEMxxx$LookupDataService,
+            IEventAggregator eventAggregator,
+            IMessageDialogService messageDialogService) : base(eventAggregator, messageDialogService)
         {
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
 
+            _$xxxTYPExxx$DataService = $xxxTYPExxx$DataService;
+            _$xxxITEMxxx$LookupDataService = $xxxITEMxxx$LookupDataService;
+
+            InitializeViewModel();
+
+            Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
+        }
+
+        private void InitializeViewModel()
+        {
+            Int64 startTicks = Log.VIEWMODEL("Enter", Common.LOG_APPNAME);
+
             InstanceCountVM++;
 
-            _$customTYPE$DataService = $customTYPE$DataService;
-            _$xxxITEMxxx$LookupDataService = $xxxITEMxxx$LookupDataService;            
-            
-            eventAggregator.GetEvent<AfterCollectionSavedEvent>()
+            EventAggregator.GetEvent<AfterCollectionSavedEvent>()
                 .Subscribe(AfterCollectionSaved);
 
             AddPhoneNumberCommand = new DelegateCommand(
-                OnAddPhoneNumberExecute);
+                AddPhoneNumberExecute);
 
             RemovePhoneNumberCommand = new DelegateCommand(
-                OnRemovePhoneNumberExecute, OnRemovePhoneNumberCanExecute);
+                RemovePhoneNumberExecute, RemovePhoneNumberCanExecute);
 
             $xxxITEMxxx$s = new ObservableCollection<LookupItem>();
-            PhoneNumbers = new ObservableCollection<$customTYPE$PhoneNumberWrapper>();            
+            PhoneNumbers = new ObservableCollection<$xxxTYPExxx$PhoneNumberWrapper>();
 
-            Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
+            Log.VIEWMODEL("Exit", Common.LOG_APPNAME, startTicks);
         }
 
         #endregion
@@ -65,31 +74,31 @@ namespace $customAPPLICATION$.Presentation.ViewModels
 
         #region Fields and Properties
 
-        private I$customTYPE$DataService _$customTYPE$DataService;
+        private I$xxxTYPExxx$DataService _$xxxTYPExxx$DataService;
         private I$xxxITEMxxx$LookupDataService _$xxxITEMxxx$LookupDataService;
-        
-        public ICommand AddPhoneNumberCommand { get; }
-        public ICommand RemovePhoneNumberCommand { get; }
 
-        private $customTYPE$PhoneNumberWrapper _selectedPhoneNumber;  
+        public ICommand AddPhoneNumberCommand { get; private set; }
+        public ICommand RemovePhoneNumberCommand { get; private set;}
 
-        public ObservableCollection<LookupItem> $xxxITEMxxx$s { get; }
-        public ObservableCollection<$customTYPE$PhoneNumberWrapper> PhoneNumbers { get; }
-        
+        private $xxxTYPExxx$PhoneNumberWrapper _selectedPhoneNumber;
 
-        private $customTYPE$Wrapper _$customTYPE$;
-        
-        public $customTYPE$Wrapper $customTYPE$
+        public ObservableCollection<LookupItem> $xxxITEMxxx$s { get; private set;}
+        public ObservableCollection<$xxxTYPExxx$PhoneNumberWrapper> PhoneNumbers { get; private set;}
+
+
+        private $xxxTYPExxx$Wrapper _$xxxTYPExxx$;
+
+        public $xxxTYPExxx$Wrapper $xxxTYPExxx$
         {
-            get { return _$customTYPE$; }
+            get { return _$xxxTYPExxx$; }
             private set
             {
-                _$customTYPE$ = value;
+                _$xxxTYPExxx$ = value;
                 OnPropertyChanged();
             }
         }
-        
-        public $customTYPE$PhoneNumberWrapper SelectedPhoneNumber
+
+        public $xxxTYPExxx$PhoneNumberWrapper SelectedPhoneNumber
         {
             get { return _selectedPhoneNumber; }
             set
@@ -104,7 +113,7 @@ namespace $customAPPLICATION$.Presentation.ViewModels
 
         #region Event Handlers
 
-        private async void OnOpenDetailView(OpenDetailViewEventArgs args)
+        private async void OpenDetailView(OpenDetailViewEventArgs args)
         {
             Int64 startTicks = Log.EVENT("Enter", Common.LOG_APPNAME);
 
@@ -112,18 +121,18 @@ namespace $customAPPLICATION$.Presentation.ViewModels
 
             Log.EVENT("Exit", Common.LOG_APPNAME, startTicks);
         }
-        
+
         private async void AfterCollectionSaved(AfterCollectionSavedEventArgs args)
         {
-            Int64 startTicks = Log.EVENT_HANDLER("($customTYPE$DetailViewModel) Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.EVENT_HANDLER("($xxxTYPExxx$DetailViewModel) Enter", Common.LOG_APPNAME);
 
             if (args.ViewModelName == nameof($xxxITEMxxx$DetailViewModel))
             {
                 await Load$xxxITEMxxx$sLookupAsync();
             }
 
-            Log.EVENT_HANDLER("($customTYPE$DetailViewModel) Exit", Common.LOG_APPNAME, startTicks);
-        }        
+            Log.EVENT_HANDLER("($xxxTYPExxx$DetailViewModel) Exit", Common.LOG_APPNAME, startTicks);
+        }
 
         #endregion
 
@@ -131,61 +140,61 @@ namespace $customAPPLICATION$.Presentation.ViewModels
 
         public override async Task LoadAsync(int id)
         {
-            Int64 startTicks = Log.VIEWMODEL($"($customTYPE$DetailViewModel) Enter Id:({id})", Common.LOG_APPNAME);
+            Int64 startTicks = Log.VIEWMODEL($"($xxxTYPExxx$DetailViewModel) Enter Id:({id})", Common.LOG_APPNAME);
 
             var item = id > 0
-                ? await _$customTYPE$DataService.FindByIdAsync(id)
-                : CreateNew$customTYPE$();
+                ? await _$xxxTYPExxx$DataService.FindByIdAsync(id)
+                : CreateNew$xxxTYPExxx$();
 
             Id = item.Id;
 
-            Initialize$customTYPE$(item);
+            Initialize$xxxTYPExxx$(item);
 
-            Initialize$customTYPE$PhoneNumbers(item.PhoneNumbers);
+            Initialize$xxxTYPExxx$PhoneNumbers(item.PhoneNumbers);
 
             await Load$xxxITEMxxx$sLookupAsync();
 
-            Log.VIEWMODEL("($customTYPE$DetailViewModel) Exit", Common.LOG_APPNAME, startTicks);
+            Log.VIEWMODEL("($xxxTYPExxx$DetailViewModel) Exit", Common.LOG_APPNAME, startTicks);
         }
 
         #endregion
 
         #region Protected Methods
 
-        protected override bool OnDeleteCanExecute()
+        protected override bool DeleteCanExecute()
         {
             // TODO(crhodes)
             // Why do we need this?
             return true;
         }
 
-        protected override async void OnDeleteExecute()
+        protected override async void DeleteExecute()
         {
-            Int64 startTicks = Log.VIEWMODEL($"($customTYPE$DetailViewModel) Enter Id:({$customTYPE$.Id})", Common.LOG_APPNAME);
+            Int64 startTicks = Log.VIEWMODEL($"($xxxTYPExxx$DetailViewModel) Enter Id:({$xxxTYPExxx$.Id})", Common.LOG_APPNAME);
 
             var result = MessageDialogService.ShowOkCancelDialog(
-                "Do you really want to delete the $customTYPE$?", "Question");
-                
+                "Do you really want to delete the $xxxTYPExxx$?", "Question");
+
             if (result == MessageDialogResult.OK)
             {
-                _$customTYPE$DataService.Remove($customTYPE$.Model);
-                
-                await _$customTYPE$DataService.UpdateAsync();
-                
-                PublishAfterDetailDeletedEvent($customTYPE$.Id);
+                _$xxxTYPExxx$DataService.Remove($xxxTYPExxx$.Model);
+
+                await _$xxxTYPExxx$DataService.UpdateAsync();
+
+                PublishAfterDetailDeletedEvent($xxxTYPExxx$.Id);
             }
 
-            Log.VIEWMODEL("($customTYPE$DetailViewModel) Exit", Common.LOG_APPNAME, startTicks);
+            Log.VIEWMODEL("($xxxTYPExxx$DetailViewModel) Exit", Common.LOG_APPNAME, startTicks);
         }
 
-        protected override bool OnSaveCanExecute()
+        protected override bool SaveCanExecute()
         {
             // TODO(crhodes)
-            // Check if $customTYPE$ is valid or has changes
+            // Check if $xxxTYPExxx$ is valid or has changes
             // This enables and disables the button
 
-            var result =  $customTYPE$ != null
-                && !$customTYPE$.HasErrors
+            var result =  $xxxTYPExxx$ != null
+                && !$xxxTYPExxx$.HasErrors
                 && HasChanges;
 
             return result;
@@ -193,56 +202,56 @@ namespace $customAPPLICATION$.Presentation.ViewModels
             //return true;
         }
 
-        protected override async void OnSaveExecute()
+        protected override async void SaveExecute()
         {
-            Int64 startTicks = Log.VIEWMODEL("($customTYPE$DetailViewModel) Enter Id:({$customTYPE$.Id})", Common.LOG_APPNAME);
+            Int64 startTicks = Log.VIEWMODEL("($xxxTYPExxx$DetailViewModel) Enter Id:({$xxxTYPExxx$.Id})", Common.LOG_APPNAME);
 
-            await _$customTYPE$DataService.UpdateAsync();
+            await _$xxxTYPExxx$DataService.UpdateAsync();
 
-            //await SaveWithOptimisticConcurrencyAsync(_$customTYPE$DataService.UpdateAsync,
+            //await SaveWithOptimisticConcurrencyAsync(_$xxxTYPExxx$DataService.UpdateAsync,
             //  () =>
             //  {
-            //      HasChanges = _$customTYPE$DataService.HasChanges();
-            //      Id = $customTYPE$.Id;
-            //      RaiseDetailSavedEvent($customTYPE$.Id, $"{$customTYPE$.FieldString}");
+            //      HasChanges = _$xxxTYPExxx$DataService.HasChanges();
+            //      Id = $xxxTYPExxx$.Id;
+            //      RaiseDetailSavedEvent($xxxTYPExxx$.Id, $"{$xxxTYPExxx$.FieldString}");
             //  });
-            
+
             HasChanges = false;
-            Id = $customTYPE$.Id;
-            
-            PublishAfterDetailSavedEvent($customTYPE$.Id, $customTYPE$.FieldString);
+            Id = $xxxTYPExxx$.Id;
+
+            PublishAfterDetailSavedEvent($xxxTYPExxx$.Id, $xxxTYPExxx$.FieldString);
 
             Log.VIEWMODEL("Exit", Common.LOG_APPNAME, startTicks);
         }
-        
-        private void OnAddPhoneNumberExecute()
+
+        private void AddPhoneNumberExecute()
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_APPNAME);
 
-            var newNumber = new $customTYPE$PhoneNumberWrapper(new $customTYPE$PhoneNumber());
-            newNumber.PropertyChanged += $customTYPE$PhoneNumberWrapper_PropertyChanged;
+            var newNumber = new $xxxTYPExxx$PhoneNumberWrapper(new $xxxTYPExxx$PhoneNumber());
+            newNumber.PropertyChanged += $xxxTYPExxx$PhoneNumberWrapper_PropertyChanged;
             PhoneNumbers.Add(newNumber);
-            $customTYPE$.Model.PhoneNumbers.Add(newNumber.Model);
+            $xxxTYPExxx$.Model.PhoneNumbers.Add(newNumber.Model);
             newNumber.Number = ""; // Trigger validation :-)
 
             Log.EVENT_HANDLER("Exit", Common.LOG_APPNAME, startTicks);
         }
 
-        private void OnRemovePhoneNumberExecute()
+        private void RemovePhoneNumberExecute()
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_APPNAME);
 
-            SelectedPhoneNumber.PropertyChanged -= $customTYPE$PhoneNumberWrapper_PropertyChanged;
+            SelectedPhoneNumber.PropertyChanged -= $xxxTYPExxx$PhoneNumberWrapper_PropertyChanged;
             //_friendRepository.RemovePhoneNumber(SelectedPhoneNumber.Model);
             PhoneNumbers.Remove(SelectedPhoneNumber);
             SelectedPhoneNumber = null;
-            HasChanges = _$customTYPE$DataService.HasChanges();
+            HasChanges = _$xxxTYPExxx$DataService.HasChanges();
             ((DelegateCommand)SaveCommand).RaiseCanExecuteChanged();
 
             Log.EVENT_HANDLER("Exit", Common.LOG_APPNAME, startTicks);
         }
 
-        private bool OnRemovePhoneNumberCanExecute()
+        private bool RemovePhoneNumberCanExecute()
         {
             return SelectedPhoneNumber != null;
         }
@@ -251,14 +260,14 @@ namespace $customAPPLICATION$.Presentation.ViewModels
 
         #region Private Methods
 
-        private Domain.$customTYPE$ CreateNew$customTYPE$()
+        private Domain.$xxxTYPExxx$ CreateNew$xxxTYPExxx$()
         {
             Int64 startTicks = Log.VIEWMODEL("Enter", Common.LOG_APPNAME);
 
-            var item = new Domain.$customTYPE$();
+            var item = new Domain.$xxxTYPExxx$();
             item.FieldDate = DateTime.Now;
             item.FieldDate2 = DateTime.Now;
-            _$customTYPE$DataService.Add(item);
+            _$xxxTYPExxx$DataService.Add(item);
 
             // TODO(crhodes)
             // Need to figure out how to handle creating new.
@@ -278,25 +287,25 @@ namespace $customAPPLICATION$.Presentation.ViewModels
             return item;
         }
 
-        private void Initialize$customTYPE$($customTYPE$ item)
+        private void Initialize$xxxTYPExxx$($xxxTYPExxx$ item)
         {
             Int64 startTicks = Log.VIEWMODEL("Enter", Common.LOG_APPNAME);
 
-            $customTYPE$ = new $customTYPE$Wrapper(item);
+            $xxxTYPExxx$ = new $xxxTYPExxx$Wrapper(item);
 
-            $customTYPE$.PropertyChanged += (s, e) =>
+            $xxxTYPExxx$.PropertyChanged += (s, e) =>
             {
                 if (!HasChanges)
                 {
-                    HasChanges = _$customTYPE$DataService.HasChanges();
+                    HasChanges = _$xxxTYPExxx$DataService.HasChanges();
                 }
 
-                if (e.PropertyName == nameof($customTYPE$.HasErrors))
+                if (e.PropertyName == nameof($xxxTYPExxx$.HasErrors))
                 {
                     ((DelegateCommand)SaveCommand).RaiseCanExecuteChanged();
                 }
 
-                if (e.PropertyName == nameof($customTYPE$.FieldString))
+                if (e.PropertyName == nameof($xxxTYPExxx$.FieldString))
                 {
                     SetTitle();
                 }
@@ -305,56 +314,56 @@ namespace $customAPPLICATION$.Presentation.ViewModels
             ((DelegateCommand)SaveCommand).RaiseCanExecuteChanged();
 
             // Little trick to trigger the validation when creating new entries
-            if ($customTYPE$.Id == 0)
+            if ($xxxTYPExxx$.Id == 0)
             {
-                $customTYPE$.FieldString = "";
+                $xxxTYPExxx$.FieldString = "";
             }
 
             SetTitle();
 
             Log.VIEWMODEL("Exit", Common.LOG_APPNAME, startTicks);
         }
-        
-        private void Initialize$customTYPE$PhoneNumbers(ICollection<$customTYPE$PhoneNumber> phoneNumbers)
+
+        private void Initialize$xxxTYPExxx$PhoneNumbers(ICollection<$xxxTYPExxx$PhoneNumber> phoneNumbers)
         {
             Int64 startTicks = Log.VIEWMODEL("Enter", Common.LOG_APPNAME);
 
             foreach (var wrapper in PhoneNumbers)
             {
-                wrapper.PropertyChanged -= $customTYPE$PhoneNumberWrapper_PropertyChanged;
+                wrapper.PropertyChanged -= $xxxTYPExxx$PhoneNumberWrapper_PropertyChanged;
             }
 
             PhoneNumbers.Clear();
 
             foreach (var phoneNumber in phoneNumbers)
             {
-                var wrapper = new $customTYPE$PhoneNumberWrapper(phoneNumber);
+                var wrapper = new $xxxTYPExxx$PhoneNumberWrapper(phoneNumber);
                 PhoneNumbers.Add(wrapper);
-                wrapper.PropertyChanged += $customTYPE$PhoneNumberWrapper_PropertyChanged;
+                wrapper.PropertyChanged += $xxxTYPExxx$PhoneNumberWrapper_PropertyChanged;
             }
 
             Log.VIEWMODEL("Exit", Common.LOG_APPNAME, startTicks);
         }
 
-        private void $customTYPE$PhoneNumberWrapper_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        private void $xxxTYPExxx$PhoneNumberWrapper_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             Int64 startTicks = Log.EVENT("Enter", Common.LOG_APPNAME);
 
             if (!HasChanges)
             {
-                HasChanges = _$customTYPE$DataService.HasChanges();
+                HasChanges = _$xxxTYPExxx$DataService.HasChanges();
             }
-            if (e.PropertyName == nameof($customTYPE$PhoneNumberWrapper.HasErrors))
+            if (e.PropertyName == nameof($xxxTYPExxx$PhoneNumberWrapper.HasErrors))
             {
                 ((DelegateCommand)SaveCommand).RaiseCanExecuteChanged();
             }
 
             Log.EVENT("Exit", Common.LOG_APPNAME, startTicks);
-        }      
+        }
 
         private async Task Load$xxxITEMxxx$sLookupAsync()
         {
-            Int64 startTicks = Log.VIEWMODEL("($customTYPE$DetailViewModel) Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.VIEWMODEL("($xxxTYPExxx$DetailViewModel) Enter", Common.LOG_APPNAME);
 
             $xxxITEMxxx$s.Clear();
 
@@ -369,12 +378,12 @@ namespace $customAPPLICATION$.Presentation.ViewModels
                 $xxxITEMxxx$s.Add(lookupItem);
             }
 
-            Log.VIEWMODEL("($customTYPE$DetailViewModel) Exit", Common.LOG_APPNAME, startTicks);
-        }        
+            Log.VIEWMODEL("($xxxTYPExxx$DetailViewModel) Exit", Common.LOG_APPNAME, startTicks);
+        }
 
         private void SetTitle()
         {
-            Title = $"{$customTYPE$.FieldString}";
+            Title = $"{$xxxTYPExxx$.FieldString}";
         }
 
         #endregion

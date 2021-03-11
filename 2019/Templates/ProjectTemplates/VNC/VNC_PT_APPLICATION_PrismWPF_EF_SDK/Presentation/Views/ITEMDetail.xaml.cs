@@ -3,7 +3,7 @@
 using VNC;
 using VNC.Core.Mvvm;
 
-namespace $customAPPLICATION$.Presentation.Views
+namespace $xxxAPPLICATIONxxx$.Presentation.Views
 {
     public partial class $xxxITEMxxx$Detail : ViewBase, I$xxxITEMxxx$Detail, IInstanceCountV
     {

@@ -1,3 +1,3 @@
-﻿$customAPPLICATION$\Presentation\Views\Interfaces\
+﻿$xxxAPPLICATIONxxx$\Presentation\Views\Interfaces\
 
 Notes for using this template

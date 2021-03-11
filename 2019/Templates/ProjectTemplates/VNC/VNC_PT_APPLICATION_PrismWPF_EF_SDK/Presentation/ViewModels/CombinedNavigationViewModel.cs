@@ -4,14 +4,14 @@ using System.Threading.Tasks;
 
 using Prism.Events;
 
-using $customAPPLICATION$.DomainServices;
+using $xxxAPPLICATIONxxx$.DomainServices;
 
 using VNC;
 using VNC.Core.Events;
 using VNC.Core.Mvvm;
 using VNC.Core.Services;
 
-namespace $customAPPLICATION$.Presentation.ViewModels
+namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
 {
     public class CombinedNavigationViewModel : EventViewModelBase, ICombinedNavigationViewModel, IInstanceCountVM
     {
@@ -19,20 +19,26 @@ namespace $customAPPLICATION$.Presentation.ViewModels
         #region Constructors, Initialization, and Load
 
         public CombinedNavigationViewModel(
-                I$customTYPE$LookupDataService $customTYPE$LookupDataService,
-                //I$customCatLookupDataService catLookupDataService,
+                I$xxxTYPExxx$LookupDataService $xxxTYPExxx$LookupDataService,
                 IEventAggregator eventAggregator,
                 IMessageDialogService messageDialogService) : base(eventAggregator, messageDialogService)
         {
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
 
+            _$xxxTYPExxx$LookupDataService = $xxxTYPExxx$LookupDataService;
+
+            InitializeViewModel();
+
+            Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
+        }
+
+        private void InitializeViewModel()
+        {
+            Int64 startTicks = Log.VIEWMODEL("Enter", Common.LOG_APPNAME);
+
             InstanceCountVM++;
 
-            _$customTYPE$LookupDataService = $customTYPE$LookupDataService;
-            //_catLookupDataService = catLookupDataService
-
-            $customTYPE$s = new ObservableCollection<NavigationItemViewModel>();
-            //Cats = new ObservableCollection<NavigationItemViewModel>();
+            $xxxTYPExxx$s = new ObservableCollection<NavigationItemViewModel>();
 
             EventAggregator.GetEvent<AfterDetailSavedEvent>()
                 .Subscribe(AfterDetailSaved);
@@ -40,7 +46,7 @@ namespace $customAPPLICATION$.Presentation.ViewModels
             EventAggregator.GetEvent<AfterDetailDeletedEvent>()
                 .Subscribe(AfterDetailDeleted);
 
-            Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
+            Log.VIEWMODEL("Exit", Common.LOG_APPNAME, startTicks);
         }
 
         #endregion
@@ -57,11 +63,9 @@ namespace $customAPPLICATION$.Presentation.ViewModels
 
         #region Fields and Properties
 
-        private I$customTYPE$LookupDataService _$customTYPE$LookupDataService;
-        //private ICatLookupDataService _CatLookupDataService;
+        private I$xxxTYPExxx$LookupDataService _$xxxTYPExxx$LookupDataService;
 
-        public ObservableCollection<NavigationItemViewModel> $customTYPE$s { get; }
-        //public ObservableCollection<NavigationItemViewModel> Cats { get; }
+        public ObservableCollection<NavigationItemViewModel> $xxxTYPExxx$s { get; private set;}
 
         #endregion
 
@@ -73,12 +77,12 @@ namespace $customAPPLICATION$.Presentation.ViewModels
 
             switch (args.ViewModelName)
             {
-                case nameof($customTYPE$DetailViewModel):
-                    AfterDetailSaved($customTYPE$s, args);
+                case nameof($xxxTYPExxx$DetailViewModel):
+                    AfterDetailSaved($xxxTYPExxx$s, args);
                     break;
 
-                // case nameof($customTYPE$2DetailViewModel):
-                    // AfterDetailSaved($customTYPE$2s, args);
+                // case nameof($xxxTYPExxx$2DetailViewModel):
+                    // AfterDetailSaved($xxxTYPExxx$2s, args);
                     // break;
 
                 default:
@@ -94,12 +98,12 @@ namespace $customAPPLICATION$.Presentation.ViewModels
 
             switch (args.ViewModelName)
             {
-                case nameof($customTYPE$DetailViewModel):
-                    AfterDetailDeleted($customTYPE$s, args);
+                case nameof($xxxTYPExxx$DetailViewModel):
+                    AfterDetailDeleted($xxxTYPExxx$s, args);
                     break;
 
-                // case nameof($customTYPE$2DetailViewModel):
-                    // AfterDetailDeleted($customTYPE$2s, args);
+                // case nameof($xxxTYPExxx$2DetailViewModel):
+                    // AfterDetailDeleted($xxxTYPExxx$2s, args);
                     // break;
 
                 default:
@@ -117,25 +121,25 @@ namespace $customAPPLICATION$.Presentation.ViewModels
         {
             Int64 startTicks = Log.VIEWMODEL("(NavigationViewModel) Enter", Common.LOG_APPNAME);
 
-            var lookup$customTYPE$s = await _$customTYPE$LookupDataService.Get$customTYPE$LookupAsync();
-            $customTYPE$s.Clear();
+            var lookup$xxxTYPExxx$s = await _$xxxTYPExxx$LookupDataService.Get$xxxTYPExxx$LookupAsync();
+            $xxxTYPExxx$s.Clear();
 
-            foreach (var item in lookup$customTYPE$s)
+            foreach (var item in lookup$xxxTYPExxx$s)
             {
-                $customTYPE$s.Add(
+                $xxxTYPExxx$s.Add(
                     new NavigationItemViewModel(item.Id, item.DisplayMember,
-                    nameof($customTYPE$DetailViewModel),
+                    nameof($xxxTYPExxx$DetailViewModel),
                     EventAggregator, MessageDialogService));
             }
 
-            // var lookup$customTYPE$2s = await _$customTYPE$2LookupDataService.Get$customTYPE$2LookupAsync();
-            // $customTYPE$2s.Clear();
+            // var lookup$xxxTYPExxx$2s = await _$xxxTYPExxx$2LookupDataService.Get$xxxTYPExxx$2LookupAsync();
+            // $xxxTYPExxx$2s.Clear();
 
-            // foreach (var item in lookup$customTYPE$2s)
+            // foreach (var item in lookup$xxxTYPExxx$2s)
             // {
-                // $customTYPE$2s.Add(
+                // $xxxTYPExxx$2s.Add(
                     // new NavigationItemViewModel(item.Id, item.DisplayMember,
-                    // nameof($customTYPE$2DetailViewModel),
+                    // nameof($xxxTYPExxx$2DetailViewModel),
                     // EventAggregator, MessageDialogService));
             // }
 

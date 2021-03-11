@@ -2,7 +2,7 @@
 
 using VNC.Core.Mvvm;
 
-namespace $customAPPLICATION$.Presentation.ViewModels
+namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
 {
     public interface ICombinedMainViewModel : IViewModel
     {

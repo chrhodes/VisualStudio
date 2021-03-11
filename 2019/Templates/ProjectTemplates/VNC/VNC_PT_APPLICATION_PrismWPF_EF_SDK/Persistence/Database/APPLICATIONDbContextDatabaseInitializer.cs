@@ -1,13 +1,13 @@
-﻿using System;
+using System;
 using System.Data.Entity;
 
 using VNC;
 
-namespace $customAPPLICATION$.Persistence.Data
+namespace $xxxAPPLICATIONxxx$.Persistence.Data
 {
-    public class $customAPPLICATION$DbContextDatabaseInitializer : CreateDatabaseIfNotExists<$customAPPLICATION$DbContext>
+    public class $xxxAPPLICATIONxxx$DbContextDatabaseInitializer : CreateDatabaseIfNotExists<$xxxAPPLICATIONxxx$DbContext>
     {
-        protected override void Seed($customAPPLICATION$DbContext context)
+        protected override void Seed($xxxAPPLICATIONxxx$DbContext context)
         {
             Int64 startTicks = Log.PERSISTENCE("Enter", Common.LOG_APPNAME);
             

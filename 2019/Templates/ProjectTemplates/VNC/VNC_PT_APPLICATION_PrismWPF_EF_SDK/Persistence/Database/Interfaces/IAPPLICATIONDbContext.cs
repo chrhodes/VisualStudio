@@ -1,13 +1,13 @@
-﻿using System.Data.Entity;
+using System.Data.Entity;
 
-using $customAPPLICATION$.Domain;
+using $xxxAPPLICATIONxxx$.Domain;
 
-namespace $customAPPLICATION$.Persistence.Data
+namespace $xxxAPPLICATIONxxx$.Persistence.Data
 {
-    public interface I$customAPPLICATION$DbContext
+    public interface I$xxxAPPLICATIONxxx$DbContext
     { 
         int SaveChanges();
 
-        DbSet<$customTYPE$> $customTYPE$sSet { get; set; }
+        DbSet<$xxxTYPExxx$> $xxxTYPExxx$sSet { get; set; }
     }
 }

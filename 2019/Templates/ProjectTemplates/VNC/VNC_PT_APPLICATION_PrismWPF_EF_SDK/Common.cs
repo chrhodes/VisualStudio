@@ -5,14 +5,14 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace $customAPPLICATION$
+namespace $xxxAPPLICATIONxxx$
 {
     public class Common
     {
-        public const string PROJECT_NAME = "$customAPPLICATION$";
-        public const string LOG_APPNAME = "$customAPPLICATION$";
+        public const string PROJECT_NAME = "$xxxAPPLICATIONxxx$";
+        public const string LOG_APPNAME = "$xxxAPPLICATIONxxx$";
 
-        public const string cCONFIG_FILE = @"C:\temp\$customAPPLICATION$_Config.xml";
+        public const string cCONFIG_FILE = @"C:\temp\$xxxAPPLICATIONxxx$_Config.xml";
 
         public static event EventHandler AutoHideGroupSpeedChanged;
 
