@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("VNCVSProjectWizard")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("VNC Visual Studio Template Extension - Used by VNC Templates")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("VNC")]
 [assembly: AssemblyProduct("VNCVSProjectWizard")]
@@ -60,4 +60,4 @@ using System.Runtime.InteropServices;
 //  Version   Date        By
 //  1.0.0.0   mm/dd/yyyy    Developer
 //      Initial Version
-[assembly: AssemblyInformationalVersion("2021.03.03A")]
+[assembly: AssemblyInformationalVersion("2021.03.16B")]

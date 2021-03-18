@@ -19,12 +19,19 @@ namespace VNCVSProjectWizard
         // Make these sharable across invocations, e.g. in Solution Template.
 
         private static string xxxAPPLICATIONxxx;
+        private static string xxxMODULExxx;
         private static string xxxNAMESPACExxx;
         private static string xxxEVENTxxx;
         private static string xxxTYPExxx;
         private static string xxxITEMxxx;
 
         private static string xxxACTIONxxx;
+
+        private static string xxxCUSTOM1xxx;
+        private static string xxxCUSTOM2xxx;
+        private static string xxxCUSTOM3xxx;
+        private static string xxxCUSTOM4xxx;
+        private static string xxxCUSTOM5xxx;
 
         private object currentAutomationObject;
         private object[] currentAutomationObjectParams;
@@ -63,6 +70,7 @@ namespace VNCVSProjectWizard
                 inputForm.Text = "VNC VS ProjectWizard";
 
                 inputForm.Controls["txtAPPLICATION"].Text = xxxAPPLICATIONxxx;
+                inputForm.Controls["txtMODULE"].Text = xxxMODULExxx;
                 inputForm.Controls["txtNAMESPACE"].Text = xxxNAMESPACExxx;
 
                 inputForm.Controls["txtTYPE"].Text = xxxTYPExxx;
@@ -71,17 +79,33 @@ namespace VNCVSProjectWizard
 
                 inputForm.Controls["txtACTION"].Text = xxxACTIONxxx;
 
+                inputForm.Controls["txtCUSTOM1"].Text = xxxCUSTOM1xxx;
+                inputForm.Controls["txtCUSTOM2"].Text = xxxCUSTOM2xxx;
+                inputForm.Controls["txtCUSTOM3"].Text = xxxCUSTOM3xxx;
+                inputForm.Controls["txtCUSTOM4"].Text = xxxCUSTOM4xxx;
+                inputForm.Controls["txtCUSTOM5"].Text = xxxCUSTOM5xxx;
+
                 inputForm.ShowDialog();
 
                 xxxAPPLICATIONxxx = Form1.CustomAPPLICATION;
+                xxxMODULExxx = Form1.CustomMODULE;
+
                 xxxNAMESPACExxx = Form1.CustomNAMESPACE;
+
                 xxxEVENTxxx = Form1.CustomEVENT;
                 xxxTYPExxx = Form1.CustomTYPE;
                 xxxITEMxxx = Form1.CustomITEM;
 
                 xxxACTIONxxx = Form1.CustomACTION;
 
+                xxxCUSTOM1xxx = Form1.CUSTOM1;
+                xxxCUSTOM2xxx = Form1.CUSTOM2;
+                xxxCUSTOM3xxx = Form1.CUSTOM3;
+                xxxCUSTOM4xxx = Form1.CUSTOM4;
+                xxxCUSTOM5xxx = Form1.CUSTOM5;
+
                 Log.Trace($"xxxAPPLICATIONxxx: >{xxxAPPLICATIONxxx}<", cAPPNAME, startTicks);
+                Log.Trace($"xxxMODULExxx: >{xxxMODULExxx}<", cAPPNAME, startTicks);
                 Log.Trace($"xxxNAMESPACExxx: >{xxxNAMESPACExxx}<", cAPPNAME, startTicks);
 
                 Log.Trace($"xxxEVENTxxx: >{xxxEVENTxxx}<", cAPPNAME, startTicks);
@@ -90,16 +114,44 @@ namespace VNCVSProjectWizard
 
                 Log.Trace($"xxxACTIONxxx: >{xxxACTIONxxx}<", cAPPNAME, startTicks);
 
+                Log.Trace($"xxxCUSTOM1xxx: >{xxxCUSTOM1xxx}<", cAPPNAME, startTicks);
+                Log.Trace($"xxxCUSTOM2xxx: >{xxxCUSTOM2xxx}<", cAPPNAME, startTicks);
+                Log.Trace($"xxxCUSTOM3xxx: >{xxxCUSTOM3xxx}<", cAPPNAME, startTicks);
+                Log.Trace($"xxxCUSTOM4xxx: >{xxxCUSTOM4xxx}<", cAPPNAME, startTicks);
+                Log.Trace($"xxxCUSTOM5xxx: >{xxxCUSTOM5xxx}<", cAPPNAME, startTicks);
+
+
                 // Add custom parameters.
+                // Visual Studio handles the replacements inside the file based on these mappings
 
                 replacementsDictionary.Add("$xxxAPPLICATIONxxx$", xxxAPPLICATIONxxx);
-                replacementsDictionary.Add("$xxxNAMESPACExxx$", xxxNAMESPACExxx);
+                replacementsDictionary.Add("$xxxMODULExxx$", xxxMODULExxx);
+
+                if (xxxNAMESPACExxx.Length > 0)
+                {
+                    // Special handling for APPLICATION.NAMESPACE and MODULE.NAMESPACE
+                    // Add a period in front of Namespace.
+
+                    replacementsDictionary.Add("$xxxNAMESPACExxx$", $".{xxxNAMESPACExxx}");
+                }
+                else
+                {
+                    // Might still be using somewhere
+
+                    replacementsDictionary.Add("$xxxNAMESPACExxx$", xxxNAMESPACExxx);
+                }
 
                 replacementsDictionary.Add("$xxxEVENTxxx$", xxxEVENTxxx);
                 replacementsDictionary.Add("$xxxTYPExxx$", xxxTYPExxx);
                 replacementsDictionary.Add("$xxxITEMxxx$", xxxITEMxxx);
 
                 replacementsDictionary.Add("$xxxACTIONxxx$", xxxACTIONxxx);
+
+                replacementsDictionary.Add("$xxxCUSTOM1xxx$", xxxCUSTOM1xxx);
+                replacementsDictionary.Add("$xxxCUSTOM2xxx$", xxxCUSTOM2xxx);
+                replacementsDictionary.Add("$xxxCUSTOM3xxx$", xxxCUSTOM3xxx);
+                replacementsDictionary.Add("$xxxCUSTOM4xxx$", xxxCUSTOM4xxx);
+                replacementsDictionary.Add("$xxxCUSTOM5xxx$", xxxCUSTOM5xxx);
             }
             catch (Exception ex)
             {
@@ -243,80 +295,75 @@ namespace VNCVSProjectWizard
         {
             long startTicks = Log.Trace($"Enter projectItem.Name: >{projectItem.Name}<", cAPPNAME);
 
+            UpdateProjectItemName(projectItem, "APPLICATION", xxxAPPLICATIONxxx);
+            UpdateProjectItemName(projectItem, "MODULE", xxxMODULExxx);
+
+            // Special handling for APPLICATION.NAMESPACE and MODULE.NAMESPACE
+            // Add a period in front of Namespace
+
+            UpdateProjectItemName(projectItem, "NAMESPACE", $".{xxxNAMESPACExxx}");
+
+            UpdateProjectItemName(projectItem, "TYPE", xxxTYPExxx);
+            UpdateProjectItemName(projectItem, "ITEM", xxxITEMxxx);
+
+            UpdateProjectItemName(projectItem, "ACTION", xxxACTIONxxx);
+
             // TODO(crhodes)
-            // Maybe a PerformReplacement<T>()
-
-            if (projectItem.Name.Contains("APPLICATION"))
-            {
-                projectItem.Name = projectItem.Name.Replace("APPLICATION", xxxAPPLICATIONxxx); ;
-            }
-
-            if (projectItem.Name.Contains("NAMESPACE"))
-            {
-                projectItem.Name = projectItem.Name.Replace("NAMESPACE", xxxNAMESPACExxx); ;
-            }
-
-            if (projectItem.Name.Contains("TYPE"))
-            {
-                projectItem.Name = projectItem.Name.Replace("TYPE", xxxTYPExxx); ;
-            }
-
-            if (projectItem.Name.Contains("ITEM"))
-            {
-                projectItem.Name = projectItem.Name.Replace("ITEM", xxxITEMxxx); ;
-            }
-
-            if (projectItem.Name.Contains("ACTION"))
-            {
-                projectItem.Name = projectItem.Name.Replace("ACTION", xxxACTIONxxx); ;
-            }
+            // I don't see any reason to use CUSTOM{1,2,3,4,5} in Folder or File Names
 
             Log.Trace("Exit", cAPPNAME, startTicks);
+        }
+
+        private void UpdateProjectFolderName(ProjectItem projectItem, string PARAMETER, string xxxPARAMETERxxx)
+        {
+            projectItem.Name = projectItem.Name.Replace(PARAMETER, xxxPARAMETERxxx);
         }
 
         private void ReplaceTagsInProjectItem(ProjectItem projectItem)
         {
             long startTicks = Log.Trace($"Enter projectItem.Name: >{projectItem.Name}<", cAPPNAME);
 
-            if (projectItem.Name.Contains("APPLICATION"))
-            {
-                projectItem.Open();
-                projectItem.Name = projectItem.Name.Replace("APPLICATION", xxxAPPLICATIONxxx);
-                projectItem.Save();
-            }
+            UpdateProjectItemName(projectItem, "APPLICATION", xxxAPPLICATIONxxx);
+            UpdateProjectItemName(projectItem, "MODULE", xxxMODULExxx);
 
-            if (projectItem.Name.Contains("NAMESPACE"))
-            {
-                projectItem.Open();
-                projectItem.Name = projectItem.Name.Replace("NAMESPACE", xxxNAMESPACExxx);
-                projectItem.Save();
-            }
+            // Special handling for APPLICATION.NAMESPACE and MODULE.NAMESPACE
+            // Add a period in front of Namespace
 
+            UpdateProjectItemName(projectItem, "NAMESPACE", $".{xxxNAMESPACExxx}");
 
-            if (projectItem.Name.Contains("TYPE"))
-            {
-                projectItem.Open();
-                projectItem.Name = projectItem.Name.Replace("TYPE", xxxTYPExxx); ;
-                projectItem.Save();
-            }
+            UpdateProjectItemName(projectItem, "TYPE", xxxTYPExxx);
+            UpdateProjectItemName(projectItem, "ITEM", xxxITEMxxx);
 
+            UpdateProjectItemName(projectItem, "ACTION", xxxACTIONxxx);
 
-            if (projectItem.Name.Contains("ITEM"))
-            {
-                projectItem.Open();
-                projectItem.Name = projectItem.Name.Replace("ITEM", xxxITEMxxx); ;
-                projectItem.Save();
-            }
-
-
-            if (projectItem.Name.Contains("ACTION"))
-            {
-                projectItem.Open();
-                projectItem.Name = projectItem.Name.Replace("ACTION", xxxACTIONxxx); ;
-                projectItem.Save();
-            }
+            UpdateProjectItemName(projectItem, "CUSTOM1", xxxCUSTOM1xxx);
+            UpdateProjectItemName(projectItem, "CUSTOM2", xxxCUSTOM2xxx);
+            UpdateProjectItemName(projectItem, "CUSTOM3", xxxCUSTOM3xxx);
+            UpdateProjectItemName(projectItem, "CUSTOM4", xxxCUSTOM4xxx);
+            UpdateProjectItemName(projectItem, "CUSTOM5", xxxCUSTOM5xxx);
 
             Log.Trace("Exit", cAPPNAME, startTicks);
+        }
+
+        private void UpdateProjectItemName(ProjectItem projectItem, string PARAMETER, string xxxPARAMETERxxx)
+        {
+            long startTicks = Log.Trace5($"Enter PARAMETER:({PARAMETER}) xxxPARAMETERxxx:({xxxPARAMETERxxx})", cAPPNAME);
+
+            if (projectItem.Name.Contains(PARAMETER))
+            {
+                if (projectItem.Kind == "{66A26720-8FB5-11D2-AA7E-00C04F688DDE}") // Can just rename folders
+                {
+                    projectItem.Name = projectItem.Name.Replace(PARAMETER, xxxPARAMETERxxx);
+                }
+                else // Have to open and save files
+                {
+                    projectItem.Open();
+                    projectItem.Name = projectItem.Name.Replace(PARAMETER, xxxPARAMETERxxx);
+                    projectItem.Save();
+                }
+            }
+
+            Log.Trace5($"Exit", cAPPNAME, startTicks);
         }
 
         bool IsValidReplacementFileExtension(string fileName)
@@ -330,6 +377,7 @@ namespace VNCVSProjectWizard
             if (string.Equals(fileInfo.Extension, ".csproj", StringComparison.OrdinalIgnoreCase)) result = true;
             if (string.Equals(fileInfo.Extension, ".xaml", StringComparison.OrdinalIgnoreCase)) result = true;
             if (string.Equals(fileInfo.Extension, ".config", StringComparison.OrdinalIgnoreCase)) result = true;
+            if (string.Equals(fileInfo.Extension, ".txt", StringComparison.OrdinalIgnoreCase)) result = true;
 
             Log.Trace($"Exit {result}", cAPPNAME, startTicks);
 
