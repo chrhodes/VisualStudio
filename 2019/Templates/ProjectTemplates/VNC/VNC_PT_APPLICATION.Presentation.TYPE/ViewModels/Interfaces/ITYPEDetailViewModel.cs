@@ -2,9 +2,9 @@
 
 using VNC.Core.Mvvm;
 
-namespace $safeprojectname$.ViewModels
+namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
 {
-    public interface I$customTYPE$DetailViewModel : IViewModel
+    public interface I$xxxTYPExxx$DetailViewModel : IViewModel
     {
         Task LoadAsync(int id);
     }

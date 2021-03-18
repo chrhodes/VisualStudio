@@ -1,3 +1,0 @@
-﻿$customAPPLICATION$\Diagrams\
-
-Notes for using this template

@@ -1,0 +1,42 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>Infrastructure</Name>
+    <Description>Infrastructure for Prism and MVVM</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Infrastructure</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="Infrastructure.csproj" File="Infrastructure.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="ApplicationCommands.cs">ApplicationCommands.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Events.cs">Events.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="GlobalCommands.cs">GlobalCommands.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="IShellService.cs">IShellService.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="IView.cs">IView.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="IView2.cs">IView2.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="IViewModel.cs">IViewModel.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="IViewModel2.cs">IViewModel2.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="KnownRegionNames.cs">KnownRegionNames.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="ModuleBase.cs">ModuleBase.cs</ProjectItem>
+      <Folder Name="Prism" TargetFolderName="Prism">
+        <ProjectItem ReplaceParameters="true" TargetFileName="IRegionManagerAware.cs">IRegionManagerAware.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="RegionManagerAware.cs">RegionManagerAware.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="RegionManagerAwareBehavior.cs">RegionManagerAwareBehavior.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="RegionNames.cs">RegionNames.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="StackPanelRegionAdapter.cs">StackPanelRegionAdapter.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="UnityExtensions.cs">UnityExtensions.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="ViewModelBase.cs">ViewModelBase.cs</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

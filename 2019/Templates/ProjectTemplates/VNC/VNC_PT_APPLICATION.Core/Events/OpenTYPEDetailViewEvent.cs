@@ -1,8 +1,10 @@
-﻿using Prism.Events;
+using Prism.Events;
 
-namespace $safeprojectname$.Events
+using VNC.Core.Events;
+
+namespace $xxxAPPLICATIONxxx$.Events
 {
-    public class Open$customTYPE$DetailViewEvent : PubSubEvent<int>
+    public class Open$xxxTYPExxx$DetailViewEvent : PubSubEvent<OpenDetailViewEventArgs>
     {
     }
 }

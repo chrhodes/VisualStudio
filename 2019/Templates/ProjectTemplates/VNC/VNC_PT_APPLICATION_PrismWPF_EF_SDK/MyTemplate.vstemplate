@@ -12,12 +12,14 @@
     <LocationField>Enabled</LocationField>
     <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
     <CreateInPlace>true</CreateInPlace>
-    <Icon>__TemplateIcon.ico</Icon>
+    <Icon>__VNCTemplateIcon.ico</Icon>
     <LanguageTag>CSharp</LanguageTag>
     <PlatformTag>Windows</PlatformTag>
     <ProjectTypeTag>VNC</ProjectTypeTag>
   </TemplateData>
+  
   <TemplateContent>
+  
     <Project TargetFileName="APPLICATION.csproj" File="APPLICATION.csproj" ReplaceParameters="true">
       <Folder Name="Properties" TargetFolderName="Properties">
         <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
@@ -68,13 +70,17 @@
           <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDataServiceMock.cs">TYPEDataServiceMock.cs</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
         </Folder>
+        
         <Folder Name="Interfaces" TargetFolderName="Interfaces">
             <ProjectItem ReplaceParameters="true" TargetFileName="IITEMDataService.cs">IITEMDataService.cs</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="IITEMLookupDataService.cs">IITEMLookupDataService.cs</ProjectItem>
 
             <ProjectItem ReplaceParameters="true" TargetFileName="ITYPEDataService.cs">ITYPEDataService.cs</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="ITYPELookupDataService.cs">ITYPELookupDataService.cs</ProjectItem>
+            
+            <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>            
         </Folder>
+        
         <ProjectItem ReplaceParameters="true" TargetFileName="ITEMDataService.cs">ITEMDataService.cs</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="ITEMLookupDataService.cs">ITEMLookupDataService.cs</ProjectItem>
 
@@ -84,12 +90,16 @@
         <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
       </Folder>
 
-      <Folder Name="Infrastructure" TargetFolderName="Infrastructure" />
+      <Folder Name="Infrastructure" TargetFolderName="Infrastructure">
+        <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+      </Folder>
 
       <Folder Name="Modules" TargetFolderName="Modules">
         <ProjectItem ReplaceParameters="true" TargetFileName="APPLICATIONModule.cs">APPLICATIONModule.cs</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="TYPEModule.cs">TYPEModule.cs</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="APPLICATIONServicesModule.cs">APPLICATIONServicesModule.cs</ProjectItem>
+        
+        <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>        
       </Folder>
 
       <Folder Name="Persistence" TargetFolderName="Persistence">
@@ -250,6 +260,7 @@
 
         <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
       </Folder>
+      
       <Folder Name="Resources" TargetFolderName="Resources">
         <Folder Name="Icons" TargetFolderName="Icons">
             <ProjectItem TargetFileName="application.ico">application.ico</ProjectItem>
@@ -273,7 +284,8 @@
       <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
     </Project>
   </TemplateContent>
-    <WizardExtension>
+  
+  <WizardExtension>
     <Assembly>VNCVSProjectWizard, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=96d23393c1bd2d0a</Assembly>
     <FullClassName>VNCVSProjectWizard.WizardImplementation</FullClassName>
   </WizardExtension>

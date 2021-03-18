@@ -1,3 +1,3 @@
-﻿$customAPPLICATION$\ApplicationServices
+﻿$xxxAPPLICATIONxx$$xxxNAMESPACExxx$\ApplicationServices
 
 Notes for using this template

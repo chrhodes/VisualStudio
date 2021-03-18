@@ -1,8 +1,8 @@
 ﻿using VNC.Core.Mvvm;
 
-namespace $safeprojectname$.Views
+namespace $xxxAPPLICATIONxxx$.Presentation.Views
 {
-    public interface I$customTYPE$ : IView
+    public interface I$xxxTYPExxx$ : IView
     {
     }
 }

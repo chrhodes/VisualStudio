@@ -1,21 +1,45 @@
-﻿using System.Windows.Controls;
+﻿using System;
 
+using VNC;
 using VNC.Core.Mvvm;
 
-namespace $safeprojectname$.Views
+namespace $xxxAPPLICATIONxxx$.Presentation.Views
 {
-    public partial class $customTYPE$Detail : UserControl, I$customTYPE$Detail
+    public partial class $xxxTYPExxx$Detail : ViewBase, I$xxxTYPExxx$Detail, IInstanceCountV
     {
-        public $customTYPE$Detail(ViewModels.I$customTYPE$DetailViewModel viewModel)
+
+        public $xxxTYPExxx$Detail()
         {
+            Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
+
+            InstanceCountV++;
             InitializeComponent();
-            ViewModel = viewModel;
+
+            Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
         }
 
-        public IViewModel ViewModel
+        public $xxxTYPExxx$Detail(ViewModels.I$xxxTYPExxx$DetailViewModel viewModel)
         {
-            get { return (IViewModel)DataContext; }
-            set { DataContext = value; }
+            Int64 startTicks = Log.CONSTRUCTOR($"Enter ({viewModel.GetType()})", Common.LOG_APPNAME);
+
+            InstanceCountV++;
+            InitializeComponent();
+            ViewModel = viewModel;
+
+            Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
         }
+
+        #region IInstanceCount
+
+        private static int _instanceCountV;
+
+        public int InstanceCountV
+        {
+            get => _instanceCountV;
+            set => _instanceCountV = value;
+        }
+
+        #endregion
+
     }
 }

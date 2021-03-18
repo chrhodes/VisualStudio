@@ -1,8 +1,8 @@
-﻿namespace $safeprojectname$.Events
+using VNC.Core.Events;
+
+namespace $xxxAPPLICATIONxxx$.Events
 {
-    public class After$customTYPE$SavedEventArgs
+    public class After$xxxTYPExxx$SavedEventArgs : AfterDetailSavedEventArgs
     {
-        public int Id { get; set; }
-        public string DisplayMember { get; set; }
     }
 }
