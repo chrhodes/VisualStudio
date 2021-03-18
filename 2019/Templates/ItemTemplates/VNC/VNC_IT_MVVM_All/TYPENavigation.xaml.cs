@@ -3,17 +3,17 @@
 using VNC;
 using VNC.Core.Mvvm;
 
-namespace $customAPPLICATION$.Presentation.Views
+namespace $xxxAPPLICATIONxxx$.Presentation.Views
 {
-    public partial class $customTYPE$Navigation : ViewBase, I$customTYPE$Navigation, IInstanceCountV
+    public partial class $xxxTYPExxx$Navigation : ViewBase, I$xxxTYPExxx$Navigation, IInstanceCountV
     {
-        public $customTYPE$Navigation()
+        public $xxxTYPExxx$Navigation()
         {
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
-            
+
             InstanceCountV++;
             InitializeComponent();
-            
+
             Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
         }
 

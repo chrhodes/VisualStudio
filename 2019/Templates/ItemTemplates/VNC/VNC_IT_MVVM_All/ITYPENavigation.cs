@@ -1,8 +1,8 @@
 ﻿using VNC.Core.Mvvm;
 
-namespace $customAPPLICATION$.Presentation.Views
+namespace $xxxAPPLICATIONxxx$.Presentation.Views
 {
-    public interface I$customTYPE$Navigation : IView
+    public interface I$xxxTYPExxx$Navigation : IView
     {
     }
 }

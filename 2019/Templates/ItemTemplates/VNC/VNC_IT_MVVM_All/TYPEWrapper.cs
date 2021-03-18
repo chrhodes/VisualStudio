@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 using VNC.Core.Mvvm;
 
-namespace $customAPPLICATION$.Presentation.ModelWrappers
+namespace $xxxAPPLICATIONxxx$.Presentation.ModelWrappers
 {
-    public class $customTYPE$Wrapper : ModelWrapper<Domain.$customTYPE$>
+    public class $xxxTYPExxx$Wrapper : ModelWrapper<Domain.$xxxTYPExxx$>
     {
-        public $customTYPE$Wrapper(Domain.$customTYPE$ model) : base(model)
+        public $xxxTYPExxx$Wrapper(Domain.$xxxTYPExxx$ model) : base(model)
         {
         }
 
@@ -55,6 +55,12 @@ namespace $customAPPLICATION$.Presentation.ModelWrappers
             set { SetValue(value); }
         }
 
+        public int? Favorite$xxxTYPExxx$Id
+        {
+            get { return GetValue<int?>(); }
+            set { SetValue(value); }
+        }
+
         public DateTime? DateCreated
         {
             get { return GetValue<DateTime?>(); }
@@ -70,6 +76,18 @@ namespace $customAPPLICATION$.Presentation.ModelWrappers
         public Boolean? IsDirty
         {
             get { return GetValue<Boolean?>(); }
+            set { SetValue(value); }
+        }
+
+        public byte[] RowVersion
+        {
+            get { return GetValue<byte[]>(); }
+            set { SetValue(value); }
+        }
+
+        public int? Favorite$xxxITEMxxx$Id
+        {
+            get { return GetValue<int?>(); }
             set { SetValue(value); }
         }
 

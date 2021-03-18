@@ -1,13 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 using VNC.Core.DomainServices;
 
-namespace $customAPPLICATION$.Domain
+namespace $xxxAPPLICATIONxxx$.Domain
 {
-    public class $customTYPE$ : IEntity<int>, IModificationHistory, IOptimistic
+    public class $xxxTYPExxx$ : IEntity<int>, IModificationHistory, IOptimistic
     {
+        public $xxxTYPExxx$()
+        {
+            PhoneNumbers = new Collection<$xxxTYPExxx$PhoneNumber>();
+            //Meetings = new Collection<Meeting>();
+        }
+
         #region IEntity<int>
 
         public int Id { get; set; }
@@ -21,7 +29,7 @@ namespace $customAPPLICATION$.Domain
         public string FieldString { get; set; }
 
         public int? FieldInt { get; set; }
-        
+
         public Boolean? FieldBoolean { get; set; }
 
         public double? FieldDouble { get; set; }
@@ -33,7 +41,15 @@ namespace $customAPPLICATION$.Domain
         [Column(TypeName="datetime2")]
         public DateTime? FieldDate2 { get; set; }
 
+        [StringLength(50)]
+        [EmailAddress]
+        public string Email { get; set; }
 
+        public ICollection<$xxxTYPExxx$PhoneNumber> PhoneNumbers { get; set; }
+
+        public int? Favorite$xxxITEMxxx$Id { get; set; }
+
+        public $xxxITEMxxx$ Favorite$xxxITEMxxx$ { get; set; }
 
         #region IModificationHistory
 
@@ -47,7 +63,7 @@ namespace $customAPPLICATION$.Domain
 
         #region IOptimistic
 
-        // Need to have data annotation here.  
+        // Need to have data annotation here.
         // Presence in interface ignored.
         [Timestamp]
         public byte[] RowVersion { get; set; }

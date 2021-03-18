@@ -4,12 +4,12 @@ using System.Windows;
 using VNC;
 using VNC.Core.Mvvm;
 
-namespace $customAPPLICATION$.Presentation.Views
+namespace $xxxAPPLICATIONxxx$.Presentation.Views
 {
-    public partial class $customTYPE$Main : ViewBase, I$customTYPE$Main, IInstanceCountV
+    public partial class $xxxTYPExxx$Main : ViewBase, I$xxxTYPExxx$Main, IInstanceCountV
     {
 
-        public $customTYPE$Main(ViewModels.I$customTYPE$MainViewModel viewModel)
+        public $xxxTYPExxx$Main(ViewModels.I$xxxTYPExxx$MainViewModel viewModel)
         {
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
 
@@ -24,13 +24,13 @@ namespace $customAPPLICATION$.Presentation.Views
 
         private async void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            Int64 startTicks = Log.EVENT_HANDLER("($customTYPE$Main) Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.EVENT_HANDLER("($xxxTYPExxx$Main) Enter", Common.LOG_APPNAME);
 
-            await ((ViewModels.I$customTYPE$MainViewModel)ViewModel).LoadAsync();
+            await ((ViewModels.I$xxxTYPExxx$MainViewModel)ViewModel).LoadAsync();
 
-            Log.EVENT_HANDLER("($customTYPE$Main) Exit", Common.LOG_APPNAME, startTicks);
+            Log.EVENT_HANDLER("($xxxTYPExxx$Main) Exit", Common.LOG_APPNAME, startTicks);
         }
-        
+
         #region IInstanceCount
 
         private static int _instanceCountV;
