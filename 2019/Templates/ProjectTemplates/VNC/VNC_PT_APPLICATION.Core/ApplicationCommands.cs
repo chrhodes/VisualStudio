@@ -1,6 +1,6 @@
-﻿using Prism.Commands;
+using Prism.Commands;
 
-namespace $safeprojectname$
+namespace $xxxAPPLICATIONxxx$
 {
     public class ApplicationCommands
     {

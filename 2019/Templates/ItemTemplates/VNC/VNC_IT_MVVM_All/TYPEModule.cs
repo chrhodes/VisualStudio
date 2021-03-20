@@ -6,26 +6,24 @@ using Prism.Regions;
 
 using Unity;
 
-using $customAPPLICATION$.Core;
-using $customAPPLICATION$.DomainServices;
-using $customAPPLICATION$.Presentation.Views;
-using $customAPPLICATION$.Presentation.ViewModels;
+using $xxxAPPLICATIONxxx$.Core;
+using $xxxAPPLICATIONxxx$.DomainServices;
+using $xxxAPPLICATIONxxx$.Presentation.Views;
+using $xxxAPPLICATIONxxx$.Presentation.ViewModels;
 
 using VNC;
-namespace $customAPPLICATION$
+namespace $xxxAPPLICATIONxxx$
 {
-    public class $customTYPE$Module : IModule
+    public class $xxxTYPExxx$Module : IModule
     {
         private readonly IRegionManager _regionManager;
-        //private readonly IUnityContainer _container;
 
         // 01
 
-        public $customTYPE$Module(IRegionManager regionManager)
+        public $xxxTYPExxx$Module(IRegionManager regionManager)
         {
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
 
-            //_container = container;
             _regionManager = regionManager;
 
             Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
@@ -37,17 +35,17 @@ namespace $customAPPLICATION$
         {
             Int64 startTicks = Log.MODULE("Enter", Common.LOG_APPNAME);
 
-            containerRegistry.Register<I$customTYPE$MainViewModel, $customTYPE$MainViewModel>();
-            containerRegistry.Register<I$customTYPE$Main, $customTYPE$Main>();
-            
-            containerRegistry.RegisterSingleton<I$customTYPE$NavigationViewModel, $customTYPE$NavigationViewModel>();
-            containerRegistry.RegisterSingleton<I$customTYPE$Navigation, $customTYPE$Navigation>();            
-            
-            containerRegistry.Register<I$customTYPE$DetailViewModel, $customTYPE$DetailViewModel>();
-            containerRegistry.Register<I$customTYPE$Detail, $customTYPE$Detail>();
+            containerRegistry.Register<I$xxxTYPExxx$MainViewModel, $xxxTYPExxx$MainViewModel>();
+            containerRegistry.RegisterSingleton<I$xxxTYPExxx$Main, $xxxTYPExxx$Main>();
 
-            containerRegistry.RegisterSingleton<I$customTYPE$LookupDataService, $customTYPE$LookupDataService>();
-            containerRegistry.RegisterSingleton<I$customTYPE$DataService, $customTYPE$DataService>();
+            containerRegistry.Register<I$xxxTYPExxx$NavigationViewModel, $xxxTYPExxx$NavigationViewModel>();
+            containerRegistry.RegisterSingleton<I$xxxTYPExxx$Navigation, $xxxTYPExxx$Navigation>();
+
+            containerRegistry.Register<I$xxxTYPExxx$DetailViewModel, $xxxTYPExxx$DetailViewModel>();
+            containerRegistry.RegisterSingleton<I$xxxTYPExxx$Detail, $xxxTYPExxx$Detail>();
+
+            containerRegistry.RegisterSingleton<I$xxxTYPExxx$LookupDataService, $xxxTYPExxx$LookupDataService>();
+            containerRegistry.Register<I$xxxTYPExxx$DataService, $xxxTYPExxx$DataService>();
 
             Log.MODULE("Exit", Common.LOG_APPNAME, startTicks);
         }
@@ -61,27 +59,27 @@ namespace $customAPPLICATION$
             // NOTE(crhodes)
             // using typeof(TYPE) calls constructor
             // using typeof(ITYPE) resolves type (see RegisterTypes)
-            
-            //this loads $customTYPE$Main into the Shell loaded in App.Xaml.cs
-            _regionManager.RegisterViewWithRegion(RegionNames.$customTYPE$MainRegion, typeof(I$customTYPE$Main));
 
-            // These load into $customTYPE$Main.xaml
-            _regionManager.RegisterViewWithRegion(RegionNames.$customTYPE$NavigationRegion, typeof(I$customTYPE$Navigation));
-            _regionManager.RegisterViewWithRegion(RegionNames.$customTYPE$DetailRegion, typeof(I$customTYPE$Detail));
+            //this loads $xxxTYPExxx$Main into the Shell loaded in CreateShell() in App.Xaml.cs
+            _regionManager.RegisterViewWithRegion(RegionNames.$xxxTYPExxx$MainRegion, typeof(I$xxxTYPExxx$Main));
+
+            // These load into $xxxTYPExxx$Main.xaml
+            _regionManager.RegisterViewWithRegion(RegionNames.$xxxTYPExxx$NavigationRegion, typeof(I$xxxTYPExxx$Navigation));
+            _regionManager.RegisterViewWithRegion(RegionNames.$xxxTYPExxx$DetailRegion, typeof(I$xxxTYPExxx$Detail));
 
             Log.MODULE("Exit", Common.LOG_APPNAME, startTicks);
         }
-        
-        TODO(crhodes)
+
+        // TODO(crhodes)
         // Place these in Core\RegionNames.cs
-        
-        public static string $customTYPE$MainRegion = "$customTYPE$MainRegion";
-        public static string $customTYPE$NavigationRegion = "$customTYPE$NavigationRegion";
-        public static string $customTYPE$DetailRegion = "$customTYPE$DetailRegion";
-        
-        TODO(crhodes)
-        // Add this to App.xaml.cs - ConfigureModuleCatalog
-        
-        moduleCatalog.AddModule(typeof($customTYPE$Module));
+
+        public static string $xxxTYPExxx$MainRegion = "$xxxTYPExxx$MainRegion";
+        public static string $xxxTYPExxx$NavigationRegion = "$xxxTYPExxx$NavigationRegion";
+        public static string $xxxTYPExxx$DetailRegion = "$xxxTYPExxx$DetailRegion";
+
+        // TODO(crhodes)
+        // Add this to App.xaml.cs - ConfigureModuleCatalog()
+
+        moduleCatalog.AddModule(typeof($xxxTYPExxx$Module));
     }
 }

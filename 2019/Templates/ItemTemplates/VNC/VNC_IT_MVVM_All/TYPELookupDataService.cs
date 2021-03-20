@@ -10,14 +10,14 @@ using VNC;
 
 using VNC.Core.DomainServices;
 
-namespace $customAPPLICATION$.DomainServices
+namespace $xxxAPPLICATIONxxx$.DomainServices
 {
-    public class $customTYPE$LookupDataService : I$customTYPE$LookupDataService
+    public class $xxxTYPExxx$LookupDataService : I$xxxTYPExxx$LookupDataService
     {
 
         #region Constructors, Initialization, and Load
 
-        public $customTYPE$LookupDataService(Func<$customAPPLICATION$DbContext> context)
+        public $xxxTYPExxx$LookupDataService(Func<$xxxAPPLICATIONxxx$DbContext> context)
         {
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
 
@@ -40,7 +40,7 @@ namespace $customAPPLICATION$.DomainServices
 
         #region Fields and Properties
 
-        private Func<$customAPPLICATION$DbContext> _contextCreator;
+        private Func<$xxxAPPLICATIONxxx$DbContext> _contextCreator;
 
         #endregion
 
@@ -51,15 +51,15 @@ namespace $customAPPLICATION$.DomainServices
 
         #region Public Methods
 
-        public async Task<IEnumerable<LookupItem>> Get$customTYPE$LookupAsync()
+        public async Task<IEnumerable<LookupItem>> Get$xxxTYPExxx$LookupAsync()
         {
-            Int64 startTicks = Log.DOMAINSERVICES("($customTYPE$LookupDataService) Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.DOMAINSERVICES("($xxxTYPExxx$LookupDataService) Enter", Common.LOG_APPNAME);
 
             IEnumerable<LookupItem> result;
 
             using (var ctx = _contextCreator())
             {
-                result =  await ctx.$customTYPE$Set.AsNoTracking()
+                result =  await ctx.$xxxTYPExxx$sSet.AsNoTracking()
                   .Select(f =>
                   new LookupItem
                   {
@@ -69,7 +69,7 @@ namespace $customAPPLICATION$.DomainServices
                   .ToListAsync();
             }
 
-            Log.DOMAINSERVICES("($customTYPE$LookupDataService) Exit", Common.LOG_APPNAME, startTicks);
+            Log.DOMAINSERVICES("($xxxTYPExxx$LookupDataService) Exit", Common.LOG_APPNAME, startTicks);
 
             return result;
         }

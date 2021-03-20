@@ -5,12 +5,12 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace $xxxAPPLICATIONxxx$
+namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$
 {
     public class Common
     {
         public const string PROJECT_NAME = "$xxxAPPLICATIONxxx$";
-        public const string LOG_APPNAME = "$xxxAPPLICATIONxxx$";
+        public const string LOG_CATEGORY = "$xxxAPPLICATIONxxx$";
 
         public const string cCONFIG_FILE = @"C:\temp\$xxxAPPLICATIONxxx$_Config.xml";
 

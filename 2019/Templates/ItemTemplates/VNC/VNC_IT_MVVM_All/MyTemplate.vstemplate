@@ -21,6 +21,60 @@
 
     <ProjectItem
         SubType=""
+        TargetFileName="IITEMDataService.cs"
+        ReplaceParameters="true">IITEMDataService.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="IITEMDetail.cs"
+        ReplaceParameters="true">IITEMDetail.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="IITEMDetailViewModel.cs"
+        ReplaceParameters="true">IITEMDetailViewModel.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="IITEMLookupDataService.cs"
+        ReplaceParameters="true">IITEMLookupDataService.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="ITEM.cs"
+        ReplaceParameters="true">ITEM.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="ITEMDataService.cs"
+        ReplaceParameters="true">ITEMDataService.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="ITEMDataServiceMock.cs"
+        ReplaceParameters="true">ITEMDataServiceMock.cs</ProjectItem>
+
+    <ProjectItem
+        SubType="Designer"
+        TargetFileName="ITEMDetail.xaml"
+        ReplaceParameters="true">ITEMDetail.xaml</ProjectItem>
+    <ProjectItem
+        SubType=""
+        TargetFileName="ITEMDetail.xaml.cs"
+        ReplaceParameters="true">ITEMDetail.xaml.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="ITEMDetailViewModel.cs"
+        ReplaceParameters="true">ITEMDetailViewModel.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="ITEMLookupDataService.cs"
+        ReplaceParameters="true">ITEMLookupDataService.cs</ProjectItem>
+        
+    <ProjectItem
+        SubType=""
         TargetFileName="I$fileinputname$DataService.cs"
         ReplaceParameters="true">ITYPEDataService.cs</ProjectItem>
 

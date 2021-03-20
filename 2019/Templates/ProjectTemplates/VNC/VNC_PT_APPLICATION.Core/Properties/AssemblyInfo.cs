@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("$customAPPLICATION$.Infrastructure")]
+[assembly: AssemblyTitle("$customAPPLICATION$.Core")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("$customAPPLICATION$.Infrastructure")]
-[assembly: AssemblyCopyright("Copyright © VNC 2018-2019")]
+[assembly: AssemblyCompany("VNC")]
+[assembly: AssemblyProduct("$customAPPLICATION$.Core")]
+[assembly: AssemblyCopyright("Copyright © VNC 2018-2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -64,4 +64,4 @@ using System.Runtime.InteropServices;
 //  Version   Date        By
 //  1.0.0.0   mm/dd/yyyy    Developer
 //      Initial Version
-[assembly: AssemblyInformationalVersion("2019.03.14A")]
+[assembly: AssemblyInformationalVersion("YYYY.MM.DDA")]

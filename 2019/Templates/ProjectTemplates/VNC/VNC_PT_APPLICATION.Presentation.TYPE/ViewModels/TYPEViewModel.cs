@@ -1,65 +1,270 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
-using $customAPPLICATION$.Core.Events;
-using $customAPPLICATION$.DomainServices;
-
+using Prism.Commands;
 using Prism.Events;
 
-using VNC.Core.Domain;
+using VNC;
+using VNC.Core.Events;
 using VNC.Core.Mvvm;
+using VNC.Core.Services;
 
-namespace $safeprojectname$.ViewModels
+namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
 {
-    public class $customTYPE$ViewModel : ViewModelBase, I$customTYPE$ViewModel, IViewModel
+    public class $xxxTYPExxx$ViewModel : EventViewModelBase, I$xxxTYPExxx$ViewModel, IInstanceCountVM
     {
-        private I$customTYPE$LookupDataService _dataService;
-        private IEventAggregator _eventAggregator;
 
-        public $customTYPE$ViewModel(
-                I$customTYPE$LookupDataService $customTYPE$LookupDataService,
-                IEventAggregator eventAggregator)
+        #region Constructors, Initialization, and Load
+
+        public $xxxTYPExxx$MainViewModel(
+            I$xxxTYPExxx$NavigationViewModel $xxxTYPExxx$NavigationViewModel,
+            Func<I$xxxTYPExxx$DetailViewModel> $xxxTYPExxx$DetailViewModelCreator,
+            Func<I$xxxITEMxxx$DetailViewModel> $xxxITEMxxx$DetailViewModelCreator,
+            IEventAggregator eventAggregator,
+            IMessageDialogService messageDialogService) : base(eventAggregator, messageDialogService)
         {
-            _dataService = $customTYPE$LookupDataService;
-            _eventAggregator = eventAggregator;
-            $customTYPE$s = new ObservableCollection<NavigationItemViewModel>();
+            Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
+
+            NavigationViewModel = $xxxTYPExxx$NavigationViewModel;
+            _$xxxTYPExxx$DetailViewModelCreator = $xxxTYPExxx$DetailViewModelCreator;
+            _$xxxITEMxxx$DetailViewModelCreator = $xxxITEMxxx$DetailViewModelCreator;
+
+            InitializeViewModel();
+
+            Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
         }
+
+        private void InitializeViewModel()
+        {
+            Int64 startTicks = Log.VIEWMODEL("Enter", Common.LOG_APPNAME);
+
+            InstanceCountVM++;
+
+            DetailViewModels = new ObservableCollection<IDetailViewModel>();
+
+            EventAggregator.GetEvent<OpenDetailViewEvent>()
+                .Subscribe(OpenDetailView);
+
+            EventAggregator.GetEvent<AfterDetailDeletedEvent>()
+                .Subscribe(AfterDetailDeleted);
+
+            EventAggregator.GetEvent<AfterDetailClosedEvent>()
+                .Subscribe(AfterDetailClosed);
+
+            CreateNewDetailCommand = new DelegateCommand<Type>(
+                CreateNewDetailExecute);
+
+            OpenSingleDetailViewCommand = new DelegateCommand<Type>(
+                OpenSingleDetailExecute);
+
+            Log.VIEWMODEL("Exit", Common.LOG_APPNAME, startTicks);
+        }
+
+        #endregion
+
+        #region Enums
+
+
+        #endregion
+
+        #region Structures
+
+
+        #endregion
+
+        #region Fields and Properties
+
+        private Func<I$xxxTYPExxx$DetailViewModel> _$xxxTYPExxx$DetailViewModelCreator;
+        private Func<I$xxxITEMxxx$DetailViewModel> _$xxxITEMxxx$DetailViewModelCreator;
+
+        private IDetailViewModel _selectedDetailViewModel;
+
+        public ICommand CreateNewDetailCommand { get; private set;}
+
+        public ICommand OpenSingleDetailViewCommand { get; private set;}
+
+        // N.B. This is public so View.Xaml can bind to it.
+        public I$xxxTYPExxx$NavigationViewModel NavigationViewModel { get; private set;}
+
+        public ObservableCollection<IDetailViewModel> DetailViewModels { get; private set;}
+
+                private int _nextNewItemId = 0;
+
+        public IDetailViewModel SelectedDetailViewModel
+        {
+            get
+            {
+                return _selectedDetailViewModel;
+            }
+            set
+            {
+                _selectedDetailViewModel = value;
+                // NOTE(crhodes)
+                // We can check if different and skip notificaiton,
+                // however, raisign the event will cause the tab to be selected
+                // which will draw user to tab if another is selected.
+                OnPropertyChanged();
+            }
+        }
+
+        #endregion
+
+        #region Event Handlers
+
+        void OpenSingleDetailExecute(Type viewModelType)
+        {
+            Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_APPNAME);
+
+            OpenDetailView(
+                new OpenDetailViewEventArgs
+                {
+                    Id = -1,
+                    ViewModelName = viewModelType.Name
+                });
+
+            Log.EVENT_HANDLER("Exit", Common.LOG_APPNAME, startTicks);
+        }
+
+        private void CreateNewDetailExecute(Type viewModelType)
+        {
+            Int64 startTicks = Log.VIEWMODEL("Enter", Common.LOG_APPNAME);
+
+            OpenDetailView(
+                new OpenDetailViewEventArgs
+                {
+                    Id = _nextNewItemId--,  // Ids in DB > 0.  Can now create multiple new items
+                    ViewModelName = viewModelType.Name
+                });
+
+            Log.VIEWMODEL("Exit", Common.LOG_APPNAME, startTicks);
+        }
+
+        private async void OpenDetailView(OpenDetailViewEventArgs args)
+        {
+            Int64 startTicks = Log.EVENT_HANDLER($"($xxxTYPExxx$MainViewModel) Enter Id:({args.Id}(", Common.LOG_APPNAME);
+
+            var detailViewModel = DetailViewModels
+                    .SingleOrDefault(vm => vm.Id == args.Id
+                    && vm.GetType().Name == args.ViewModelName);
+
+            if (detailViewModel == null)
+            {
+                switch (args.ViewModelName)
+                {
+                    case nameof($xxxTYPExxx$DetailViewModel):
+                        detailViewModel = (IDetailViewModel)_$xxxTYPExxx$DetailViewModelCreator();
+                        break;
+
+                    //case nameof(MeetingDetailViewModel):
+                    //    detailViewModel = _meetingDetailViewModelCreator();
+                    //    break;
+
+                    case nameof($xxxITEMxxx$DetailViewModel):
+                       detailViewModel = _$xxxITEMxxx$DetailViewModelCreator();
+                       break;
+
+                    // Ignore event if we don't handle
+                    default:
+                        return;
+                }
+
+                // Verify item still exists (may have been deleted)
+
+                try
+                {
+                    await detailViewModel.LoadAsync(args.Id);
+                }
+                catch (Exception ex)
+                {
+                    MessageDialogService.ShowInfoDialog($"Cannot load the entity ({ex})" +
+                        "It may have been deleted by another user.  Updating Navigation");
+
+                    await NavigationViewModel.LoadAsync();
+
+                    return;
+                }
+
+                DetailViewModels.Add(detailViewModel);
+            }
+
+            SelectedDetailViewModel = detailViewModel;
+
+            Log.VIEWMODEL("($xxxTYPExxx$MainViewModel) Exit", Common.LOG_APPNAME, startTicks);
+        }
+
+        private void AfterDetailDeleted(AfterDetailDeletedEventArgs args)
+        {
+            Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_APPNAME);
+
+            RemoveDetailViewModel(args.Id, args.ViewModelName);
+
+            Log.EVENT_HANDLER("Exit", Common.LOG_APPNAME, startTicks);
+        }
+
+        void AfterDetailClosed(AfterDetailClosedEventArgs args)
+        {
+            Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_APPNAME);
+
+            RemoveDetailViewModel(args.Id, args.ViewModelName);
+
+            Log.EVENT_HANDLER("Exit", Common.LOG_APPNAME, startTicks);
+        }
+
+        private void RemoveDetailViewModel(int id, string viewModelName)
+        {
+            Int64 startTicks = Log.VIEWMODEL("Enter", Common.LOG_APPNAME);
+
+            var detailViewModel = DetailViewModels
+                .SingleOrDefault(vm => vm.Id == id
+                && vm.GetType().Name == viewModelName);
+
+            if (detailViewModel != null)
+            {
+                DetailViewModels.Remove(detailViewModel);
+            }
+
+            Log.VIEWMODEL("Exit", Common.LOG_APPNAME, startTicks);
+        }
+
+        #endregion
+
+        #region Public Methods
 
         public async Task LoadAsync()
         {
-            var lookup = await _dataService.Get$customTYPE$LookupAsync();
-            $customTYPE$s.Clear();
+            Int64 startTicks = Log.VIEWMODEL("$xxxTYPExxx$MainViewModel) Enter", Common.LOG_APPNAME);
 
-            foreach (var item in lookup)
-            {
-                $customTYPE$s.Add(new NavigationItemViewModel(item.Id, item.DisplayMember));
-            }
+            await NavigationViewModel.LoadAsync();
+
+            Log.VIEWMODEL("$xxxTYPExxx$MainViewModel) Exit", Common.LOG_APPNAME, startTicks);
         }
 
-        public ObservableCollection<NavigationItemViewModel> $customTYPE$s { get; }
+        #endregion
 
-        public IView View
+        #region Protected Methods
+
+
+        #endregion
+
+        #region Private Methods
+
+
+        #endregion
+
+        #region IInstanceCount
+
+        private static int _instanceCountVM;
+
+        public int InstanceCountVM
         {
-            get;
-            set;
+            get => _instanceCountVM;
+            set => _instanceCountVM = value;
         }
 
-        NavigationItemViewModel _selected$customTYPE$;
+        #endregion
 
-        public NavigationItemViewModel Selected$customTYPE$
-        {
-            get { return _selected$customTYPE$; }
-            set
-            {
-                _selected$customTYPE$ = value;
-                OnPropertyChanged();
-
-                if (_selected$customTYPE$ != null)
-                {
-                    _eventAggregator.GetEvent<Open$customTYPE$DetailViewEvent>()
-                        .Publish(_selected$customTYPE$.Id);
-                }
-            }
-        }
     }
 }
