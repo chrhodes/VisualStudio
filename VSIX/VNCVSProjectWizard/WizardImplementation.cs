@@ -177,6 +177,7 @@ namespace VNCVSProjectWizard
                 {
                     RenameProjectItems(project.ProjectItems);
                     RenameProjectFile(project);
+                    RenameProjectFolder(project);
                 }
 
             }
@@ -194,7 +195,7 @@ namespace VNCVSProjectWizard
         // has the OpenInEditor attribute.
         public void BeforeOpeningFile(ProjectItem projectItem)
         {
-            long startTicks = Log.Trace("Enter", cAPPNAME);
+            long startTicks = Log.Trace($"Enter projectItem: >{projectItem.Name}<", cAPPNAME);
 
             Log.Trace("Exit", cAPPNAME, startTicks);
         }
@@ -214,7 +215,7 @@ namespace VNCVSProjectWizard
         // not for project templates.
         public void ProjectItemFinishedGenerating(ProjectItem projectItem)
         {
-            long startTicks = Log.Trace("Enter", cAPPNAME);
+            long startTicks = Log.Trace($"Enter projectItem: >{projectItem.Name}<", cAPPNAME);
 
             ReplaceTagsinFileName(projectItem);
 
@@ -225,7 +226,7 @@ namespace VNCVSProjectWizard
         // not for project templates.
         public bool ShouldAddProjectItem(string filePath)
         {
-            long startTicks = Log.Trace($"Enter {filePath}", cAPPNAME);
+            long startTicks = Log.Trace($"Enter filePath: >{filePath}<", cAPPNAME);
 
             Log.Trace("Exit (true)", cAPPNAME, startTicks);
 
@@ -234,7 +235,7 @@ namespace VNCVSProjectWizard
 
         void RenameProjectItems(ProjectItems projectItems)
         {
-            long startTicks = Log.Trace("Enter", cAPPNAME);
+            long startTicks = Log.Trace($"Enter projectItems.Count: >{projectItems.Count}<", cAPPNAME);
 
             foreach (ProjectItem projectItem in projectItems)
             {
@@ -280,6 +281,79 @@ namespace VNCVSProjectWizard
             Log.Trace("Exit", cAPPNAME, startTicks);
         }
 
+        private void RenameProjectFile(Project project)
+        {
+            long startTicks = Log.Trace($"Enter project.Name >{project.Name}<", cAPPNAME);
+
+            var originalName = project.Name;
+            var originalFullName = project.FullName;
+            var originalFileName = project.FileName;
+            var originalParentProjectItem = project.ParentProjectItem;
+            var originalProjectFolder = Path.GetDirectoryName(originalFileName);
+
+            if (originalName.Contains("APPLICATION")
+                || originalName.Contains("NAMESPACE")
+                || originalName.Contains("TYPE")
+                || originalName.Contains("ITEM")
+                || originalName.Contains("ACTION")
+                )
+            {
+                string newProjectName = originalName.Replace("APPLICATION", xxxAPPLICATIONxxx);
+                newProjectName = newProjectName.Replace("NAMESPACE", xxxNAMESPACExxx);
+                newProjectName = newProjectName.Replace("TYPE", xxxTYPExxx);
+                newProjectName = newProjectName.Replace("ITEM", xxxITEMxxx);
+                newProjectName = newProjectName.Replace("ACTION", xxxACTIONxxx);
+
+                project.Name = newProjectName;
+                project.Save();
+            }
+
+            if (originalFileName.Contains("APPLICATION"))
+            {
+                project.SaveAs($"{originalProjectFolder}\\{project.Name}");
+            }
+
+            Log.Trace("Exit", cAPPNAME, startTicks);
+            // This throws exception.  Sigh.  May have to do something more clever
+
+            //if (originalFileName.Contains("APPLICATION"))
+            //{
+            //    project.Save(originalFileName.Replace("APPLICATION", customAPPLICATION));
+            //}
+
+        }
+        private void RenameProjectFolder(Project project)
+        {
+            long startTicks = Log.Trace($"Enter project.Name >{project?.Name ?? "null"}<", cAPPNAME);
+
+            try
+            {
+                if (project is null)
+                {
+                    Log.Trace("project NULL ??", cAPPNAME, startTicks);
+                }
+                else
+                {
+                    var originalName = project.Name;
+                    var originalFullName = project.FullName;
+                    var originalFileName = project.FileName;
+                    var originalParentProjectItem = project.ParentProjectItem;
+                    var originalProjectFolder = Path.GetDirectoryName(originalFileName);
+
+                    if (originalProjectFolder.Contains("APPLICATION"))
+                    {
+                        Directory.Move(originalProjectFolder, originalProjectFolder.Replace("APPLICATION", xxxAPPLICATIONxxx));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, cAPPNAME);
+            }
+
+            Log.Trace("Exit", cAPPNAME, startTicks);
+        }
+
         void ReplaceTagsinFileName(ProjectItem projectItem)
         {
             long startTicks = Log.Trace($"Enter projectItem.Name: >{projectItem.Name}<", cAPPNAME);
@@ -314,10 +388,10 @@ namespace VNCVSProjectWizard
             Log.Trace("Exit", cAPPNAME, startTicks);
         }
 
-        private void UpdateProjectFolderName(ProjectItem projectItem, string PARAMETER, string xxxPARAMETERxxx)
-        {
-            projectItem.Name = projectItem.Name.Replace(PARAMETER, xxxPARAMETERxxx);
-        }
+        //private void UpdateProjectFolderName(ProjectItem projectItem, string PARAMETER, string xxxPARAMETERxxx)
+        //{
+        //    projectItem.Name = projectItem.Name.Replace(PARAMETER, xxxPARAMETERxxx);
+        //}
 
         private void ReplaceTagsInProjectItem(ProjectItem projectItem)
         {
@@ -347,7 +421,7 @@ namespace VNCVSProjectWizard
 
         private void UpdateProjectItemName(ProjectItem projectItem, string PARAMETER, string xxxPARAMETERxxx)
         {
-            long startTicks = Log.Trace5($"Enter PARAMETER:({PARAMETER}) xxxPARAMETERxxx:({xxxPARAMETERxxx})", cAPPNAME);
+            long startTicks = Log.Trace5($"Enter projectItem: >{projectItem.Name}< PARAMETER:({PARAMETER}) xxxPARAMETERxxx:({xxxPARAMETERxxx})", cAPPNAME);
 
             if (projectItem.Name.Contains(PARAMETER))
             {
@@ -384,46 +458,6 @@ namespace VNCVSProjectWizard
             return result;
         }
 
-        private void RenameProjectFile(Project project)
-        {
-            long startTicks = Log.Trace($"Enter project.Name >{project.Name}<", cAPPNAME);
 
-            var originalName = project.Name;
-            var originalFullName = project.FullName;
-            var originalFileName = project.FileName;
-            var originalParentProjectItem = project.ParentProjectItem;
-            var originalProjectFolder = Path.GetDirectoryName(originalFileName);
-
-            if (originalName.Contains("APPLICATION")
-                || originalName.Contains("NAMESPACE")
-                || originalName.Contains("TYPE") 
-                || originalName.Contains("ITEM")
-                || originalName.Contains("ACTION")
-                )
-            {
-                string newProjectName = originalName.Replace("APPLICATION", xxxAPPLICATIONxxx);
-                newProjectName = newProjectName.Replace("NAMESPACE", xxxNAMESPACExxx);
-                newProjectName = newProjectName.Replace("TYPE", xxxTYPExxx);
-                newProjectName = newProjectName.Replace("ITEM", xxxITEMxxx);
-                newProjectName = newProjectName.Replace("ACTION", xxxACTIONxxx);
-
-                project.Name = newProjectName;
-                project.Save();
-            }
-
-            if (originalFileName.Contains("APPLICATION"))
-            {
-                project.SaveAs($"{originalProjectFolder}\\{project.Name}");
-            }
-
-            Log.Trace("Exit", cAPPNAME, startTicks);
-            // This throws exception.  Sigh.  May have to do something more clever
-
-            //if (originalFileName.Contains("APPLICATION"))
-            //{
-            //    project.Save(originalFileName.Replace("APPLICATION", customAPPLICATION));
-            //}
-
-        }
     }
 }
